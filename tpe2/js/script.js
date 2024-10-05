@@ -28,7 +28,7 @@ async function PartialRender(event) {
   //ListenersLinks();
 
   //this.href en chrome devuelve una url completa, no la direccion relativa, por eso usamos this.getAttribute("href") para comparar
-  switch (this.getAttribute("href")) {
+  /*switch (this.getAttribute("href")) {
     case "productos.html":
       if (this.id == "index") scrollTop = 0;
       break;
@@ -45,7 +45,7 @@ async function PartialRender(event) {
       break;
     case "carrito.html":
       ListenersCart();
-  }
+  }*/
 }
 
 function ListenersLinks() {
