@@ -16,10 +16,33 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .show-loader {
     display: block;
+}
+
+.header {
+    display: flex;
+    height: 60px;
+    background-color: var(--lightblue);
+}
+
+.content {
+    display: flex;
+    height: 600px;
+    background-color: antiquewhite;
+}
+
+.footer {
+    display: flex;
+    height: 200px;
+    background-color: var(--darkblue);
 }
