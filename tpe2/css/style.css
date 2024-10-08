@@ -3,6 +3,11 @@
     --darkblue: #366374;
 }
 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+}
+
 .loader {
     display: none;
 
@@ -35,14 +40,14 @@
     background-color: var(--lightblue);
 }
 
-.content {
-    display: flex;
-    height: 600px;
-    background-color: antiquewhite;
-}
-
 .footer {
     display: flex;
     height: 200px;
     background-color: var(--darkblue);
+}
+
+.card {
+    display: flex;
+    height: 170px;
+    margin: 20px;
 }

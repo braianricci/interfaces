@@ -6,7 +6,7 @@ let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
 ListenersLinks();
-document.getElementById("index").click();
+document.getElementById("home").click();
 
 async function PartialRender(event) {
   event.preventDefault();
