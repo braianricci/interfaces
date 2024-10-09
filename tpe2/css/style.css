@@ -37,7 +37,7 @@
 body {
     /*muchos settings aca son temporales*/
     width: 1920px;
-    font-family: 'Lato', 'Nunito', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Nunito', 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
     background-color: var(--sec_700);
@@ -55,7 +55,6 @@ body {
 
 .loader {
     display: none;
-
     border: 10px solid var(--sec_300);
     border-top: 10px solid var(--sec_600);
     border-radius: 50%;
@@ -85,10 +84,101 @@ body {
     background-color: var(--sec_600);
 }
 
+#footer {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--sec_800);
+}
+
 .footer {
     display: flex;
-    height: 200px;
-    background-color: var(--sec_800);
+    flex-direction: column;
+    align-items: center;
+    gap: 20 px;
+    margin: 40px;
+}
+
+    .footer-column h2 {
+        margin-bottom: 10px;
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--sec_200);
+    }
+
+    .footer-column ul {
+        all: unset;
+        list-style: none;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        line-height: 30px;
+    }
+
+        .footer-column ul li {
+            margin: 5px 0;
+        }
+
+    .footer-column a {
+        color: var(--sec_200);
+        text-decoration: none;
+    }
+
+        .footer-column a i {
+            font-size: 28px;
+        }
+
+    .footer-subscribe {
+        padding: 5px 10px;
+        background-color: var(--sec_400);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 28px;
+    }
+
+        .footer-subscribe label {
+            color: var(--sec_800);
+            font-family: Lato;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .footer-subscribe input[type="email"] {
+            padding: 10px;
+            border: none;
+            font-size: 20px;
+            width: 190px;
+            border-radius: 50px;
+        }
+
+@media only screen and (min-width: 768px) {
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        flex: 1;
+        align-items: flex-start;
+    }
+
+    .footer-subscribe {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        height: 60px;
+        width: 1410px;
+        margin: auto;
+    }
+
+        .footer-subscribe input[type="email"] {
+            width: auto;
+        }
 }
 
 /*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/
@@ -145,4 +235,15 @@ body {
     font-family: 'Lato';
     font-weight: 700;
     letter-spacing: 0.90px;
+}
+
+.button {
+    all: unset;
+    padding: 10px 24px 10px 24px;
+    background: var(--pri_500);
+    color: var(--black);
+    border-radius: 50px;
+    font-family: 'Nunito';
+    font-weight: bold;
+    font-size: 16px;
 }
