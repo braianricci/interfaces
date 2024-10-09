@@ -37,7 +37,7 @@
 body {
     /*muchos settings aca son temporales*/
     width: 1920px;
-    font-family: 'Lato', 'Nunito', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Nunito', 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
     background-color: var(--sec_700);
@@ -94,7 +94,6 @@ body {
 /*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/
 
 .card-section {
-    border: 1px solid red;
     display: block;
     margin: 0px 90px 20px 90px;
 }
@@ -106,8 +105,9 @@ body {
     border-radius: 10px;
 }
 
-.card-row-title {
-    margin: 3px;
+.card-section-title {
+    font-weight: normal;
+    margin: 0px 0px 0px 6px;
     font-size: 32px;
 }
 
@@ -143,6 +143,27 @@ body {
     color: var(--sec_500);
     font-size: 18px;
     font-family: 'Lato';
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 0.90px;
+}
+
+.card-blackout {
+    width: 280px;
+    height: 170px;
+    background: rgba(0, 0, 0, 0.60);
+    border-radius: 5px;
+    position: absolute;
+    top: 0px;
+    text-wrap: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
+}
+
+.card-title {
+    padding: 4px 9px 4px 9px;
+    top: 0px;
+    position: absolute;
+    color: #EDF1F7;
+    font-size: 20px;
+    font-weight: 500;
 }
