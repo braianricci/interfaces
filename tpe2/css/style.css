@@ -1,23 +1,62 @@
 :root {
-    --lightblue: #7895A0;
-    --darkblue: #366374;
+
+    /*╔══════━━━━━━────── • VARIABLES • ──────━━━━━━══════╗*/
+
+    /*Primary colors*/
+    --pri_200: #FFF9E5;
+    --pri_300: #FEE698;
+    --pri_400: #FDD34C;
+    --pri_500: #FFCC00;
+    --pri_600: #B08600;
+    --pri_700: #654D00;
+    --pri_800: #1A1400;
+
+    /*Secondary colors*/
+    --sec_200: #EDF1F7;
+    --sec_300: #AAB3C1;
+    --sec_400: #627086;
+    --sec_500: #243755;
+    --sec_600: #1A283E;
+    --sec_700: #111A28;
+    --sec_800: #080C12;
+
+    /*Accent colors*/
+    --acc_200: #E5FAFF;
+    --acc_300: #98ECFF;
+    --acc_400: #4CDEFF;
+    --acc_500: #00D0FF;
+    --acc_600: #0091B2;
+    --acc_700: #005366;
+    --acc_800: #00151A;
+
+    /*Extras*/
+    --black: #000000;
+    --white: #FFFFFF;
 }
 
 body {
+    /*muchos settings aca son temporales*/
     font-family: 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--white);
     margin: 0;
+    background-color: var(--sec_500);
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(../fonts/Lato-Regular.ttf);
 }
 
 .loader {
     display: none;
 
-    border: 10px solid var(--lightblue);
-    border-top: 10px solid var(--darkblue);
+    border: 10px solid var(--sec_300);
+    border-top: 10px solid var(--sec_600);
     border-radius: 50%;
     width: 90px;
     height: 90px;
     animation: spin 2s linear infinite;
-    /*margin: auto; */
+    margin: auto;
 }
 
 @keyframes spin {
@@ -37,17 +76,49 @@ body {
 .header {
     display: flex;
     height: 60px;
-    background-color: var(--lightblue);
+    background-color: var(--sec_600);
 }
 
 .footer {
     display: flex;
     height: 200px;
-    background-color: var(--darkblue);
+    background-color: var(--sec_800);
 }
 
+/*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/
 .card {
-    display: flex;
+    margin: 10px;
+    width: 280px;
     height: 170px;
-    margin: 20px;
+    position: relative;
+}
+
+.card-img {
+    width: 280px;
+    height: 170px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-deco {
+    width: 85px;
+    height: 30px;
+    position: absolute;
+    left: 195px;
+    top: 140px;
+    background: #FEE698;
+    box-shadow: -2px -3px 5px 3px rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-price {
+    color: #243755;
+    font-size: 18px;
+    font-family: 'Lato';
+    font-weight: 700;
+    letter-spacing: 0.90px;
 }
