@@ -24,6 +24,13 @@ async function PartialRender(event) {
   loader.classList.remove("show-loader");
   main.innerHTML = content;
 
+    const card = document.getElementById("card");
+    const myElement = document.getElementById("blackout");
+    
+    card.addEventListener("mouseenter", () => {
+        myElement.classList.toggle('card-blackout-visible');
+    });
+
   //agregamos EventListeners a los nuevos elementos con las siguientes funciones
   //ListenersLinks();
 

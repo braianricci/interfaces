@@ -148,9 +148,11 @@ body {
 }
 
 .card-blackout {
+    display: none;
     width: 280px;
-    height: 170px;
-    background: rgba(0, 0, 0, 0.60);
+    height: 0px;
+
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     position: absolute;
     top: 0px;
@@ -163,7 +165,27 @@ body {
     padding: 4px 9px 4px 9px;
     top: 0px;
     position: absolute;
-    color: #EDF1F7;
+    color: var(--white);
     font-size: 20px;
     font-weight: 500;
+}
+
+.card-button {
+    all: unset;
+    padding: 10px 24px 10px 24px;
+    position: absolute;
+    left: 74px;
+    top: 64px;
+    background: var(--pri_500);
+    color: var(--black);
+    border-radius: 50px;
+    font-family: 'Nunito';
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card-blackout-visible {
+    display: block;
+    height: 170px;
+    transition: 0.6s;
 }
