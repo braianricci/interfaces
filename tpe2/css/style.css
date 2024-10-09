@@ -36,15 +36,21 @@
 
 body {
     /*muchos settings aca son temporales*/
-    font-family: 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 1920px;
+    font-family: 'Lato', 'Nunito', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
-    background-color: var(--sec_500);
+    background-color: var(--sec_700);
 }
 
 @font-face {
     font-family: 'Lato';
     src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
 }
 
 .loader {
@@ -86,8 +92,26 @@ body {
 }
 
 /*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/
+
+.card-section {
+    border: 1px solid red;
+    display: block;
+    margin: 0px 90px 20px 90px;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.card-row-title {
+    margin: 3px;
+    font-size: 32px;
+}
+
 .card {
-    margin: 10px;
     width: 280px;
     height: 170px;
     position: relative;
@@ -97,7 +121,7 @@ body {
     width: 280px;
     height: 170px;
     border-radius: 5px;
-    box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.3);
 }
 
 .card-deco {
@@ -106,8 +130,8 @@ body {
     position: absolute;
     left: 195px;
     top: 140px;
-    background: #FEE698;
-    box-shadow: -2px -3px 5px 3px rgba(0, 0, 0, 0.5);
+    background: var(--pri_300);
+    box-shadow: -2px -3px 5px 3px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 5px;
     display: flex;
@@ -116,7 +140,7 @@ body {
 }
 
 .card-price {
-    color: #243755;
+    color: var(--sec_500);
     font-size: 18px;
     font-family: 'Lato';
     font-weight: 700;
