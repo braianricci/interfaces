@@ -9,27 +9,22 @@ ListenersLinks();
 document.getElementById("home").click();
 
 async function PartialRender(event) {
-  event.preventDefault();
-  let scrollTop = main.offsetTop; //distancia entre "main" y el tope de la pagina
+    event.preventDefault();
+    let scrollTop = main.offsetTop; //distancia entre "main" y el tope de la pagina
 
-  //vaciamos el main y mostramos feedback visual de carga
-  main.replaceChildren();
-  loader.classList.add("show-loader");
+    //vaciamos el main y mostramos feedback visual de carga
+    main.replaceChildren();
+    loader.classList.add("show-loader");
 
-  //fetch .html
-  let response = await fetch(this.href);
-  let content = await response.text();
+    //fetch .html
+    let response = await fetch(this.href);
+    let content = await response.text();
 
-  //cargamos el main con el contenido y ocultamos el loader
-  loader.classList.remove("show-loader");
-  main.innerHTML = content;
+    //cargamos el main con el contenido y ocultamos el loader
+    loader.classList.remove("show-loader");
+    main.innerHTML = content;
 
-    const card = document.getElementById("card");
-    const myElement = document.getElementById("blackout");
-    
-    card.addEventListener("mouseenter", () => {
-        myElement.classList.toggle('card-blackout-visible');
-    });
+    ListenerCards();
 
   //agregamos EventListeners a los nuevos elementos con las siguientes funciones
   //ListenersLinks();
@@ -61,4 +56,22 @@ function ListenersLinks() {
   for (let item of links) {
     item.addEventListener("click", PartialRender);
   }
+}
+
+function ListenerCards() {
+    let cards = document.getElementsByClassName("card");
+
+    for(let card of cards) {
+        let blackout = card.children[1];
+
+        card.addEventListener("mouseenter", () => {
+            blackout.classList.remove('card-blackout-hidden');
+            blackout.classList.add('card-blackout-visible');
+        });
+
+        card.addEventListener("mouseleave", () => {
+            blackout.classList.add('card-blackout-hidden');
+            blackout.classList.remove('card-blackout-visible');
+        })
+    }
 }
