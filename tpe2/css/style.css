@@ -85,7 +85,7 @@ body {
 }
 
 #footer {
-    padding: 20px;
+    padding: 0px 20px;
     text-align: center;
     background-color: var(--sec_800);
 }
@@ -110,7 +110,7 @@ body {
         list-style: none;
         padding: 0;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         letter-spacing: 3px;
         line-height: 30px;
     }
@@ -136,7 +136,7 @@ body {
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border-radius: 28px;
+        border-radius: 30px;
     }
 
         .footer-subscribe label {
@@ -154,6 +154,12 @@ body {
             border-radius: 50px;
         }
 
+.copyright {
+    padding: 10px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
 @media only screen and (min-width: 768px) {
 
     .footer {
@@ -164,20 +170,23 @@ body {
     .footer-column {
         flex: 1;
         align-items: flex-start;
+        padding: 30px 0px 50px 0px;
     }
 
     .footer-subscribe {
+        padding: 0px 10px;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        height: 60px;
+        height: 54px;
         width: 1410px;
         margin: auto;
     }
 
         .footer-subscribe input[type="email"] {
-            width: auto;
+            width: 500px;
+            border-radius: 10px;
         }
 }
 
