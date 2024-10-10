@@ -103,6 +103,7 @@ body {
         font-size: 32px;
         font-weight: 500;
         color: var(--sec_200);
+        cursor: default;
     }
 
     .footer-column ul {
@@ -119,14 +120,25 @@ body {
             margin: 5px 0;
         }
 
-    .footer-column a {
-        color: var(--sec_200);
-        text-decoration: none;
-    }
+            .footer-column a {
+                color: var(--sec_200);
+                text-decoration: none;
+                transition: color 0.3s ease, font-size 0.3s ease;
+            }
 
-        .footer-column a i {
-            font-size: 28px;
-        }
+            .footer-column a:hover {
+                color: var(--pri_400);
+                font-size: 1.1em;
+            }
+
+            .footer-column a i {
+                font-size: 28px;
+                transition: transform 0.3s ease;
+            }
+
+            .footer-column a i:hover {
+                transform: scale(1.2);
+            }
 
     .footer-subscribe {
         padding: 5px 10px;
@@ -158,6 +170,7 @@ body {
     padding: 10px;
     font-weight: 300;
     font-size: 20px;
+    cursor: default;
 }
 
 @media only screen and (min-width: 768px) {
