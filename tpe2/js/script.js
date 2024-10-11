@@ -62,7 +62,7 @@ function ListenerCards() {
     let cards = document.getElementsByClassName("card");
 
     for(let card of cards) {
-        let blackout = card.children[1];
+        let blackout = card.querySelector(".card-blackout-container");
 
         card.addEventListener("mouseenter", () => {
             blackout.classList.remove('card-blackout-hidden');
