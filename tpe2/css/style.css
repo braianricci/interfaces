@@ -90,6 +90,8 @@ body {
     font-family: 'Nunito';
     font-weight: bold;
     font-size: 16px;
+    overflow: hidden;
+    position: relative
 }
 
 @property --angle {
@@ -119,6 +121,18 @@ body {
     filter: blur(15px);
 }
 
+.button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--pri_300);
+}
+
+.button-shine:hover .button::after {
+    animation: 0.5s button-dash ease;
+}
+
 .button-shine,
 .button-shine::after {
     padding: 2px;
@@ -129,6 +143,16 @@ body {
 .button-shine:hover::after,
 .button-shine:hover {
     animation: 0.8s button-spin ease;
+}
+
+@keyframes button-dash {
+    0% {
+        left: 0px;
+    }
+
+    100% {
+        left: 120px;
+    }
 }
 
 @keyframes button-spin {
