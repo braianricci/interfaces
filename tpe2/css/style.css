@@ -78,11 +78,22 @@ body {
     display: block;
 }
 
+#header {
+    background-color: var(--sec_500);
+    padding: 0px 20px;
+}
+
 .header {
     display: flex;
-    height: 60px;
-    background-color: var(--sec_600);
+    align-items: center;
+    justify-content: space-between;
 }
+
+    .menu-logo {
+        color: var(--sec_200);
+        font-size: 24px;
+        cursor: pointer;
+    }
 
 #footer {
     padding: 0px 20px;
