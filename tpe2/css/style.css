@@ -121,7 +121,7 @@ body {
 
 .button-shine,
 .button-shine::after {
-    padding: 3px;
+    padding: 2px;
     border-radius: 50px;
     background-image: conic-gradient(from var(--angle), transparent 80%, var(--color));
 }
@@ -142,7 +142,7 @@ body {
     }
 
     100% {
-        --angle: 340deg;
+        --angle: 330deg;
         --color: transparent;
     }
 }
