@@ -12,33 +12,33 @@ async function partialRender(event) {
     event.preventDefault();
     let scrollTop = main.offsetTop; //distancia entre "main" y el tope de la pagina
 
-    //vaciamos el main y mostramos feedback visual de carga
-    main.replaceChildren();
+    //mostramos feedback visual de carga
     loader.classList.add("show-loader");
 
-    return;
     //fetch .html
     let response = await fetch(this.href);
     let content = await response.text();
 
+
     //cargamos el main con el contenido y ocultamos el loader
-    loader.classList.remove("show-loader");
+    await new Promise(resolve => setTimeout(resolve, 2000));
     main.innerHTML = content;
+    //loader.classList.remove("show-loader");
 
     listenersLinks();
 }
 
 function listenersLinks() {
-  let links = document.getElementsByClassName("link");
-  let cardToggles= document.getElementsByClassName("card-toggle")
+    let links = document.getElementsByClassName("link");
+    let cardToggles = document.getElementsByClassName("card-toggle")
 
-  for (let item of links) {
-    item.addEventListener("click", partialRender);
-  }
+    for (let item of links) {
+        item.addEventListener("click", partialRender);
+    }
 
-  for(let item of cardToggles) {
-    item.addEventListener("click", updateCard);
-  }
+    for (let item of cardToggles) {
+        item.addEventListener("click", updateCard);
+    }
 }
 
 async function updateCard(event) {
@@ -54,12 +54,12 @@ async function updateCard(event) {
     let url;
 
     switch (type) {
-    case "Add to Cart":
-        url = "goto.html";
-        break;
-    case "Remove":
-    case "Go to Cart":
-        url = "add.html";
+        case "Add to Cart":
+            url = "goto.html";
+            break;
+        case "Remove":
+        case "Go to Cart":
+            url = "add.html";
     }
 
     //fetch .html

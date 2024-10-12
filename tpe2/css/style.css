@@ -68,16 +68,58 @@ body {
 .loader {
     display: flex;
     position: absolute;
+    z-index: 100;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 1);
+    background: var(--acc_700);
     clip-path: circle(0% at center);
-    animation: loader 1.4s linear;
 }
 
-@keyframes loader {
+.loader-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 300px;
+    height: 300px;
+}
+
+.loader-img::before {
+    content: "dsadsadassa";
+    border: 2px red solid;
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.show-loader {
+    opacity: 1;
+    animation: loader-play 0.8s linear forwards;
+}
+
+.loader:not(.show-loader) {
+    animation: loader-out 1s linear forwards;
+}
+
+@keyframes loader-play {
     0% {
-        clip-path: circle(150% at center);
+        clip-path: circle(0% at center);
+    }
+
+    100% {
+        clip-path: circle(100% at center);
+    }
+}
+
+@keyframes loader-out {
+
+    0% {
+        clip-path: circle(100% at center);
+    }
+
+    100% {
+        clip-path: circle(0% at center);
     }
 }
 
@@ -89,10 +131,6 @@ body {
     100% {
         transform: rotate(360deg);
     }
-}
-
-.show-loader {
-    display: block;
 }
 
 /*╔══════━━━━━━────── • BUTTONS • ──────━━━━━━══════╗*/
