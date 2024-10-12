@@ -54,7 +54,7 @@ body {
     src: url(../fonts/Nunito-VariableFont_wght.ttf);
 }
 
-.loader {
+/*.loader {
     display: none;
 
     border: 10px solid var(--sec_300);
@@ -64,6 +64,22 @@ body {
     height: 90px;
     animation: spin 2s linear infinite;
     margin: auto;
+}*/
+
+.loader {
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    clip-path: circle(0% at center);
+    animation: loader 1.4s linear;
+}
+
+@keyframes loader {
+    0% {
+        clip-path: circle(150% at center);
+    }
 }
 
 @keyframes spin {
@@ -340,8 +356,115 @@ body {
 
 .footer {
     display: flex;
-    height: 200px;
-    background-color: var(--sec_800);
+    flex-direction: column;
+    align-items: center;
+    gap: 20 px;
+    margin: 40px;
+}
+
+.footer-column h2 {
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--sec_200);
+    cursor: default;
+}
+
+.footer-column ul {
+    all: unset;
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 30px;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.footer-column a {
+    color: var(--sec_200);
+    text-decoration: none;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--pri_400);
+    font-size: 1.1em;
+}
+
+.footer-column a i {
+    font-size: 28px;
+    transition: transform 0.3s ease;
+}
+
+.footer-column a i:hover {
+    transform: scale(1.2);
+}
+
+.footer-subscribe {
+    padding: 5px 10px;
+    background-color: var(--sec_400);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 30px;
+}
+
+.footer-subscribe label {
+    color: var(--sec_800);
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer-subscribe input[type="email"] {
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    width: 190px;
+    border-radius: 50px;
+}
+
+.copyright {
+    padding: 10px;
+    font-weight: 300;
+    font-size: 20px;
+    cursor: default;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        flex: 1;
+        align-items: flex-start;
+        padding: 30px 0px 50px 0px;
+    }
+
+    .footer-subscribe {
+        padding: 0px 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        height: 54px;
+        width: 1410px;
+        margin: auto;
+    }
+
+    .footer-subscribe input[type="email"] {
+        width: 500px;
+        border-radius: 10px;
+    }
 }
 
 /*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/

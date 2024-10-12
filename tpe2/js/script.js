@@ -16,6 +16,7 @@ async function partialRender(event) {
     main.replaceChildren();
     loader.classList.add("show-loader");
 
+    return;
     //fetch .html
     let response = await fetch(this.href);
     let content = await response.text();
