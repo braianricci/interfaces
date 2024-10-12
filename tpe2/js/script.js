@@ -5,10 +5,10 @@
 let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
-ListenersLinks();
+listenersLinks();
 document.getElementById("home").click();
 
-async function PartialRender(event) {
+async function partialRender(event) {
     event.preventDefault();
     let scrollTop = main.offsetTop; //distancia entre "main" y el tope de la pagina
 
@@ -24,54 +24,51 @@ async function PartialRender(event) {
     loader.classList.remove("show-loader");
     main.innerHTML = content;
 
-    ListenerCards();
-
-  //agregamos EventListeners a los nuevos elementos con las siguientes funciones
-  //ListenersLinks();
-
-  //this.href en chrome devuelve una url completa, no la direccion relativa, por eso usamos this.getAttribute("href") para comparar
-  /*switch (this.getAttribute("href")) {
-    case "productos.html":
-      if (this.id == "index") scrollTop = 0;
-      break;
-    case "mochilas.html":
-    case "mates.html":
-    case "gorras.html":
-    case "rinioneras.html":
-    case "cintos.html":
-    case "bolsos.html":
-      ListenersProducts();
-      break;
-    case "contacto.html":
-      ListenersCaptcha();
-      break;
-    case "carrito.html":
-      ListenersCart();
-  }*/
+    listenersLinks();
 }
 
-function ListenersLinks() {
+function listenersLinks() {
   let links = document.getElementsByClassName("link");
+  let cardToggles= document.getElementsByClassName("card-toggle")
 
   for (let item of links) {
-    item.addEventListener("click", PartialRender);
+    item.addEventListener("click", partialRender);
+  }
+
+  for(let item of cardToggles) {
+    item.addEventListener("click", updateCard);
   }
 }
 
-function ListenerCards() {
-    let cards = document.getElementsByClassName("card");
+async function updateCard(event) {
 
-    for(let card of cards) {
-        let blackout = card.children[1];
+    event.preventDefault();
 
-        card.addEventListener("mouseenter", () => {
-            blackout.classList.remove('card-blackout-hidden');
-            blackout.classList.add('card-blackout-visible');
-        });
+    let clicked = event.target;
+    let card = clicked.closest('.card')
+    let type = clicked.innerHTML;
+    let name = clicked.closest('.card-blackout').querySelector('.card-title').innerHTML;
+    let img = card.querySelector('.card-img').src;
 
-        card.addEventListener("mouseleave", () => {
-            blackout.classList.add('card-blackout-hidden');
-            blackout.classList.remove('card-blackout-visible');
-        })
+    let url;
+
+    switch (type) {
+    case "Add to Cart":
+        url = "goto.html";
+        break;
+    case "Remove":
+    case "Go to Cart":
+        url = "add.html";
     }
+
+    //fetch .html
+    let response = await fetch(url);
+    let content = await response.text();
+
+    //cargamos la card con la nueva
+    card.innerHTML = content;
+    card.querySelector('.card-title').innerHTML = name;
+    card.querySelector('.card-img').src = img;
+
+    listenersLinks();
 }
