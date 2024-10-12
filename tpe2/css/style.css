@@ -56,7 +56,6 @@ body {
 
 /*.loader {
     display: none;
-
     border: 10px solid var(--sec_300);
     border-top: 10px solid var(--sec_600);
     border-radius: 50%;
@@ -352,6 +351,12 @@ body {
     display: flex;
     height: 60px;
     background-color: var(--sec_600);
+}
+
+#footer {
+    padding: 0px 20px;
+    text-align: center;
+    background-color: var(--sec_800);
 }
 
 .footer {
