@@ -41,6 +41,7 @@ body {
     color: var(--white);
     margin: 0;
     background-color: var(--sec_700);
+
 }
 
 @font-face {
@@ -81,8 +82,11 @@ body {
 
 /*╔══════━━━━━━────── • BUTTONS • ──────━━━━━━══════╗*/
 
+/*-- Default Button --*/
 .button {
     all: unset;
+    user-select: none;
+    cursor: pointer;
     padding: 10px 24px 10px 24px;
     background: var(--pri_500);
     color: var(--black);
@@ -90,8 +94,17 @@ body {
     font-family: 'Nunito';
     font-weight: bold;
     font-size: 16px;
+}
+
+/*-- button click animation --*/
+.button:active {
+    background-color: var(--pri_700);
+}
+
+/*-- cart button hover animation --*/
+.button-shine .button {
+    position: relative;
     overflow: hidden;
-    position: relative
 }
 
 @property --angle {
@@ -108,9 +121,11 @@ body {
 
 .button-shine {
     position: relative;
+    padding: 2px;
 }
 
 .button-shine::after {
+    pointer-events: none;
     content: "";
     position: absolute;
     width: 100%;
@@ -118,44 +133,49 @@ body {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    padding: 5px;
     filter: blur(15px);
 }
 
-.button::after {
+.button-shine .button::after {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 25px;
+    height: 120%;
+    top: 50%;
+    left: -25px;
+    translate: -50% -50%;
+    rotate: -20deg;
+    filter: blur(2px);
     background: var(--pri_300);
 }
 
 .button-shine:hover .button::after {
-    animation: 0.5s button-dash ease;
+    animation: 0.7s button-shine-dash ease;
 }
 
 .button-shine,
 .button-shine::after {
-    padding: 2px;
     border-radius: 50px;
     background-image: conic-gradient(from var(--angle), transparent 80%, var(--color));
 }
 
 .button-shine:hover::after,
 .button-shine:hover {
-    animation: 0.8s button-spin ease;
+    animation: 0.6s button-shine-spin ease;
 }
 
-@keyframes button-dash {
+@keyframes button-shine-dash {
     0% {
-        left: 0px;
+        left: -25px;
     }
 
     100% {
-        left: 120px;
+        left: 110%;
     }
 }
 
-@keyframes button-spin {
+@keyframes button-shine-spin {
     0% {
         --angle: 100deg;
         --color: var(--pri_300);
@@ -168,6 +188,34 @@ body {
     100% {
         --angle: 330deg;
         --color: transparent;
+    }
+}
+
+/*-- play button hover animation --*/
+.button-play .button {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-play .button:hover span {
+    display: block;
+    animation: spin-text 0.3s linear infinite;
+}
+
+@keyframes spin-text {
+    0% {
+        transform: translateY(-100%);
+        /* Start above the button */
+    }
+
+    50% {
+        transform: translateY(0);
+        /* Centered in the button */
+    }
+
+    100% {
+        transform: translateY(100%);
+        /* Moves out below the button */
     }
 }
 
@@ -243,6 +291,22 @@ body {
 
 .card-blackout-container {
     opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-blackout-container {
+    opacity: 1;
+    animation: card-blackout-visible 0.3s ease;
+}
+
+@keyframes card-blackout-visible {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .card-blackout {
@@ -268,16 +332,15 @@ body {
 
 .card-button {
     position: absolute;
-    left: 71px;
-    top: 61px;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
 }
 
-.card-blackout-visible {
-    opacity: 1;
-    transition: 0.3s ease;
+.card-hidden {
+    display: none;
 }
 
-.card-blackout-hidden {
-    opacity: 0;
-    transition: 0.3s ease;
+.button-tertiary {
+    z-index: 20;
 }
