@@ -1,11 +1,10 @@
 "use strict";
 
-/// ----------------------------------------- PARTIAL RENDER ----------------------------------------- ///
-
 let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
 listenersLinks();
+
 document.getElementById("home").click();
 
 async function partialRender(event) {
