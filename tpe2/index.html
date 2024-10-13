@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/loader.css" />
     <script src="https://kit.fontawesome.com/3d69177b10.js" crossorigin="anonymous"></script>
 </head>
     <body>
         
         <!--╔══════━━━━━━────── • LOADER • ──────━━━━━━══════╗-->
-        <div id="loader" class="loader">
-            <img class="loader-img" src="img/biglogo.png" alt="">
+        <div id="loader">
+            <div class="loader-content">
+                <div id="loader-bar">
+                    <img class="loader-img" src="img/biglogo.png" alt="">
+                </div>
+                <img class="loader-img" src="img/biglogo.png" alt="">
+                <h1 class="loader-text">loading
+                    <span id="loader-dots">...</span>
+                <h1 class="loader-progress"><span id="loader-number"></span>%</h1>
+            </div>
         </div>
 
         <!--╔══════━━━━━━────── • HEADER • ──────━━━━━━══════╗-->
