@@ -1,5 +1,27 @@
 #carousel {
-    height: 200px;
+    position: relative;
+    display: flex;
+    height: 300px;
+    width: 1920px;
+    background-color: var(--sec_500);
+}
+
+.carousel-banner {
+    border: 2px blue solid;
+    position: absolute;
     width: 200px;
-    border: 2px red solid;
+    height: 200px;
+}
+
+#carousel :nth-child(1) {
+    left: 10%;
+}
+
+#carousel :nth-child(2) {
+    left: 50%;
+    translate: -50%;
+}
+
+#carousel :nth-child(3) {
+    right: 10%;
 }

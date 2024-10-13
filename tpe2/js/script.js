@@ -10,10 +10,10 @@ document.getElementById("home").click();
 async function partialRender(event) {
 
     event.preventDefault();
-
+    const duration = 2000;
     //mostramos feedback visual de carga
     loader.classList.add("show-loader");
-    animateLoader(5000);
+    animateLoader(duration);
 
     //fetch .html
     let response = await fetch(this.href);
@@ -21,7 +21,7 @@ async function partialRender(event) {
 
 
     //cargamos el main con el contenido y ocultamos el loader
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, duration));
     main.innerHTML = content;
     loader.classList.remove("show-loader");
 
@@ -77,8 +77,8 @@ async function updateCard(event) {
 function animateLoader(duration) {
 
     const bar = document.getElementById("loader-bar");
-    bar.style.animationDuration = duration;
     bar.classList.add("loader-bar-animation");
+    bar.style.animationDuration = duration;
 
     const element = document.getElementById("loader-number");
     const start = 0;
