@@ -8,9 +8,9 @@ let btnClose = document.getElementById("btn-close");
 let btnProd = document.getElementById("btn-prod");
 
 let sidebarClosed = true;
-btnOpen.addEventListener("click", OperateSidebar);
-btnClose.addEventListener("click", CloseSidebar);
-btnProd.addEventListener("click", ToggleProd);
+btnOpen.addEventListener("click", operateSidebar);
+btnClose.addEventListener("click", closeSidebar);
+btnProd.addEventListener("click", toggleProd);
 
 listenersLinks();
 
@@ -124,7 +124,7 @@ function animateLoader(duration) {
     }, duration + 600);
 }
 
-function ListenerCards() {
+function listenerCards() {
     let cards = document.getElementsByClassName("card");
 
     for (let card of cards) {
@@ -142,7 +142,7 @@ function ListenerCards() {
     }
 }
 
-function OperateSidebar() {
+function operateSidebar() {
     const sidebar = document.getElementById("sidebar");
 
     if (sidebarClosed) {
@@ -154,12 +154,12 @@ function OperateSidebar() {
     }
 }
 
-function CloseSidebar() {
+function closeSidebar() {
     document.getElementById("sidebar").style.width = "0";
     sidebarClosed = true;
 }
 
-function ToggleProd() {
+function toggleProd() {
     document
         .getElementById("sidebar-sub")
         .classList.toggle("sidebar-sub-display");
