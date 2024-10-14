@@ -140,7 +140,12 @@ function moveCarousel(event) {
     const carousel = document.getElementById("carousel");
     const value = event.target.value;
     const item = document.getElementById("carousel-" + value);
+
     item.classList.add("carousel-animation");
+    setTimeout(() => {
+        item.classList.remove("carousel-animation");
+    }, 2000);
+
 
     carousel.style.setProperty("--position", value);
 }
