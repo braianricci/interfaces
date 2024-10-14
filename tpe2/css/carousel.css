@@ -14,8 +14,9 @@
 .carousel-item {
     position: absolute;
     width: 1090px;
-    height: 340px;
+    height: 300px;
     transition: all 0.5s ease-in;
+    opacity: 1;
 
     --reference: calc(var(--position) - var(--offset));
     opacity: --reference;
@@ -56,6 +57,34 @@
 
 .carousel-animation {
     object-fit: fill;
+    animation: carousel-bounce 1s linear forwards
+}
+
+@keyframes carousel-bounce {
+    0% {
+        width: 100%;
+        height: 90%;
+    }
+
+    25% {
+        width: 100%;
+        height: 105%;
+    }
+
+    50% {
+        width: 100%;
+        height: 95%;
+    }
+
+    75% {
+        width: 95%;
+        height: 100%;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 #carousel-inputs {
