@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css" />
     <script src="https://kit.fontawesome.com/3d69177b10.js" crossorigin="anonymous"></script>
 </head>
     <body>
@@ -13,7 +14,9 @@
         <header id="header">
             <div class="header">
                 <div class="menu-logo">
-                    <i class="fas fa-bars"></i>
+                    <button id="btn-open" class="btn-sidebar">
+                        <i class="faas fa-bars"></i>
+                    </button>
                     <img src="img/logo.png" alt="Logo">
                 </div>
                 <div class="search-bar">
@@ -29,7 +32,26 @@
         </header>
 
         <!--╔══════━━━━━━────── • SIDEBAR • ──────━━━━━━══════╗-->
-        <aside id="sidebar"></aside>
+        <aside>
+        <nav id="sidebar" class="sidebar">
+            <ul class="sidebar-main">
+                <li><button id="btn-close" class="btn-close btn-sidebar">×</button></li>
+                <li><a class="links" href="productos.html">Inicio</a></li>
+                <li><a id="btn-prod" href="#main">Productos</a></li>
+                <ul id="sidebar-sub" class="sidebar-sub">
+                    <li><a class="links" href="mochilas.html">Mochilas</a></li>
+                    <li><a class="links" href="mates.html">Para matear</a></li>
+                    <li><a class="links" href="gorras.html">Gorras</a></li>
+                    <li><a class="links" href="rinioneras.html">Riñoneras</a></li>
+                    <li><a class="links" href="cintos.html">Cintos</a></li>
+                    <li><a class="links" href="bolsos.html">Bolsos</a></li>
+                </ul>
+                <li><a class="links" href="empresa.html">Empresa</a></li>
+                <li><a class="links" href="contacto.html">Contacto</a></li>
+                <li><a class="links" href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </aside>
 
         <!--╔══════━━━━━━────── • CONTENT • ──────━━━━━━══════╗-->
         <main id="content">
