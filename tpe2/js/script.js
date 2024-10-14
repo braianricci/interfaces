@@ -5,6 +5,15 @@
 let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
+let btnOpen = document.getElementById("btn-open");
+let btnClose = document.getElementById("btn-close");
+let btnProd = document.getElementById("btn-prod");
+
+let sidebarClosed = true;
+btnOpen.addEventListener("click", OperateSidebar);
+btnClose.addEventListener("click", CloseSidebar);
+btnProd.addEventListener("click", ToggleProd);
+
 ListenersLinks();
 document.getElementById("home").click();
 
@@ -76,20 +85,21 @@ function ListenerCards() {
     }
 }
 
-let btnOpen = document.getElementById("btn-open");
-let btnClose = document.getElementById("btn-close");
-let btnProd = document.getElementById("btn-prod");
+function OperateSidebar() {
+    const sidebar = document.getElementById("sidebar");
 
-btnOpen.addEventListener("click", OpenSidebar);
-btnClose.addEventListener("click", CloseSidebar);
-btnProd.addEventListener("click", ToggleProd);
-
-function OpenSidebar() {
-    document.getElementById("sidebar").style.width = "250px";
+    if (sidebarClosed) {
+        sidebar.style.width = "250px";
+        sidebarClosed = false;
+    } else {
+        sidebar.style.width = "0px";
+        sidebarClosed = true;
+    }
 }
 
 function CloseSidebar() {
     document.getElementById("sidebar").style.width = "0";
+    sidebarClosed = true;
 }
 
 function ToggleProd() {

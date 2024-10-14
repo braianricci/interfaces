@@ -5,12 +5,15 @@
     position: fixed;
     z-index: 2;
     /* superpone el elemento sobre los demas, para que siempre este al frente */
-    top: 0;
+    top: 68px;
     left: 0;
     overflow-x: hidden;
     padding-top: 60px;
     transition: 0.5s ease;
+    background-color: var(--sec_500);
+    font-weight: bold;
 }
+
 
 .sidebar-main {
     list-style: none;
@@ -30,18 +33,20 @@
 }
 
 .sidebar a {
+    all: unset;
     display: block;
     padding: 8px 8px 8px 32px;
     transition: 0.2s ease;
 }
 
 .sidebar a:hover {
-    font-size: 1.2rem;
+    margin-left: 15px;
 }
 
 .btn-sidebar {
     border: 0;
-    color: var(--sec_500);
+    color: var(--white);
+    background-color: var(--sec_500);
 }
 
 .btn-close {
