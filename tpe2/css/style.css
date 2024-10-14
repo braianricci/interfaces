@@ -36,12 +36,11 @@
 
 body {
     /*muchos settings aca son temporales*/
-    width: 1920px;
+    width: 100%;
     font-family: 'Nunito', 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
     background-color: var(--sec_700);
-
 }
 
 @font-face {
@@ -306,16 +305,95 @@ body {
 
 /*╔══════━━━━━━────── • HEADER • ──────━━━━━━══════╗*/
 
+#header {
+    background-color: var(--sec_500);
+    padding: 4px 20px;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
 .header {
     display: flex;
-    height: 60px;
-    background-color: var(--sec_600);
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .menu-logo {
+        display: flex;
+        align-items: center;
+        color: var(--sec_200);
+        font-size: 20px;
+        gap: 30px;
+    }
+
+        .menu-logo i {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: var(--sec_200);
+        }
+
+        .menu-logo i:hover {
+            color: var(--pri_400);
+            transform: scale(1.2);
+        }
+
+    .search-bar {
+        display: none;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .search-bar input {
+            padding: 10px;
+            border: none;
+            font-size: 18px;
+            color: var(--sec_800);
+            width: 100%;
+        }
+
+        .search-bar button {
+            background-color: var(--pri_500);
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+            .search-bar button i {
+                color: var(--sec_800);
+                font-size: 24px;
+            }
+
+    .icons {
+        display: flex;
+        gap: 30px;
+        color: var(--sec_200);
+    }
+
+        .icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+            .icons i:hover {
+                color: var(--pri_400);
+                transform: scale(1.2);
+            }
+
+@media only screen and (min-width: 768px) {
+    .search-bar {
+        display: flex;
+        width: 460px;
+    }
 }
 
 #footer {
     padding: 0px 20px;
     text-align: center;
     background-color: var(--sec_800);
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 .footer {
@@ -386,13 +464,13 @@ body {
     font-weight: 600;
 }
 
-.footer-subscribe input[type="email"] {
-    padding: 10px;
-    border: none;
-    font-size: 20px;
-    width: 190px;
-    border-radius: 50px;
-}
+        .footer-subscribe input[type="email"] {
+            padding: 10px;
+            border: none;
+            font-size: 20px;
+            width: 95%;
+            border-radius: 50px;
+        }
 
 .copyright {
     padding: 10px;
@@ -412,6 +490,7 @@ body {
         flex: 1;
         align-items: flex-start;
         padding: 30px 0px 50px 0px;
+        min-height: 220px;
     }
 
     .footer-subscribe {
@@ -421,7 +500,7 @@ body {
         justify-content: space-between;
         gap: 10px;
         height: 54px;
-        width: 1410px;
+        width: 95%;
         margin: auto;
     }
 
