@@ -1,0 +1,58 @@
+.sidebar {
+    height: 100%;
+    width: 0;
+    /* 0 de ancho, para cambiar en js */
+    position: fixed;
+    z-index: 2;
+    /* superpone el elemento sobre los demas, para que siempre este al frente */
+    top: 68px;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s ease;
+    background-color: var(--sec_500);
+    font-weight: bold;
+}
+
+
+.sidebar-main {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-sub {
+    list-style: none;
+    padding: 0 30px;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease;
+}
+
+.sidebar-sub-display {
+    height: 210px;
+}
+
+.sidebar a {
+    all: unset;
+    display: block;
+    padding: 8px 8px 8px 32px;
+    transition: 0.2s ease;
+}
+
+.sidebar a:hover {
+    margin-left: 15px;
+}
+
+.btn-sidebar {
+    border: 0;
+    color: var(--white);
+    background-color: var(--sec_500);
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
