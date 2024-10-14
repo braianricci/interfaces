@@ -54,6 +54,11 @@ body {
     src: url(../fonts/Nunito-VariableFont_wght.ttf);
 }
 
+main {
+    display: flex;
+    margin-bottom: 20px;
+}
+
 /*╔══════━━━━━━────── • BUTTONS • ──────━━━━━━══════╗*/
 
 /*-- Default Button --*/
