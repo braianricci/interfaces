@@ -1,8 +1,9 @@
 /* Sidebar */
 .sidebar {
     position: absolute;
-    margin-top: 98px;
-    left: -250px; /* Oculto por defecto */
+    margin-top: 68px;
+    left: -250px;
+    /* Oculto por defecto */
     top: 0;
     width: 250px;
     height: 100vh;
@@ -31,11 +32,12 @@
 }
 
 .sidebar.active {
-    left: 0; 
+    left: 0;
 }
 
-.menu-item:hover{
-    transform: scale(1.2); /* Agranda el ícono */
+.menu-item:hover {
+    transform: scale(1.2);
+    /* Agranda el ícono */
 }
 
 

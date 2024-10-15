@@ -18,7 +18,7 @@ document.getElementById("form").click();
 
 async function partialRender(event) {
     event.preventDefault();
-    const duration = 2000;
+    const duration = 5000;
     //mostramos feedback visual de carga
 
     // Mostramos feedback visual de carga
@@ -31,7 +31,6 @@ async function partialRender(event) {
     let content = await response.text();
 
     // Cargamos el main con el contenido y ocultamos el loader
-    await new Promise(resolve => setTimeout(resolve, 5000));
 
     //cargamos el main con el contenido y ocultamos el loader
     await new Promise(resolve => setTimeout(resolve, duration));
@@ -41,7 +40,7 @@ async function partialRender(event) {
 
     listenersLinks();
 
-    switch (this.getAttribute("href")) {
+    switch (url) {
         case "home.html":
             startCarousel(1);
             fillHome();
