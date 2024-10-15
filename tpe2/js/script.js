@@ -179,8 +179,6 @@ function buttonClickTimeOut(button, innerText) {
     // Toggle the circle class on the button
     button.classList.toggle('button__circle');
     
-debugger;
-
     setTimeout(() => {
         window.location.href = '/tpe2/index.html'; 
     }, 2000);
