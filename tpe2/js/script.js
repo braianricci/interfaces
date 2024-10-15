@@ -3,15 +3,6 @@
 let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
-/* let btnOpen = document.getElementById("btn-open");
-let btnClose = document.getElementById("btn-close");
-let btnProd = document.getElementById("btn-prod");
-
-let sidebarClosed = true;
-btnOpen.addEventListener("click", operateSidebar);
-btnClose.addEventListener("click", closeSidebar);
-btnProd.addEventListener("click", toggleProd); */
-
 listenersLinks();
 
 document.getElementById("form").click();
@@ -19,7 +10,6 @@ document.getElementById("form").click();
 async function partialRender(event) {
     event.preventDefault();
     const duration = 5000;
-    //mostramos feedback visual de carga
 
     // Mostramos feedback visual de carga
     loader.classList.add("show-loader");
@@ -37,6 +27,12 @@ async function partialRender(event) {
 
 
     listenersLinks();
+
+    // Vuelve a asignar eventos para los formularios
+    assignFormToggleListeners();
+
+    // Renderizar reCAPTCHA
+    renderRecaptcha();
 
     switch (url) {
         case "home.html":
@@ -199,8 +195,13 @@ function buttonClickTimeOut(button, innerText) {
     // Toggle the circle class on the button
     button.classList.toggle('button__circle');
 
-    setTimeout(() => {
-        window.location.href = '/tpe2/home.html';
+    setTimeout(async() => {
+        const response = await fetch('home.html');
+        const content = await response.text();
+        main.innerHTML = content;
+        listenersLinks();
+        startCarousel(1);
+        fillHome();
     }, 2000);
 }
 
