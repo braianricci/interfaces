@@ -30,8 +30,6 @@ async function partialRender(event) {
     let response = await fetch(url);
     let content = await response.text();
 
-    // Cargamos el main con el contenido y ocultamos el loader
-
     //cargamos el main con el contenido y ocultamos el loader
     await new Promise(resolve => setTimeout(resolve, duration));
     main.innerHTML = content;
