@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/game.css" />
     <link rel="stylesheet" type="text/css" href="css/sidebar.css" />
     <link rel="stylesheet" type="text/css" href="css/carousel.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://kit.fontawesome.com/3d69177b10.js" crossorigin="anonymous"></script>
 </head>
 
@@ -148,7 +149,11 @@
             <img src="img/logo2.png" alt="Logo">
             <label for="subscribe">¿Querés recibir todas las novedades de la web?</label>
             <input type="email" id="subscribe" placeholder="¡Escribinos tu e-mail!">
-            <button class="button">Suscribite</button>
+            <button class="button tocheckbutton" onclick="buttonClick(this, 'Suscribite')">
+                    <div class="container">
+                        <div class="tick">Suscribite</div>
+                    </div>
+                </button>
         </div>
         <div class="copyright">
             <p>© 2024 King of Games Inc. Todos los derechos reservados.</p>
