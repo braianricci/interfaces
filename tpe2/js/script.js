@@ -202,7 +202,7 @@ function buttonClickTimeOut(button, innerText) {
     button.classList.toggle('button__circle');
 
     setTimeout(() => {
-        window.location.href = '/tpe2/index.html';
+        window.location.href = '/tpe2/home.html';
     }, 2000);
 }
 
