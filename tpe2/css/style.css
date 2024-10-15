@@ -314,6 +314,10 @@ body {
     box-sizing: border-box;
 }
 
+#header a {
+    all: unset;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -485,49 +489,21 @@ body {
     cursor: default;
 }
 
-@media only screen and (min-width: 768px) {
-
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .footer-column {
-        flex: 1;
-        align-items: flex-start;
-        padding: 30px 0px 50px 0px;
-        min-height: 220px;
-    }
-
-    .footer-subscribe {
-        padding: 0px 10px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        height: 54px;
-        width: 95%;
-        margin: auto;
-    }
-
-    .footer-subscribe input[type="email"] {
-        width: 500px;
-        border-radius: 10px;
-    }
-}
 
 /*╔══════━━━━━━────── • CARDS • ──────━━━━━━══════╗*/
 
 .card-section {
     display: block;
-    margin: 50px 90px 20px 90px;
+    margin: 20px 10px 20px 10px;
 }
 
 .card-row {
+    max-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border-radius: 10px;
+    flex-wrap: wrap;
 }
 
 .card-section-title {
@@ -537,14 +513,15 @@ body {
 }
 
 .card {
-    width: 280px;
-    height: 170px;
+    width: 140px;
+    height: 85px;
     position: relative;
+    margin: 2px;
 }
 
 .card-img {
-    width: 280px;
-    height: 170px;
+    width: 140px;
+    height: 85px;
     border-radius: 5px;
     box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.3);
 }
@@ -553,8 +530,8 @@ body {
     width: 85px;
     height: 30px;
     position: absolute;
-    left: 195px;
-    top: 140px;
+    right: 0px;
+    bottom: 0px;
     background: var(--pri_300);
     box-shadow: -2px -3px 5px 3px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 10px;
@@ -593,8 +570,8 @@ body {
 }
 
 .card-blackout {
-    width: 280px;
-    height: 170px;
+    width: 140px;
+    height: 85px;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     position: absolute;
@@ -622,4 +599,55 @@ body {
 
 .card-hidden {
     display: none;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .card-section {
+        margin: 30px;
+    }
+
+    .card {
+        width: 240px;
+        height: 150px;
+    }
+
+    .card-blackout {
+        width: 240px;
+        height: 150px;
+    }
+
+    .card-img {
+        width: 240px;
+        height: 150px;
+        object-fit: fill;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-column {
+        flex: 1;
+        align-items: flex-start;
+        padding: 30px 0px 50px 0px;
+        min-height: 220px;
+    }
+
+    .footer-subscribe {
+        padding: 0px 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        height: 54px;
+        width: 95%;
+        margin: auto;
+    }
+
+    .footer-subscribe input[type="email"] {
+        width: 500px;
+        border-radius: 10px;
+    }
 }

@@ -14,7 +14,7 @@ btnProd.addEventListener("click", toggleProd);
 
 listenersLinks();
 
-document.getElementById("home").click();
+document.getElementById("form").click();
 
 async function partialRender(event) {
 
@@ -40,6 +40,7 @@ async function partialRender(event) {
     switch (this.getAttribute("href")) {
         case "home.html":
             startCarousel(1);
+            fillHome();
             break;
     }
 }
@@ -71,6 +72,7 @@ async function updateCard(event) {
     let type = clicked.innerHTML;
     let name = clicked.closest('.card-blackout').querySelector('.card-title').innerHTML;
     let img = card.querySelector('.card-img').src;
+    let price = card.querySelector('.card-price').innerHTML;
 
     let url;
 
@@ -91,6 +93,8 @@ async function updateCard(event) {
     card.innerHTML = content;
     card.querySelector('.card-title').innerHTML = name;
     card.querySelector('.card-img').src = img;
+    card.querySelector('.card-price').innerHTML = price;
+
 
     listenersLinks();
 }
@@ -198,4 +202,68 @@ function moveCarousel(event) {
 
 
     carousel.style.setProperty("--position", value);
+}
+
+async function fillHome() {
+
+    let games = document.getElementById("games");
+
+    let response = await fetch("cardsection.html");
+    let cardSectCode = await response.text();
+
+    games.innerHTML = cardSectCode.repeat(6);
+
+    let titleElements = games.querySelectorAll('.card-section-title');
+    let rowsEl = games.querySelectorAll('.card-row');
+
+    const titles = ["Recomendados", "En tu libreria", "Accion", "Carreras", "Aventura", "Deportes"];
+
+    for (let i = 0; i < titles.length; i++) {
+
+        let row = "";
+        for (let j = 0; j < titles.length; j++) {
+            let response = await fetch("add.html");
+            let card = await response.text();
+
+            row += '<div class="card">' + card + '</div>';
+        }
+
+        titleElements[i].innerHTML = titles[i]
+        rowsEl[i].innerHTML = row;
+    }
+
+    let imgElements = document.getElementsByClassName("card-img");
+    let cardTitleElements = document.getElementsByClassName("card-title");
+    let cardPriceElements = document.getElementsByClassName("card-price");
+
+    response = await fetch("img/games/paths.json");
+    const paths = await response.json();
+
+
+    for (let i = 0; i < imgElements.length; i++) {
+
+        imgElements[i].src = paths.images[i]['path'];
+        cardTitleElements[i].innerHTML = paths.images[i]['name'];
+        cardPriceElements[i].innerHTML = paths.images[i]['price'];
+        if (paths.images[i]['price'] == "Free!") {
+            let card = imgElements[i].closest('.card');
+            makeFree(card);
+        }
+    }
+
+    listenersLinks();
+}
+
+async function makeFree(card) {
+
+    let title = card.querySelector('.card-title').innerHTML;
+    let img = card.querySelector('.card-img').src;
+
+    let response = await fetch("play.html");
+    let code = await response.text();
+
+    card.innerHTML = code;
+
+    card.querySelector('.card-title').innerHTML = title;
+    card.querySelector('.card-img').src = img;
 }

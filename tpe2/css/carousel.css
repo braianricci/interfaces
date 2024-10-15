@@ -1,8 +1,8 @@
 #carousel {
     display: flex;
     height: 400px;
-    width: 1920px;
-    background-color: var(--sec_500);
+    width: 100%;
+    background-color: var(--sec_600);
 
     align-items: center;
     justify-content: center;
@@ -61,10 +61,10 @@
 }
 
 #carousel .card-button {
-    top: auto;
-    left: auto;
-    bottom: 10px;
-    right: -50px;
+    top: 60%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
 }
 
 #carousel .button {
@@ -136,4 +136,14 @@ input[type="radio"] {
 input[type="radio"]:checked~.radio-design {
     outline-color: var(--pri_400);
     background: var(--pri_400);
+}
+
+@media only screen and (min-width: 768px) {
+
+    #carousel .card-button {
+        top: auto;
+        left: auto;
+        bottom: 10px;
+        right: -50px;
+    }
 }

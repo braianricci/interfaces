@@ -10,6 +10,7 @@ main.game {
     justify-content: center;
     margin-bottom: 20px;
 }
+
 nav.game {
     display: flex;
     align-items: center;
@@ -39,7 +40,7 @@ nav.game {
     padding-left: 20px;
 }
 
-h1 {
+.game h1 {
     margin-top: 0;
     font-size: 24px;
 }
@@ -68,7 +69,7 @@ h1 {
     padding: 20px;
 }
 
-h2 {
+.game h2 {
     font-size: 18px;
     margin-top: 0;
 }
@@ -95,7 +96,7 @@ h2 {
     color: #ffffff;
 }
 
-button {
+.game button {
     background-color: var(--pri_500);
     color: black;
     border: none;
@@ -105,7 +106,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.game button:hover {
     background-color: var(--pri_400);
 }
 
