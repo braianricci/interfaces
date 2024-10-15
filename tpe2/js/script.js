@@ -25,7 +25,8 @@ async function partialRender(event) {
     animateLoader(duration);
 
     //fetch .html
-    let response = await fetch(this.href);
+    let url = event.target.getAttribute("data-url") || this.href;
+    let response = await fetch(url);
     let content = await response.text();
 
 
@@ -266,4 +267,6 @@ async function makeFree(card) {
 
     card.querySelector('.card-title').innerHTML = title;
     card.querySelector('.card-img').src = img;
+
+    listenersLinks();
 }
