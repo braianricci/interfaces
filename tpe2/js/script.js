@@ -3,14 +3,14 @@
 let main = document.getElementById("content");
 let loader = document.getElementById("loader");
 
-let btnOpen = document.getElementById("btn-open");
+/* let btnOpen = document.getElementById("btn-open");
 let btnClose = document.getElementById("btn-close");
 let btnProd = document.getElementById("btn-prod");
 
 let sidebarClosed = true;
 btnOpen.addEventListener("click", operateSidebar);
 btnClose.addEventListener("click", closeSidebar);
-btnProd.addEventListener("click", toggleProd);
+btnProd.addEventListener("click", toggleProd); */
 
 listenersLinks();
 
@@ -146,7 +146,7 @@ function listenerCards() {
     }
 }
 
-function operateSidebar() {
+/* function operateSidebar() {
     const sidebar = document.getElementById("sidebar");
 
     if (sidebarClosed) {
@@ -155,10 +155,10 @@ function operateSidebar() {
     } else {
         sidebar.style.width = "0px";
         sidebarClosed = true;
-    }
-}
+    } 
+}*/
 
-function closeSidebar() {
+/* function closeSidebar() {
     document.getElementById("sidebar").style.width = "0";
     sidebarClosed = true;
 }
@@ -167,7 +167,7 @@ function toggleProd() {
     document
         .getElementById("sidebar-sub")
         .classList.toggle("sidebar-sub-display");
-}
+} */
 
 async function startCarousel(position) {
 
@@ -267,3 +267,19 @@ async function makeFree(card) {
     card.querySelector('.card-title').innerHTML = title;
     card.querySelector('.card-img').src = img;
 }
+
+// Nueva función para mostrar y ocultar el sidebar
+const menuBtn = document.getElementById('menu-btn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+menuBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
+
+// Cerrar el menú si se hace clic en el overlay
+overlay.addEventListener('click', function () {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});

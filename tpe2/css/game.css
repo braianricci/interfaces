@@ -163,7 +163,7 @@ nav.game {
     align-items: center;
 }
 
-.icon-btn {
+button.icon-btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -175,18 +175,18 @@ nav.game {
     background-color: transparent;
 }
 
-.icon-btn i {
+button.icon-btn i {
     font-size: 20px;
     color: white;
     background-color: transparent;
     margin-right: 10px;
 }
 
-.icon-btn:hover {
+button.icon-btn:hover {
     background-color: transparent;
 }
 
-.icon-btn i:hover {
+button.icon-btn i:hover {
     color: var(--sec_300)
 }
 
