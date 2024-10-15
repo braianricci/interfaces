@@ -164,6 +164,7 @@ nav.game {
 }
 
 button.icon-btn {
+    border: none;
     display: inline-flex;
     justify-content: center;
     align-items: center;

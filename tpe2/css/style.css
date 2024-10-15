@@ -77,6 +77,11 @@ body {
     font-size: 16px;
 }
 
+.button-tertiary:hover {
+    animation: tertiary 1s ease;
+
+}
+
 .card-blackout .button-tertiary {
     position: absolute;
     left: 50%;
