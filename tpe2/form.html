@@ -14,13 +14,17 @@
 
         <div class="divider">O también</div>
 
-        <form action="login.php" method="post" class="login-form">
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <div class="sub-btn-container">
-                <button type="submit" class="submit-btn">Entrar</button>
-            </div>
+        <form class="login-form">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Contraseña">
         </form>
+        <div class="sub-btn-container">
+            <button class="submit-btn tocheckbutton" onclick="buttonClickTimeOut(this, 'Entrar')">
+                <div class="container">
+                    <div class="tick">Entrar</div>
+                </div>
+            </button>
+        </div>
     </div>
 
     <!-- Formulario de registro -->
@@ -37,20 +41,24 @@
 
         <div class="divider">O también</div>
 
-        <form action="register.php" method="post" class="registration-form">
-            <input type="text" name="name" placeholder="Nombre" required>
+        <form class="registration-form">
+            <input type="text" name="name" placeholder="Nombre">
             <input type="text" name="username" placeholder="Usuario (visible para los demás)">
-            <input type="number" name="age" placeholder="Edad" required>
-            <input type="email" name="email" placeholder="E-mail" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <input type="password" name="confirm_password" placeholder="Repetí tu contraseña" required>
+            <input type="number" name="age" placeholder="Edad">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Contraseña">
+            <input type="password" name="confirm_password" placeholder="Repetí tu contraseña">
             <div class="captcha">
                 <div id="recaptcha-container" class="g-recaptcha"
                     data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
             </div>
-            <div class="sub-btn-container">
-                <button type="submit" class="submit-btn">Registrarse</button>
-            </div>
         </form>
+        <div class="sub-btn-container">
+            <button class="submit-btn tocheckbutton" onclick="buttonClickTimeOut(this, 'Registrarse')">
+                <div class="container">
+                    <div class="tick">Registrarse</div>
+                </div>
+            </button>
+        </div>
     </div>
 </div>

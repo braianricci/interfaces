@@ -149,3 +149,39 @@ function renderRecaptcha() {
     }
 }
 
+const tickMark = '<svg width="48" height="35" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="nonzero" d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65"></path></svg>';
+
+function buttonClick(button, innerText) {
+  const buttonText = button.querySelector('.tick');
+  
+  // Toggle between the tick mark and provided text
+  if (buttonText.innerHTML !== tickMark) {
+    buttonText.innerHTML = tickMark;
+  } else {
+    buttonText.innerHTML = innerText;
+  }
+
+  // Toggle the circle class on the button
+  button.classList.toggle('button__circle');
+  
+}
+
+function buttonClickTimeOut(button, innerText) {
+    const buttonText = button.querySelector('.tick');
+    
+    // Toggle between the tick mark and provided text
+    if (buttonText.innerHTML !== tickMark) {
+      buttonText.innerHTML = tickMark;
+    } else {
+      buttonText.innerHTML = innerText;
+    }
+  
+    // Toggle the circle class on the button
+    button.classList.toggle('button__circle');
+    
+debugger;
+
+    setTimeout(() => {
+        window.location.href = '/tpe2/index.html'; 
+    }, 2000);
+  }
