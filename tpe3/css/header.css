@@ -1,0 +1,100 @@
+#header {
+    background-color: var(--sec_500);
+    padding: 4px 20px;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    box-sizing: border-box;
+}
+
+#header a {
+    all: unset;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    color: var(--sec_200);
+    font-size: 20px;
+    gap: 30px;
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    color: var(--sec_200);
+    font-size: 20px;
+    gap: 30px;
+}
+
+.menu-logo i {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: var(--sec_200);
+}
+
+.menu-logo i:hover {
+    color: var(--pri_400);
+    transform: scale(1.2);
+}
+
+.search-bar {
+    display: none;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    color: var(--sec_800);
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: var(--pri_500);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: var(--sec_800);
+    font-size: 24px;
+}
+
+.icons {
+    display: flex;
+    gap: 30px;
+    color: var(--sec_200);
+}
+
+.icons i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icons i:hover {
+    color: var(--pri_400);
+    transform: scale(1.2);
+}
+
+@media only screen and (min-width: 768px) {
+    .search-bar {
+        display: flex;
+        width: 460px;
+    }
+
+    #header {
+        position: relative;
+    }
+}

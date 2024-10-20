@@ -5,10 +5,7 @@ let loader = document.getElementById("loader");
 
 listenersLinks();
 
-document.getElementById("game").click();
-
-document.addEventListener('goToGame', partialRender);
-document.dispatchEvent(go);
+document.getElementById("goto").click();
 
 async function partialRender(event) {
     event.preventDefault();
@@ -19,7 +16,7 @@ async function partialRender(event) {
     animateLoader(duration);
 
     //fetch .html
-    let url = event.target.getAttribute("data-url") || this.href;
+    let url = event.target.getAttribute("href");
     let response = await fetch(url);
     let content = await response.text();
 
@@ -41,6 +38,7 @@ async function partialRender(event) {
     switch (url) {
         case "home.html":
             startCarousel(1);
+            alert("lol")
             fillHome();
             break;
         case "game.html":
@@ -50,6 +48,7 @@ async function partialRender(event) {
 }
 
 function listenersLinks() {
+
     let links = document.getElementsByClassName("link");
     let cardToggles = document.getElementsByClassName("card-toggle");
     let bannerInputs = document.getElementsByClassName("carousel-radio");
