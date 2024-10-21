@@ -10,14 +10,14 @@ document.getElementById("goto").click();
 async function partialRender(event) {
 
     event.preventDefault();
-    const duration = 5000;
 
     // Mostramos feedback visual de carga
+    const duration = 5000;
     loader.classList.add("show-loader");
     animateLoader(duration);
 
     //fetch .html
-    let url = event.target.getAttribute("data-url") || event.target.href;
+    let url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
     let response = await fetch(url);
     let content = await response.text();
 
@@ -69,7 +69,7 @@ function listenersLinks() {
 
 function listenerGame() {
     let play = document.getElementById("play-game");
-    play.addEventListener("click", playGame());
+    play.addEventListener("click", playGame);
 }
 
 async function updateCard(event) {
@@ -103,7 +103,6 @@ async function updateCard(event) {
     card.querySelector('.card-title').innerHTML = name;
     card.querySelector('.card-img').src = img;
     card.querySelector('.card-price').innerHTML = price;
-
 
     listenersLinks();
 }

@@ -23,8 +23,8 @@
     color: white;
     text-decoration: none;
     font-size: 18px;
+    transition: 0.2s ease;
 }
-
 
 .sidebar .menu-item i {
     margin-right: 10px;
@@ -37,6 +37,7 @@
 
 .menu-item:hover {
     transform: scale(1.2);
+    translate: 8%;
     /* Agranda el ícono */
 }
 
