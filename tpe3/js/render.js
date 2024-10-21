@@ -8,6 +8,7 @@ listenersLinks();
 document.getElementById("goto").click();
 
 async function partialRender(event) {
+
     event.preventDefault();
     const duration = 5000;
 
@@ -16,10 +17,9 @@ async function partialRender(event) {
     animateLoader(duration);
 
     //fetch .html
-    let url = event.target.getAttribute("href");
+    let url = event.target.getAttribute("data-url") || event.target.href;
     let response = await fetch(url);
     let content = await response.text();
-
 
     //cargamos el main con el contenido y ocultamos el loader
     await new Promise(resolve => setTimeout(resolve, duration));
@@ -30,7 +30,6 @@ async function partialRender(event) {
     listenersLinks();
 
     // Vuelve a asignar eventos para los formularios
-    assignFormToggleListeners();
 
     // Renderizar reCAPTCHA
     renderRecaptcha();
@@ -38,11 +37,13 @@ async function partialRender(event) {
     switch (url) {
         case "home.html":
             startCarousel(1);
-            alert("lol")
             fillHome();
             break;
         case "game.html":
-            gameListener();
+            listenerGame();
+            break;
+        case "form.html":
+            listenersForm();
             break;
     }
 }
@@ -66,7 +67,7 @@ function listenersLinks() {
     }
 }
 
-function gameListener() {
+function listenerGame() {
     let play = document.getElementById("play-game");
     play.addEventListener("click", playGame());
 }
@@ -135,8 +136,7 @@ function animateLoader(duration) {
     }, duration + 600);
 }
 
-// Nueva función para asignar los eventos de alternar formularios
-function assignFormToggleListeners() {
+function listenersForm() {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
 

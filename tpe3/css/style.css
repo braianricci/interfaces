@@ -36,11 +36,12 @@
 
 body {
     /*muchos settings aca son temporales*/
-    width: 100%;
+    max-width: 100%;
     font-family: 'Nunito', 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
     background-color: var(--sec_700);
+    overflow-x: hidden;
 }
 
 @font-face {
