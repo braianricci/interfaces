@@ -42,6 +42,7 @@ body {
     margin: 0;
     background-color: var(--sec_700);
     overflow-x: hidden;
+    overflow-y: visible;
 }
 
 @font-face {
@@ -318,24 +319,6 @@ body {
     }
 }
 
-.tocheckbutton {
-    transition: all .2s cubic-bezier(0.67, 0.17, 0.40, 0.83);
-}
-
-.tocheckbutton svg {
+svg {
     transform: rotate(180deg);
-    transition: all .05s;
-}
-
-.sub-btn-container .button__circle,
-.button__circle {
-    width: 121px;
-    padding: 5px;
-    background: mediumseagreen;
-    transform: rotate(-180deg);
-}
-
-.tick {
-    color: var(--sec_800);
-    transition: all .9s;
 }

@@ -1,51 +1,37 @@
 "use strict";
-// ----------------------------------------- PARTIAL RENDER ----------------------------------------- //
-let main = document.getElementById("content");
-let loader = document.getElementById("loader");
 
 listenersLinks();
-
 document.getElementById("goto").click();
 
 async function partialRender(event) {
 
+    const main = document.getElementById("content");
+    const duration = 1000;
+    const delay = event.target.classList.contains("await-animation") ? 2000 : 0;
+    const url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
+
     event.preventDefault();
 
-    // Mostramos feedback visual de carga
-    const duration = 5000;
-    loader.classList.add("show-loader");
-    animateLoader(duration);
+    setTimeout(async () => {
+        const response = await fetch(url);
+        const content = await response.text();
 
-    //fetch .html
-    let url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
-    let response = await fetch(url);
-    let content = await response.text();
+        animateLoader(duration);
+        main.innerHTML = content;
 
-    //cargamos el main con el contenido y ocultamos el loader
-    await new Promise(resolve => setTimeout(resolve, duration));
-    main.innerHTML = content;
-    loader.classList.remove("show-loader");
+        switch (url) {
+            case "home.html":
+                startCarousel(1);
+                fillHome();
+                break;
+            case "form.html":
+                listenersForm();
+                renderRecaptcha();
+                break;
+        }
 
-
-    listenersLinks();
-
-    // Vuelve a asignar eventos para los formularios
-
-    // Renderizar reCAPTCHA
-    renderRecaptcha();
-
-    switch (url) {
-        case "home.html":
-            startCarousel(1);
-            fillHome();
-            break;
-        case "game.html":
-            listenerGame();
-            break;
-        case "form.html":
-            listenersForm();
-            break;
-    }
+        listenersLinks();
+    }, delay);
 }
 
 function listenersLinks() {
@@ -53,23 +39,24 @@ function listenersLinks() {
     let links = document.getElementsByClassName("link");
     let cardToggles = document.getElementsByClassName("card-toggle");
     let bannerInputs = document.getElementsByClassName("carousel-radio");
+    let playButton = document.getElementsByClassName("play-game-button");
+    let formButtons = document.getElementsByClassName("await-animation");
 
     for (let item of links) {
         item.addEventListener("click", partialRender);
     }
-
     for (let item of cardToggles) {
         item.addEventListener("click", updateCard);
     }
-
     for (let item of bannerInputs) {
         item.addEventListener("change", moveCarousel)
     }
-}
-
-function listenerGame() {
-    let play = document.getElementById("play-game");
-    play.addEventListener("click", playGame);
+    for (let item of playButton) {
+        item.addEventListener("click", playGame);
+    }
+    for (let item of formButtons) {
+        item.addEventListener("click", animateFormButtons);
+    }
 }
 
 async function updateCard(event) {
@@ -109,7 +96,13 @@ async function updateCard(event) {
 
 function animateLoader(duration) {
     const bar = document.getElementById("loader-bar");
+    const loader = document.getElementById("loader");
+    const body = document.getElementsByTagName("body");
+
+    window.scrollTo(0, 0);
+    body[0].style.overflowY = "hidden";
     bar.classList.add("loader-bar-animation");
+    loader.classList.add("show-loader");
     bar.style.animationDuration = duration;
 
     const element = document.getElementById("loader-number");
@@ -131,7 +124,9 @@ function animateLoader(duration) {
     requestAnimationFrame(update);
 
     setTimeout(() => {
+        body[0].style.overflowY = "visible";
         bar.classList.remove("loader-bar-animation");
+        loader.classList.remove("show-loader");
     }, duration + 600);
 }
 
@@ -175,44 +170,12 @@ function renderRecaptcha() {
     }
 }
 
-const tickMark = '<svg width="48" height="35" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="nonzero" d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65"></path></svg>';
+function animateFormButtons(event) {
 
-function buttonClick(button, innerText) {
-    const buttonText = button.querySelector('.tick');
+    const tickMark = '<svg width="48" height="35" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="nonzero" d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65"></path></svg>';
 
-    // Toggle between the tick mark and provided text
-    if (buttonText.innerHTML !== tickMark) {
-        buttonText.innerHTML = tickMark;
-    } else {
-        buttonText.innerHTML = innerText;
-    }
-
-    // Toggle the circle class on the button
-    button.classList.toggle('button__circle');
-
-}
-
-function buttonClickTimeOut(button, innerText) {
-    const buttonText = button.querySelector('.tick');
-
-    // Toggle between the tick mark and provided text
-    if (buttonText.innerHTML !== tickMark) {
-        buttonText.innerHTML = tickMark;
-    } else {
-        buttonText.innerHTML = innerText;
-    }
-
-    // Toggle the circle class on the button
-    button.classList.toggle('button__circle');
-
-    setTimeout(async () => {
-        const response = await fetch('home.html');
-        const content = await response.text();
-        main.innerHTML = content;
-        listenersLinks();
-        startCarousel(1);
-        fillHome();
-    }, 2000);
+    event.target.innerHTML = tickMark;
+    event.target.classList.add("submit-btn-focus");
 }
 
 function listenerCards() {
@@ -295,8 +258,8 @@ async function fillHome() {
 
     let games = document.getElementById("games");
 
-    let response = await fetch("cardsection.html");
-    let cardSectCode = await response.text();
+    let sectionResponse = await fetch("cardsection.html");
+    let cardSectCode = await sectionResponse.text();
 
     games.innerHTML = cardSectCode.repeat(6);
 
@@ -305,16 +268,15 @@ async function fillHome() {
 
     const titles = ["Recomendados", "En tu libreria", "Accion", "Carreras", "Aventura", "Deportes"];
 
+    let cardResponse = await fetch("add.html");
+    let card = await cardResponse.text();
+
     for (let i = 0; i < titles.length; i++) {
-
         let row = "";
-        for (let j = 0; j < titles.length; j++) {
-            let response = await fetch("add.html");
-            let card = await response.text();
 
+        for (let j = 0; j < titles.length; j++) {
             row += '<div class="card">' + card + '</div>';
         }
-
         titleElements[i].innerHTML = titles[i]
         rowsEl[i].innerHTML = row;
     }
@@ -323,7 +285,7 @@ async function fillHome() {
     let cardTitleElements = document.getElementsByClassName("card-title");
     let cardPriceElements = document.getElementsByClassName("card-price");
 
-    response = await fetch("img/games/paths.json");
+    let response = await fetch("img/games/paths.json");
     const paths = await response.json();
 
 

@@ -1,10 +1,8 @@
-/*╔══════━━━━━━────── • FORM • ──────━━━━━━══════╗*/
-
 .form-wrapped {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    height: auto; 
+    height: auto;
     padding-top: 20px;
     box-sizing: border-box;
 }
@@ -20,7 +18,7 @@
 
 .social-login {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 10px;
     padding: 0px;
 }
@@ -30,7 +28,8 @@
     height: 40px;
 }
 
-.google-btn, .facebook-btn {
+.google-btn,
+.facebook-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +50,7 @@
 }
 
 .google-btn:hover {
-    background-color: #e2e0e0; 
+    background-color: #e2e0e0;
 }
 
 .facebook-btn {
@@ -62,7 +61,7 @@
 }
 
 .facebook-btn:hover {
-    background-color: #354f87; 
+    background-color: #354f87;
 }
 
 .sec-btn {
@@ -82,13 +81,16 @@
     color: var(--pri_300)
 }
 
-.registration-form, .login-form {
+.registration-form,
+.login-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 .form-wrapped input {
+    width: 100%;
     padding: 10px;
     font-size: 14px;
     border-radius: 20px;
@@ -103,47 +105,54 @@
 
 .captcha {
     display: flex;
+    width: fit-content;
+    background-color: var(--white);
     justify-content: center;
-    margin-top: 20px;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 .submit-btn {
-    background-color: var(--pri_500);;
-    color: var(--sec_800);
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
     width: 150px;
-    font-family: 'Nunito';
-    font-weight: bold;
     margin-top: 10px;
-    position: relative;
+    transition: all .2s cubic-bezier(0.67, 0.17, 0.40, 0.83);
 }
 
 .submit-btn:hover {
-    background-color: var(--pri_300);;
+    background-color: var(--pri_300);
+}
+
+.submit-btn-focus {
+    width: 121px;
+    padding: 5px;
+    background: mediumseagreen;
+    transform: rotate(-180deg);
+}
+
+.submit-btn-focus:hover {
+    background-color: mediumseagreen;
 }
 
 .divider {
     text-align: center;
-    margin: 20px 0; 
-    font-size: 14px; 
-    position: relative; 
+    margin: 20px 0;
+    font-size: 14px;
+    position: relative;
     color: var(--pri_500);
 }
 
-.divider:before, .divider:after {
+.divider:before,
+.divider:after {
     content: '';
     position: absolute;
-    top: 50%; 
-    width: 40%; 
-    height: 1px; 
-    background-color: var(--pri_500); 
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: var(--pri_500);
 }
 
 .divider:before {
-    left: 0; 
+    left: 0;
 }
 
 .divider:after {
