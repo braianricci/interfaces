@@ -1,6 +1,6 @@
 <div class="form-wrapped">
     <!-- Formulario para iniciar sesion -->
-    <div id="login-form" class="form-container" style="display: none;">
+    <div class="form-container">
         <div class="social-login">
             <button class="google-btn">
                 <img src="img/svg/google.svg" alt="Google" class="social-icon"> Continuar con Google
@@ -19,12 +19,12 @@
             <input type="password" name="password" placeholder="Contraseña">
         </form>
         <div class="sub-btn-container">
-            <button class="submit-btn button link await-animation" data-url="home.html" onclick="buttonClickTimeOut(this)">Entrar</button>
+            <button class="submit-btn button link await-animation" data-url="home.html">Entrar</button>
         </div>
     </div>
 
     <!-- Formulario de registro -->
-    <div id="register-form" class="form-container">
+    <div class="form-container form-active">
         <div class="social-login">
             <button class="google-btn">
                 <img src="img/svg/google.svg" alt="Google" class="social-icon"> Continuar con Google
@@ -50,7 +50,7 @@
             </div>
         </form>
         <div class="sub-btn-container">
-            <button id="register" class="submit-btn button link await-animation" data-url="home.html" onclick="buttonClickTimeOut(this)">
+            <button id="register" class="submit-btn button link await-animation" data-url="home.html">
                 Registrarse
             </button>
         </div>

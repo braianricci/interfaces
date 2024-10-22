@@ -6,8 +6,8 @@ document.getElementById("goto").click();
 async function partialRender(event) {
 
     const main = document.getElementById("content");
-    const duration = 1000;
-    const delay = event.target.classList.contains("await-animation") ? 2000 : 0;
+    const duration = 3000;
+    const delay = event.target.classList.contains("await-animation") ? 1500 : 0;
     const url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
 
     event.preventDefault();
@@ -131,30 +131,44 @@ function animateLoader(duration) {
 }
 
 function listenersForm() {
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
+    /*  const loginForm = document.getElementById('login-form');
+     const registerForm = document.getElementById('register-form');
+ 
+     // Verificamos si existen los elementos antes de asignar eventos
+     if (loginForm && registerForm) {
+         // Almacenamos todos los botones para alternar formularios
+         const toggleButtons = document.querySelectorAll('.toggle-form');
+ 
+         toggleButtons.forEach(link => {
+             link.addEventListener('click', (e) => {
+                 e.preventDefault(); // Evitar que el botón recargue la página
+ 
+                 // Alternar visibilidad de los formularios
+                 if (loginForm.style.display === 'none' || loginForm.style.display === '') {
+                     loginForm.style.display = 'block'; // Mostrar el formulario de inicio de sesión
+                     registerForm.style.display = 'none'; // Ocultar el formulario de registro
+                 } else {
+                     loginForm.style.display = 'none'; // Ocultar el formulario de inicio de sesión
+                     registerForm.style.display = 'block'; // Mostrar el formulario de registro
+                 }
+             });
+         });
+     } else {
+         console.error("Los formularios no se encontraron.");
+     } */
 
-    // Verificamos si existen los elementos antes de asignar eventos
-    if (loginForm && registerForm) {
-        // Almacenamos todos los botones para alternar formularios
-        const toggleButtons = document.querySelectorAll('.toggle-form');
+    const toggleButtons = document.getElementsByClassName("toggle-form");
+    for (let button of toggleButtons) {
 
-        toggleButtons.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault(); // Evitar que el botón recargue la página
+        button.addEventListener("click", (event) => {
 
-                // Alternar visibilidad de los formularios
-                if (loginForm.style.display === 'none' || loginForm.style.display === '') {
-                    loginForm.style.display = 'block'; // Mostrar el formulario de inicio de sesión
-                    registerForm.style.display = 'none'; // Ocultar el formulario de registro
-                } else {
-                    loginForm.style.display = 'none'; // Ocultar el formulario de inicio de sesión
-                    registerForm.style.display = 'block'; // Mostrar el formulario de registro
-                }
-            });
+            event.preventDefault;
+
+            const forms = document.getElementsByClassName("form-container");
+            for (let form of forms) {
+                form.classList.toggle("form-active");
+            }
         });
-    } else {
-        console.error("Los formularios no se encontraron.");
     }
 }
 
@@ -196,29 +210,6 @@ function listenerCards() {
     }
 }
 
-/* function operateSidebar() {
-    const sidebar = document.getElementById("sidebar");
-
-    if (sidebarClosed) {
-        sidebar.style.width = "250px";
-        sidebarClosed = false;
-    } else {
-        sidebar.style.width = "0px";
-        sidebarClosed = true;
-    } 
-}*/
-
-/* function closeSidebar() {
-    document.getElementById("sidebar").style.width = "0";
-    sidebarClosed = true;
-}
-
-function toggleProd() {
-    document
-        .getElementById("sidebar-sub")
-        .classList.toggle("sidebar-sub-display");
-} */
-
 async function startCarousel(position) {
 
     const inputs = document.getElementById("carousel-inputs");
@@ -242,34 +233,38 @@ async function startCarousel(position) {
 function moveCarousel(event) {
 
     const carousel = document.getElementById("carousel");
-    const value = event.target.value;
-    const item = document.getElementById("carousel-" + value);
+    const allImg = document.getElementsByClassName("carousel-img");
+    const allItems = document.getElementsByClassName("carousel-item");
+    const img = document.getElementById("carousel-" + event.target.value);
+    const item = img.parentElement;
 
-    item.classList.add("carousel-animation");
-    setTimeout(() => {
-        item.classList.remove("carousel-animation");
-    }, 2000);
+    for (let i = 0; i < allItems.length; i++) {
+        allImg[i].classList.remove("carousel-animation");
+        allItems[i].classList.remove("carousel-active");
+    }
 
+    img.classList.add("carousel-animation");
+    item.classList.add("carousel-active");
 
     carousel.style.setProperty("--position", value);
 }
 
 async function fillHome() {
 
-    let games = document.getElementById("games");
+    const games = document.getElementById("games");
 
-    let sectionResponse = await fetch("cardsection.html");
-    let cardSectCode = await sectionResponse.text();
+    const sectionResponse = await fetch("cardsection.html");
+    const cardSectCode = await sectionResponse.text();
 
     games.innerHTML = cardSectCode.repeat(6);
 
-    let titleElements = games.querySelectorAll('.card-section-title');
-    let rowsEl = games.querySelectorAll('.card-row');
+    const titleElements = games.querySelectorAll('.card-section-title');
+    const rowsEl = games.querySelectorAll('.card-row');
 
     const titles = ["Recomendados", "En tu libreria", "Accion", "Carreras", "Aventura", "Deportes"];
 
-    let cardResponse = await fetch("add.html");
-    let card = await cardResponse.text();
+    const cardResponse = await fetch("add.html");
+    const card = await cardResponse.text();
 
     for (let i = 0; i < titles.length; i++) {
         let row = "";
@@ -281,13 +276,15 @@ async function fillHome() {
         rowsEl[i].innerHTML = row;
     }
 
-    let imgElements = document.getElementsByClassName("card-img");
-    let cardTitleElements = document.getElementsByClassName("card-title");
-    let cardPriceElements = document.getElementsByClassName("card-price");
+    const imgElements = document.getElementsByClassName("card-img");
+    const cardTitleElements = document.getElementsByClassName("card-title");
+    const cardPriceElements = document.getElementsByClassName("card-price");
 
-    let response = await fetch("img/games/paths.json");
-    const paths = await response.json();
+    const jsonResponse = await fetch("img/games/paths.json");
+    const paths = await jsonResponse.json();
 
+    const freeResponse = await fetch("play.html");
+    const code = await freeResponse.text();
 
     for (let i = 0; i < imgElements.length; i++) {
 
@@ -296,20 +293,17 @@ async function fillHome() {
         cardPriceElements[i].innerHTML = paths.images[i]['price'];
         if (paths.images[i]['price'] == "Free!") {
             let card = imgElements[i].closest('.card');
-            makeFree(card);
+            makeFree(card, code);
         }
     }
 
     listenersLinks();
 }
 
-async function makeFree(card) {
+function makeFree(card, code) {
 
     let title = card.querySelector('.card-title').innerHTML;
     let img = card.querySelector('.card-img').src;
-
-    let response = await fetch("play.html");
-    let code = await response.text();
 
     card.innerHTML = code;
 

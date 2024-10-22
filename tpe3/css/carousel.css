@@ -11,15 +11,24 @@
     --position: 1;
 }
 
+/* #carousel::after {
+    content: '';
+    position: absolute;
+    background-color: var(--black);
+    height: 300px;
+    width: 280px;
+    left: 0px;
+    opacity: 0.5;
+} */
+
 .carousel-item {
     position: absolute;
     width: 1090px;
     height: 300px;
     transition: all 0.5s ease-in;
-    opacity: 1;
+    opacity: 0.4;
 
     --reference: calc(var(--position) - var(--offset));
-    opacity: --reference;
     transform: rotateY(calc(-10deg * var(--reference))) translateX(calc(-1200px * var(--reference)));
 }
 
@@ -58,6 +67,10 @@
 .carousel-img {
     position: absolute;
     bottom: 0;
+}
+
+.carousel-active {
+    opacity: 1;
 }
 
 #carousel .card-button {
