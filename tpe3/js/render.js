@@ -6,8 +6,8 @@ document.getElementById("goto").click();
 async function partialRender(event) {
 
     const main = document.getElementById("content");
-    const duration = 3000;
-    const delay = event.target.classList.contains("await-animation") ? 1500 : 0;
+    const loadingTime = 3000;
+    const clickDelay = event.target.classList.contains("await-animation") ? 1500 : 0;
     const url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
 
     event.preventDefault();
@@ -16,7 +16,7 @@ async function partialRender(event) {
         const response = await fetch(url);
         const content = await response.text();
 
-        animateLoader(duration);
+        animateLoader(loadingTime);
         main.innerHTML = content;
 
         switch (url) {
@@ -31,7 +31,7 @@ async function partialRender(event) {
         }
 
         listenersLinks();
-    }, delay);
+    }, clickDelay);
 }
 
 function listenersLinks() {
@@ -234,9 +234,10 @@ function moveCarousel(event) {
 
     const carousel = document.getElementById("carousel");
     const allImg = document.getElementsByClassName("carousel-img");
-    const allItems = document.getElementsByClassName("carousel-item");
-    const img = document.getElementById("carousel-" + event.target.value);
-    const item = img.parentElement;
+    const allItems = document.getElementsByClassName("carousel-item-blackout");
+    const value = event.target.value;
+    const img = document.getElementById("carousel-" + value);
+    const item = img.parentElement.querySelector('.carousel-item-blackout');
 
     for (let i = 0; i < allItems.length; i++) {
         allImg[i].classList.remove("carousel-animation");

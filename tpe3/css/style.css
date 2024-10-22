@@ -40,7 +40,7 @@ body {
     font-family: 'Nunito', 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--white);
     margin: 0;
-    background-color: var(--sec_700);
+    background-color: var(--sec_600);
     overflow-x: hidden;
     overflow-y: visible;
 }

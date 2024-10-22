@@ -2,7 +2,7 @@
     display: flex;
     height: 400px;
     width: 100%;
-    background-color: var(--sec_600);
+    background-color: var(--sec_700);
 
     align-items: center;
     justify-content: center;
@@ -26,7 +26,6 @@
     width: 1090px;
     height: 300px;
     transition: all 0.5s ease-in;
-    opacity: 0.4;
 
     --reference: calc(var(--position) - var(--offset));
     transform: rotateY(calc(-10deg * var(--reference))) translateX(calc(-1200px * var(--reference)));
@@ -69,8 +68,19 @@
     bottom: 0;
 }
 
+.carousel-item-blackout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .carousel-active {
-    opacity: 1;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
 #carousel .card-button {
