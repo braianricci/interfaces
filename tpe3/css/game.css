@@ -2,7 +2,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-
 }
 
 main.game {
@@ -99,7 +98,6 @@ nav.game {
 .game button {
     background-color: var(--pri_500);
     color: black;
-    border: none;
     border-radius: 20px;
     padding: 10px 15px;
     margin-left: 10px;
@@ -169,7 +167,6 @@ button.icon-btn {
     align-items: center;
     width: auto;
     height: auto;
-    padding: none;
     cursor: pointer;
     background-color: transparent;
 }
@@ -178,6 +175,7 @@ button.icon-btn i {
     font-size: 20px;
     color: white;
     background-color: transparent;
+    margin: 0 4px;
 }
 
 button.icon-btn:hover {

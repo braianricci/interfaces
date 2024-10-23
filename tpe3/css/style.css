@@ -45,6 +45,10 @@ body {
     overflow-y: visible;
 }
 
+button span {
+    pointer-events: none;
+}
+
 @font-face {
     font-family: 'Lato';
     src: url(../fonts/Lato-Regular.ttf);
@@ -341,4 +345,10 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--sec_300);
+}
+
+/*╔══════━━━━━━────── • CANVAS • ──────━━━━━━══════╗*/
+#game-canvas {
+    display: none;
+    background-color: black;
 }
