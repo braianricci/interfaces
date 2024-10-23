@@ -15,8 +15,13 @@ class Ficha {
         this.ctx.closePath();
     }
 
-    isClicked() {
+    setPos(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 
-        return
+    isClicked(mouseX, mouseY) {
+        const distance = Math.sqrt((mouseX - this.x) ** 2 + (mouseY - this.y) ** 2);
+        return distance <= this.r;
     }
 }
