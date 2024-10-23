@@ -116,7 +116,8 @@
 .submit-btn {
     width: 150px;
     margin-top: 10px;
-    transition: all .2s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+    transition: all 0.4s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+    box-shadow: 3px 3px 5px 4px rgba(0, 0, 0, 0.0);
 }
 
 .submit-btn:hover {
@@ -163,4 +164,8 @@
 
 .form-active {
     display: block;
+}
+
+svg {
+    transform: rotate(180deg);
 }

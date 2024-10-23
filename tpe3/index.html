@@ -40,19 +40,17 @@
                 <button id="menu-btn" class="icon-btn">
                     <i class="fas fa-bars"></i>
                 </button>
-                <img src="img/logo.png" alt="Logo">
+                <img id="goto" src="img/logo.png" alt="Logo" class="link" data-url="home.html">
             </div>
-            <div class="search-bar">
+            <div id="search-bar" class="search-bar">
                 <input type="text" placeholder="¡Buscá tu próximo desafío!">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="icons">
-                <a id="goto" class="link" href="form.html">form</a>
-                <a id="" class="link" href="home.html">home</a>
-                <a id="" class="link" href="game.html">game</a>
                 <i class="fas fa-shopping-cart"></i>
                 <i class="fas fa-bell"></i>
-                <i class="fas fa-user"></i>
+                <i id="user-icon" class="fas fa-user link" data-url="form.html"></i>
+                <img id="user-avatar" src="img/avatar-user.png" alt="user avatar" class="link" data-url="form.html">
             </div>
         </div>
     </header>
@@ -60,9 +58,9 @@
     <!--╔══════━━━━━━────── • SIDEBAR • ──────━━━━━━══════╗-->
     <aside class="sidebar" id="sidebar">
         <div class="menu-categorias">
-            <a href="index.html" class="menu-item"><i class="fas fa-home"></i> Inicio</a>
-            <a href="#" class="menu-item"><i class="fas fa-user"></i> Mi cuenta</a>
-            <a href="#" class="menu-item"><i class="fas fa-gamepad"></i> Mis juegos</a>
+            <a href="home.html" class="menu-item link"><i class="fas fa-home"></i> Inicio</a>
+            <a href="form.html" class="menu-item link"><i class="fas fa-user"></i> Mi cuenta</a>
+            <a href="game.html" class="menu-item link"><i class="fas fa-gamepad"></i> Mis juegos</a>
             <a href="#" class="menu-item"><i class="fas fa-thumbs-up"></i> Populares</a>
             <a href="#" class="menu-item"><i class="fas fa-users"></i> Multijugador</a>
             <a href="#" class="menu-item"><i class="fas fa-football-ball"></i> Deportes</a>
@@ -70,14 +68,14 @@
             <a href="#" class="menu-item"><i class="fas fa-chess"></i> Cartas</a>
             <a href="#" class="menu-item"><i class="fas fa-car"></i> Carreras</a>
             <a href="#" class="menu-item"><i class="fas fa-chess-rook"></i> Tower</a>
-            <a href="#" class="menu-item"><i class="fas fa-bullseye"></i> Disparos</a>
+            <!--<a href="#" class="menu-item"><i class="fas fa-bullseye"></i> Disparos</a>
             <a href="#" class="menu-item"><i class="fas fa-futbol"></i> Fútbol</a>
             <a href="#" class="menu-item"><i class="fas fa-skull"></i> Terror</a>
             <a href="#" class="menu-item"><i class="fas fa-compass"></i> Aventura</a>
             <a href="#" class="menu-item"><i class="fas fa-key"></i> Escape</a>
             <a href="#" class="menu-item"><i class="fas fa-puzzle-piece"></i> Puzzle</a>
-            <a href="#" class="menu-item"><i class="fas fa-dice"></i> Dados</a>
-            <a href="form.html" class="menu-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesion</a>
+            <a href="#" class="menu-item"><i class="fas fa-dice"></i> Dados</a>-->
+            <a href="form.html" class="menu-item link"><i class="fas fa-arrow-right-from-bracket"></i> Cerrar sesion</a>
         </div>
     </aside>
 

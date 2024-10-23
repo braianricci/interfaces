@@ -165,13 +165,11 @@ nav.game {
 
 button.icon-btn {
     border: none;
-    display: inline-flex;
     justify-content: center;
     align-items: center;
     width: auto;
     height: auto;
-    padding: 0.5em;
-    border-radius: 50%;
+    padding: none;
     cursor: pointer;
     background-color: transparent;
 }
@@ -180,7 +178,6 @@ button.icon-btn i {
     font-size: 20px;
     color: white;
     background-color: transparent;
-    margin-right: 10px;
 }
 
 button.icon-btn:hover {

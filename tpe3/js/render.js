@@ -1,6 +1,7 @@
 "use strict";
 
 listenersLinks();
+initSidebar();
 document.getElementById("goto").click();
 
 async function partialRender(event) {
@@ -23,10 +24,15 @@ async function partialRender(event) {
             case "home.html":
                 startCarousel(1);
                 fillHome();
+                login(true);
                 break;
             case "form.html":
                 listenersForm();
                 renderRecaptcha();
+                login(false);
+                break;
+            case "game.html":
+                login(true);
                 break;
         }
 
@@ -314,18 +320,44 @@ function makeFree(card, code) {
     listenersLinks();
 }
 
-// Nueva función para mostrar y ocultar el sidebar
-const menuBtn = document.getElementById('menu-btn');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
+function initSidebar() {
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const sidebarLinks = sidebar.querySelectorAll('.link');
 
-menuBtn.addEventListener('click', function () {
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-});
+    menuBtn.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    });
 
-// Cerrar el menú si se hace clic en el overlay
-overlay.addEventListener('click', function () {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-});
+    // Cerrar el menú si se hace clic en el overlay
+    overlay.addEventListener('click', function () {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    for (let link of sidebarLinks) {
+        link.addEventListener('click', function () {
+            overlay.click();
+        })
+    }
+}
+
+function login(state) {
+
+    const avatar = document.getElementById("user-avatar");
+    const icon = document.getElementById("user-icon");
+    const searchBar = document.getElementById("search-bar");
+
+    if (state) {
+        icon.style.display = "none";
+        avatar.style.display = "block";
+        searchBar.style.display = "flex";
+
+    } else {
+        avatar.style.display = "none";
+        icon.style.display = "block";
+        searchBar.style.display = "none";
+    }
+}

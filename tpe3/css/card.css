@@ -1,6 +1,6 @@
 .card-section {
     display: block;
-    margin: 20px 10px 20px 10px;
+    margin: 10px 10px 10px 10px;
 }
 
 .card-row {
@@ -14,8 +14,9 @@
 
 .card-section-title {
     font-weight: normal;
-    margin: 0px 0px 0px 6px;
-    font-size: 32px;
+    margin: 0px 0px 0px 18px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .card {
@@ -29,7 +30,7 @@
     width: 140px;
     height: 85px;
     border-radius: 5px;
-    box-shadow: 2px 3px 5px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 5px 4px rgba(0, 0, 0, 0.6);
 }
 
 .card-deco {
@@ -39,7 +40,7 @@
     right: 0px;
     bottom: 0px;
     background: var(--pri_300);
-    box-shadow: -2px -3px 5px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: -2px -2px 3px 3px rgba(0, 0, 0, 0.5);
     border-top-left-radius: 10px;
     border-bottom-right-radius: 5px;
     display: flex;
