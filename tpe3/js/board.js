@@ -16,7 +16,6 @@ class Board {
 
         for (let column of this.matrix) {
             for (let tile of column) {
-                console.log(tile)
                 tile.draw();
             }
         }

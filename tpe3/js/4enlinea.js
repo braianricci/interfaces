@@ -5,7 +5,7 @@ function playGame() {
 
     let gameObjects = createGameObjects(ctx);
     let fichas = createFichas(ctx);
-    let mouseState = { x: 0, y: 0, clicked: false, hasFicha: false };
+    let mouseState = { x: 0, y: 0, clicked: false, hasFicha: false, ficha: null };
     let lastTime = 0;
 
     setup(canvas);
@@ -61,12 +61,17 @@ function addMouseEventListeners(canvas, fichas, mouseState) {
     canvas.addEventListener('mousedown', () => {
         mouseState.clicked = true;
         for (let ficha of fichas) {
-            ficha.isClicked(mouseState);
+            ficha.checkClick(mouseState);
         }
     });
 
     canvas.addEventListener('mouseup', () => {
         mouseState.clicked = false;
+        if (mouseState.hasFicha) {
+            mouseState.ficha.drop();
+            mouseState.ficha = null;
+            mouseState.hasFicha = false;
+        }
     });
 
     canvas.addEventListener('mousemove', (event) => {

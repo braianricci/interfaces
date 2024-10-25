@@ -23,16 +23,19 @@ class Ficha {
         }
     }
 
+    drop() {
+        this.dragged = false;
+    }
+
     setPos(x, y) {
         this.x = x;
         this.y = y;
     }
 
-    isClicked(mouseState) {
+    checkClick(mouseState) {
         const distance = Math.sqrt((mouseState.x - this.x) ** 2 + (mouseState.y - this.y) ** 2);
         this.dragged = distance <= this.r;
         mouseState.hasFicha = this.dragged;
-
-        console.log('clicked' + this.dragged + `, x: ${mouseState.x}, y: ${mouseState.y}, distance: ${distance}`);
+        mouseState.ficha = this;
     }
 }
