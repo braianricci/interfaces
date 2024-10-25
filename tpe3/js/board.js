@@ -3,7 +3,7 @@ class Board {
     constructor(rows, columns, ctx) {
         this.rows = rows;
         this.columns = columns;
-        this.matrix = Array.from({ length: rows }, () => Array(columns));
+        this.matrix = Array.from({ length: columns }, () => Array(rows));
         this.dropZones = [];
         this.ctx = ctx;
         this.fill();
@@ -14,8 +14,9 @@ class Board {
             hint.draw()
         }
 
-        for (let row of this.matrix) {
-            for (let tile of row) {
+        for (let column of this.matrix) {
+            for (let tile of column) {
+                console.log(tile)
                 tile.draw();
             }
         }
@@ -44,16 +45,16 @@ class Board {
         posX = 0
         posY = 52;
 
-        for (let x = 0; x < this.columns; x++) {
+        for (let y = 0; y < this.rows; y++) {
 
-            for (let y = 0; y < this.rows; y++) {
+            for (let x = 0; x < this.columns; x++) {
 
                 const tile = new Tile(posX, posY, 50, 50, 'blue', this.ctx);
                 this.matrix[x][y] = tile;
-                posY += 52;
+                posX += 52;
             }
-            posY = 52;
-            posX += 52;
+            posX = 0;
+            posY += 52;
         }
         console.log('done filling board');
     }

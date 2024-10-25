@@ -5,9 +5,6 @@ class Game {
         this.dragging = false;
     }
 
-    drawAll(collection) {
-    }
-
     dragStart() {
         alert(dragging);
         this.dragging = true;

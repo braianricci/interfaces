@@ -35,7 +35,7 @@ function playGame() {
 
 function createGameObjects(ctx) {
     let gameObjects = [];
-    gameObjects.push(new Board(4, 4, ctx))
+    gameObjects.push(new Board(6, 12, ctx))
     return gameObjects;
 }
 
