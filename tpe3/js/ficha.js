@@ -1,9 +1,12 @@
 class Ficha {
 
-    constructor(x, y, r, color, ctx) {
-        this.r = r;
-        this.x = x;
-        this.y = y;
+    constructor(x, y, config, color, ctx) {
+        this.config = config;
+        this.r = config["ficha-radio"];
+        this.restingX = x;
+        this.restingY = y;
+        this.x = this.restingX;
+        this.y = this.restingY;
         this.color = color;
         this.ctx = ctx;
         this.dragged = false;
@@ -23,8 +26,23 @@ class Ficha {
         }
     }
 
-    drop() {
+    letGo(dropZone) {
         this.dragged = false;
+        if (dropZone != null) {
+            this.fall(dropZone.getCenter());
+        } else {
+            this.resetPos();
+        }
+    }
+
+    fall(dropZonePos) {
+        this.x = dropZonePos.x;
+        this.y = dropZonePos.y + (this.config['tile-height'] + this.config['tile-spacing']) * this.config['board-rows']
+    }
+
+    resetPos() {
+        this.x = this.restingX;
+        this.y = this.restingY;
     }
 
     setPos(x, y) {

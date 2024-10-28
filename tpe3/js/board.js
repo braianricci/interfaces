@@ -1,9 +1,16 @@
 class Board {
 
-    constructor(rows, columns, ctx) {
-        this.rows = rows;
-        this.columns = columns;
-        this.matrix = Array.from({ length: columns }, () => Array(rows));
+    constructor(config, ctx) {
+        this.config = config;
+        this.rows = config['board-rows'];
+        this.columns = config['board-columns'];
+        this.tileWidth = config['tile-width'];
+        this.tileHeight = config['tile-height'];
+        this.tileSpacing = config['tile-spacing'];
+        let boardsize = ((this.tileWidth + this.tileSpacing) * this.columns) - this.tileSpacing;
+        this.boardX = (800 - boardsize) / 2;
+        this.boardY = config['board-y']
+        this.matrix = Array.from({ length: this.columns }, () => Array(this.rows));
         this.dropZones = [];
         this.ctx = ctx;
         this.fill();
@@ -26,34 +33,38 @@ class Board {
     }
 
     checkDropZones(mouseState) {
+        let hovered = false;
+
         for (let hint of this.dropZones) {
-            hint.isHoveredWithFicha(mouseState);
+            if (!hovered) {
+                hovered = hint.isHoveredWithFicha(mouseState);
+            }
         }
     }
 
     fill() {
-        let posX = 0;
-        let posY = 0;
+        let posX = this.boardX;
+        let posY = this.boardY;
 
         for (let x = 0; x < this.columns; x++) {
 
-            const hint = new Hint(posX, posY, 50, 50, 'grey', this.ctx);
+            const hint = new Hint(posX, posY, this.tileWidth, this.tileHeight, 'grey', this.ctx);
             this.dropZones.push(hint);
-            posX += 52;
+            posX += this.tileWidth + this.tileSpacing;
         }
-        posX = 0
-        posY = 52;
+        posX = this.boardX;
+        posY = this.boardY + this.tileHeight + this.tileSpacing;
 
         for (let y = 0; y < this.rows; y++) {
 
             for (let x = 0; x < this.columns; x++) {
 
-                const tile = new Tile(posX, posY, 50, 50, 'blue', this.ctx);
+                const tile = new Tile(posX, posY, this.tileWidth, this.tileHeight, 'blue', this.ctx);
                 this.matrix[x][y] = tile;
-                posX += 52;
+                posX += this.tileWidth + this.tileSpacing;
             }
-            posX = 0;
-            posY += 52;
+            posX = this.boardX;
+            posY += this.tileHeight + this.tileSpacing;
         }
         console.log('done filling board');
     }

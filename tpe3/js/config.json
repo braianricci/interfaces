@@ -1,0 +1,12 @@
+{
+    "tile-width": 50,
+    "tile-height": 50,
+    "tile-spacing": 3,
+    "ficha-radio": 30,
+    "player1-color": "red",
+    "player2-color": "green",
+    "board-rows": 6,
+    "board-columns": 12,
+    "board-x": 225,
+    "board-y": 200
+}

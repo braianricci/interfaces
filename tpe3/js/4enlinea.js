@@ -1,11 +1,18 @@
-function playGame() {
+async function loadConfig() {
+    const response = await fetch('js/config.json');
+    const config = await response.json();
+
+    playGame(config);
+}
+
+function playGame(config) {
 
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
 
-    let gameObjects = createGameObjects(ctx);
-    let fichas = createFichas(ctx);
-    let mouseState = { x: 0, y: 0, clicked: false, hasFicha: false, ficha: null };
+    let gameObjects = createGameObjects(config, ctx);
+    let fichas = createFichas(config, ctx);
+    let mouseState = { x: 0, y: 0, hasFicha: false, ficha: null, dropZone: null };
     let lastTime = 0;
 
     setup(canvas);
@@ -25,23 +32,26 @@ function playGame() {
     function gameLoop(timestamp) {
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
+
         update(deltaTime);
         draw();
+
         requestAnimationFrame(gameLoop);
     }
 
     requestAnimationFrame(gameLoop);
 }
 
-function createGameObjects(ctx) {
+function createGameObjects(config, ctx) {
     let gameObjects = [];
-    gameObjects.push(new Board(6, 12, ctx))
+    gameObjects.push(new Board(config, ctx))
     return gameObjects;
 }
 
-function createFichas(ctx) {
+function createFichas(config, ctx) {
     let fichas = [];
-    fichas.push(new Ficha(100, 100, 30, 'red', ctx));
+    fichas.push(new Ficha(100, 100, config, config['player1-color'], ctx));
+    fichas.push(new Ficha(700, 100, config, config['player2-color'], ctx));
     return fichas;
 }
 
@@ -59,16 +69,16 @@ function setup(canvas) {
 function addMouseEventListeners(canvas, fichas, mouseState) {
 
     canvas.addEventListener('mousedown', () => {
-        mouseState.clicked = true;
         for (let ficha of fichas) {
-            ficha.checkClick(mouseState);
+            if (!mouseState.hasFicha) {
+                ficha.checkClick(mouseState);
+            }
         }
     });
 
     canvas.addEventListener('mouseup', () => {
-        mouseState.clicked = false;
         if (mouseState.hasFicha) {
-            mouseState.ficha.drop();
+            mouseState.ficha.letGo(mouseState.dropZone);
             mouseState.ficha = null;
             mouseState.hasFicha = false;
         }

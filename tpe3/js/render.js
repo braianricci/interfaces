@@ -57,7 +57,7 @@ function listenersLinks() {
         item.addEventListener("change", moveCarousel)
     }
     for (let item of playButton) {
-        item.addEventListener("click", playGame);
+        item.addEventListener("click", loadConfig);
     }
     for (let item of formButtons) {
         item.addEventListener("click", animateFormButtons);
