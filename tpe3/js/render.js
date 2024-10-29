@@ -7,7 +7,7 @@ document.getElementById("goto").click();
 async function partialRender(event) {
 
     const main = document.getElementById("content");
-    const loadingTime = 1000;
+    const loadingTime = 500;
     const clickDelay = event.target.classList.contains("await-animation") ? 1500 : 0;
     const url = event.target.getAttribute("data-url") || event.target.getAttribute("href");
 

@@ -14,14 +14,22 @@ class Ficha {
 
     draw() {
         this.ctx.fillStyle = this.color;
-        this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        this.ctx.fill();
-        this.ctx.closePath();
+        if (this.dragged) {
+            this.ctx.beginPath();
+            this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.closePath();
+            console.log('here')
+        } else {
+            this.ctx.beginPath();
+            this.ctx.ellipse(this.x, this.y, this.r, this.r / 2, 0, 0, 2 * Math.PI);
+            this.ctx.fill();
+            this.ctx.stroke();
+        }
     }
 
-    update(deltaTime, mouseState) {
-        if (mouseState.hasFicha && this.dragged) {
+    update(deltaTime) {
+        if (this.dragged) {
             this.setPos(mouseState.x, mouseState.y);
         }
     }
@@ -50,10 +58,12 @@ class Ficha {
         this.y = y;
     }
 
-    checkClick(mouseState) {
-        const distance = Math.sqrt((mouseState.x - this.x) ** 2 + (mouseState.y - this.y) ** 2);
+    checkClick(mouse) {
+        const distance = Math.sqrt((mouse.x - this.x) ** 2 + (mouse.y - this.y) ** 2);
         this.dragged = distance <= this.r;
-        mouseState.hasFicha = this.dragged;
-        mouseState.ficha = this;
+    }
+
+    getPos() {
+        return { x: this.x, y: this.y }
     }
 }

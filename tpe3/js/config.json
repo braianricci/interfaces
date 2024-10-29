@@ -7,6 +7,5 @@
     "player2-color": "green",
     "board-rows": 6,
     "board-columns": 12,
-    "board-x": 225,
     "board-y": 200
 }

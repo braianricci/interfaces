@@ -9,50 +9,24 @@ function playGame(config) {
 
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
-
-    let gameObjects = createGameObjects(config, ctx);
-    let fichas = createFichas(config, ctx);
-    let mouseState = { x: 0, y: 0, hasFicha: false, ficha: null, dropZone: null };
+    const gameState = new GameState(config, ctx);
     let lastTime = 0;
 
     setup(canvas);
-    addMouseEventListeners(canvas, fichas, mouseState);
-
-    function update(deltaTime) {
-        gameObjects.forEach(obj => obj.update(deltaTime, mouseState));
-        fichas.forEach(obj => obj.update(deltaTime, mouseState));
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        gameObjects.forEach(obj => obj.draw());
-        fichas.forEach(obj => obj.draw());
-    }
+    addMouseEventListeners(canvas, gameState);
 
     function gameLoop(timestamp) {
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
 
-        update(deltaTime);
-        draw();
+        gameState.update(deltaTime);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        gameState.drawAll();
 
         requestAnimationFrame(gameLoop);
     }
 
     requestAnimationFrame(gameLoop);
-}
-
-function createGameObjects(config, ctx) {
-    let gameObjects = [];
-    gameObjects.push(new Board(config, ctx))
-    return gameObjects;
-}
-
-function createFichas(config, ctx) {
-    let fichas = [];
-    fichas.push(new Ficha(100, 100, config, config['player1-color'], ctx));
-    fichas.push(new Ficha(700, 100, config, config['player2-color'], ctx));
-    return fichas;
 }
 
 function setup(canvas) {
@@ -66,27 +40,17 @@ function setup(canvas) {
     canvas.height = 600;
 }
 
-function addMouseEventListeners(canvas, fichas, mouseState) {
+function addMouseEventListeners(canvas, gameState) {
 
     canvas.addEventListener('mousedown', () => {
-        for (let ficha of fichas) {
-            if (!mouseState.hasFicha) {
-                ficha.checkClick(mouseState);
-            }
-        }
-    });
+        gameState.click();
+    })
 
-    canvas.addEventListener('mouseup', () => {
-        if (mouseState.hasFicha) {
-            mouseState.ficha.letGo(mouseState.dropZone);
-            mouseState.ficha = null;
-            mouseState.hasFicha = false;
-        }
-    });
+    canvas.addEventListener('mouseup', gameState.mouseUp);
 
     canvas.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
-        mouseState.x = event.clientX - rect.left;
-        mouseState.y = event.clientY - rect.top;
+        gameState.mouse.x = event.clientX - rect.left;
+        gameState.mouse.y = event.clientY - rect.top;
     });
 }

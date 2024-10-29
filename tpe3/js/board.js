@@ -12,6 +12,7 @@ class Board {
         this.boardY = config['board-y']
         this.matrix = Array.from({ length: this.columns }, () => Array(this.rows));
         this.dropZones = [];
+        this.hoveredDropZone = null;
         this.ctx = ctx;
         this.fill();
     }
@@ -28,18 +29,37 @@ class Board {
         }
     }
 
-    update(deltaTime, mouseState) {
-        this.checkDropZones(mouseState);
+    update(deltaTime, mouse, selectedFicha) {
+        if (selectedFicha) {
+            this.checkDropZones(mouse);
+        }
     }
 
-    checkDropZones(mouseState) {
-        let hovered = false;
-
-        for (let hint of this.dropZones) {
-            if (!hovered) {
-                hovered = hint.isHoveredWithFicha(mouseState);
+    checkDropZones(mouse) {
+        for (let dropZone of this.dropZones) {
+            if (this.hoveredDropZone == null) {
+                this.hoveredDropZone = dropZone.isHoveredWithFicha(mouse);
             }
         }
+    }
+
+    isInDropZone(ficha) {
+        const fichaX = ficha.getPos().x;
+        const fichaY = ficha.getPos().y;
+        const drop = this.hoveredDropZone.getPos();
+
+        if (fichaX > drop.x && fichaX < drop.x + drop.w && fichaY > drop.y && fichaY < drop.y + drop.h) {
+            this.addFicha(ficha);
+        } else {
+            ficha.resetPos();
+        }
+    }
+
+    // TERMINAR ESTO POR FAVOR POR EL AMOR DE DIOS
+    addFicha(ficha) {
+        const column = this.hoveredDropZone.getColumn();
+        const firstEmpty = checkFirstLibre(column);
+        this.matrix[firstEmpty][column].setFicha(ficha);
     }
 
     fill() {
@@ -48,7 +68,7 @@ class Board {
 
         for (let x = 0; x < this.columns; x++) {
 
-            const hint = new Hint(posX, posY, this.tileWidth, this.tileHeight, 'grey', this.ctx);
+            const hint = new DropZone(posX, posY, this.tileWidth, this.tileHeight, 'grey', x, this.ctx);
             this.dropZones.push(hint);
             posX += this.tileWidth + this.tileSpacing;
         }
