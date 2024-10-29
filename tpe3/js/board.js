@@ -13,6 +13,7 @@ class Board {
         this.matrix = Array.from({ length: this.columns }, () => Array(this.rows));
         this.dropZones = [];
         this.hoveredDropZone = null;
+        this.winner = null;
         this.ctx = ctx;
         this.fill();
     }
@@ -29,37 +30,65 @@ class Board {
         }
     }
 
-    update(deltaTime, mouse, selectedFicha) {
-        if (selectedFicha) {
-            this.checkDropZones(mouse);
+    update(deltaTime, mouse, isFichaSelected) {
+        if (this.winner == null) {
+            if (isFichaSelected) {
+                this.checkDropZones(mouse);
+            }
+            return true;
+        } else {
+            return false;
         }
     }
 
     checkDropZones(mouse) {
-        for (let dropZone of this.dropZones) {
+        this.hoveredDropZone = null;
+        for (const zone of this.dropZones) {
+            zone.setColor('grey');
             if (this.hoveredDropZone == null) {
-                this.hoveredDropZone = dropZone.isHoveredWithFicha(mouse);
+                this.hoveredDropZone = zone.isHoveredWithFicha(mouse);
             }
         }
     }
 
-    isInDropZone(ficha) {
-        const fichaX = ficha.getPos().x;
-        const fichaY = ficha.getPos().y;
-        const drop = this.hoveredDropZone.getPos();
+    dropZoneisBeingHovered(ficha) {
+        //const fichaX = ficha.getPos().x;
+        //const fichaY = ficha.getPos().y;
+        //const drop = this.hoveredDropZone.getPos();
 
-        if (fichaX > drop.x && fichaX < drop.x + drop.w && fichaY > drop.y && fichaY < drop.y + drop.h) {
+        //if (fichaX > drop.x && fichaX < drop.x + drop.w && fichaY > drop.y && fichaY < drop.y + drop.h) {
+        if (this.hoveredDropZone != null) {
             this.addFicha(ficha);
+            return true;
+        } else {
+            ficha.resetPos();
+            return false;
+        }
+    }
+
+    addFicha(ficha) {
+        const column = this.hoveredDropZone.getColumn();
+        const firstEmpty = this.searchFreeTile(column);
+
+        this.hoveredDropZone.setColor('grey');
+        this.hoveredDropZone = null;
+
+        if (firstEmpty != -1) {
+            this.matrix[column][firstEmpty].setFicha(ficha);
+            ficha.discard();
+            this.checkPosibleWin(column, firstEmpty, ficha.getColor());
         } else {
             ficha.resetPos();
         }
     }
 
-    // TERMINAR ESTO POR FAVOR POR EL AMOR DE DIOS
-    addFicha(ficha) {
-        const column = this.hoveredDropZone.getColumn();
-        const firstEmpty = checkFirstLibre(column);
-        this.matrix[firstEmpty][column].setFicha(ficha);
+    searchFreeTile(column) {
+        for (let x = this.matrix[column].length - 1; x >= 0; x--) {
+            if (this.matrix[column][x].getFicha() == null) {
+                return x;
+            }
+        }
+        return -1;
     }
 
     fill() {
@@ -86,6 +115,37 @@ class Board {
             posX = this.boardX;
             posY += this.tileHeight + this.tileSpacing;
         }
-        console.log('done filling board');
+    }
+
+    checkPosibleWin(column, row, color) {
+        const countNeeded = this.config['count-needed'];
+        this.recursiveLineCheck(column, row, -1, -1, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, 0, -1, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, 1, -1, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, -1, 0, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, 1, 0, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, -1, 1, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, 0, 1, countNeeded, 1, color);
+        this.recursiveLineCheck(column, row, 1, 1, countNeeded, 1, color);
+    }
+
+    recursiveLineCheck(x, y, dirX, dirY, countNeeded, currentCount, color) {
+        const newX = x + dirX;
+        const newY = y + dirY;
+        const cell = this.cellExist(newX, newY) ? this.matrix[newX][newY] : null;
+        const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
+
+        if (newColor == color) {
+            currentCount++;
+            if (countNeeded == currentCount) {
+                this.winner = color;
+            } else {
+                this.recursiveLineCheck(newX, newY, dirX, dirY, countNeeded, currentCount, color);
+            }
+        }
+    }
+
+    cellExist(x, y) {
+        return x >= 0 && x < this.matrix.length && y >= 0 && y < this.matrix[0].length
     }
 }

@@ -2,10 +2,11 @@
     "tile-width": 50,
     "tile-height": 50,
     "tile-spacing": 3,
-    "ficha-radio": 30,
+    "ficha-radio": 25,
     "player1-color": "red",
     "player2-color": "green",
     "board-rows": 6,
-    "board-columns": 12,
-    "board-y": 200
+    "board-columns": 7,
+    "board-y": 200,
+    "count-needed": 4
 }

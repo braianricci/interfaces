@@ -13,12 +13,11 @@ class DropZone extends Tile {
             this.setColor('yellow');
             return this;
         } else {
-            this.setColor('grey');
             return null;
         }
     }
 
-    getCenter() {
-        return { x: this.x + this.width / 2, y: this.y + this.height / 2 }
+    getColumn() {
+        return this.column;
     }
 }

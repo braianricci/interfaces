@@ -19,11 +19,15 @@ function playGame(config) {
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
 
-        gameState.update(deltaTime);
+        const continueGame = gameState.update(deltaTime);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        gameState.drawAll();
+        gameState.draw();
 
-        requestAnimationFrame(gameLoop);
+        if (continueGame) {
+            requestAnimationFrame(gameLoop);
+        } else {
+            console.log('we have a winner: ' + gameState.board.winner)
+        }
     }
 
     requestAnimationFrame(gameLoop);
@@ -44,9 +48,11 @@ function addMouseEventListeners(canvas, gameState) {
 
     canvas.addEventListener('mousedown', () => {
         gameState.click();
-    })
+    });
 
-    canvas.addEventListener('mouseup', gameState.mouseUp);
+    canvas.addEventListener('mouseup', () => {
+        gameState.mouseUp();
+    });
 
     canvas.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
