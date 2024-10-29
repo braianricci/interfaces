@@ -58,8 +58,7 @@ class Board {
 
         //if (fichaX > drop.x && fichaX < drop.x + drop.w && fichaY > drop.y && fichaY < drop.y + drop.h) {
         if (this.hoveredDropZone != null) {
-            this.addFicha(ficha);
-            return true;
+            return this.addFicha(ficha);
         } else {
             ficha.resetPos();
             return false;
@@ -75,10 +74,12 @@ class Board {
 
         if (firstEmpty != -1) {
             this.matrix[column][firstEmpty].setFicha(ficha);
-            ficha.discard();
             this.checkPosibleWin(column, firstEmpty, ficha.getColor());
+            ficha.discard();
+            return true;
         } else {
             ficha.resetPos();
+            return false;
         }
     }
 
@@ -132,7 +133,7 @@ class Board {
     recursiveLineCheck(x, y, dirX, dirY, countNeeded, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
-        const cell = this.cellExist(newX, newY) ? this.matrix[newX][newY] : null;
+        const cell = this.matrix[newX][newY];
         const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
 
         if (newColor == color) {
@@ -143,9 +144,5 @@ class Board {
                 this.recursiveLineCheck(newX, newY, dirX, dirY, countNeeded, currentCount, color);
             }
         }
-    }
-
-    cellExist(x, y) {
-        return x >= 0 && x < this.matrix.length && y >= 0 && y < this.matrix[0].length
     }
 }
