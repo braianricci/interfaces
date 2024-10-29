@@ -10,7 +10,7 @@ class DropZone extends Tile {
         const compareY = mouse.y > this.y && mouse.y < this.y + 50;
 
         if (compareX && compareY) {
-            this.setColor('yellow');
+            this.highlight(true);
             return this;
         } else {
             return null;
@@ -19,5 +19,10 @@ class DropZone extends Tile {
 
     getColumn() {
         return this.column;
+    }
+
+    highlight(on) {
+        const color = on ? 'yellow' : 'grey';
+        this.setColor(color);
     }
 }

@@ -44,7 +44,7 @@ class Board {
     checkDropZones(mouse) {
         this.hoveredDropZone = null;
         for (const zone of this.dropZones) {
-            zone.setColor('grey');
+            zone.highlight(false);
             if (this.hoveredDropZone == null) {
                 this.hoveredDropZone = zone.isHoveredWithFicha(mouse);
             }
@@ -52,11 +52,6 @@ class Board {
     }
 
     checkForHover(ficha) {
-        //const fichaX = ficha.getPos().x;
-        //const fichaY = ficha.getPos().y;
-        //const drop = this.hoveredDropZone.getPos();
-
-        //if (fichaX > drop.x && fichaX < drop.x + drop.w && fichaY > drop.y && fichaY < drop.y + drop.h) {
         if (this.hoveredDropZone != null) {
             return this.addFicha(ficha);
         } else {
@@ -134,6 +129,9 @@ class Board {
     recursiveLineCheck(x, y, dirX, dirY, winCount, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
+        if (newX < 0 || newX >= this.matrix.length || newY < 0 || newY >= this.matrix[0].length) {
+            return;
+        }
         const cell = this.matrix[newX][newY];
         const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
 
