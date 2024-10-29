@@ -51,7 +51,7 @@ class Board {
         }
     }
 
-    dropZoneisBeingHovered(ficha) {
+    checkForHover(ficha) {
         //const fichaX = ficha.getPos().x;
         //const fichaY = ficha.getPos().y;
         //const drop = this.hoveredDropZone.getPos();
@@ -119,18 +119,19 @@ class Board {
     }
 
     checkPosibleWin(column, row, color) {
-        const countNeeded = this.config['count-needed'];
-        this.recursiveLineCheck(column, row, -1, -1, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, 0, -1, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, 1, -1, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, -1, 0, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, 1, 0, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, -1, 1, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, 0, 1, countNeeded, 1, color);
-        this.recursiveLineCheck(column, row, 1, 1, countNeeded, 1, color);
+        const winCount = this.config['win-count'];
+        const directions = [
+            { x: -1, y: -1 }, { x: 0, y: -1 }, { x: 1, y: -1 },
+            { x: -1, y: 0 }, { x: 1, y: 0 },
+            { x: -1, y: 1 }, { x: 0, y: 1 }, { x: 1, y: 1 }
+        ];
+
+        for (const { x, y } of directions) {
+            this.recursiveLineCheck(column, row, x, y, winCount, 1, color);
+        }
     }
 
-    recursiveLineCheck(x, y, dirX, dirY, countNeeded, currentCount, color) {
+    recursiveLineCheck(x, y, dirX, dirY, winCount, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
         const cell = this.matrix[newX][newY];
@@ -138,10 +139,10 @@ class Board {
 
         if (newColor == color) {
             currentCount++;
-            if (countNeeded == currentCount) {
+            if (winCount == currentCount) {
                 this.winner = color;
             } else {
-                this.recursiveLineCheck(newX, newY, dirX, dirY, countNeeded, currentCount, color);
+                this.recursiveLineCheck(newX, newY, dirX, dirY, winCount, currentCount, color);
             }
         }
     }

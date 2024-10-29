@@ -8,5 +8,5 @@
     "board-rows": 6,
     "board-columns": 7,
     "board-y": 200,
-    "count-needed": 4
+    "win-count": 4
 }

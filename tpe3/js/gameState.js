@@ -45,7 +45,7 @@ class GameState {
 
     mouseUp() {
         if (this.selectedFicha != null) {
-            this.playerOneTurn = this.board.dropZoneisBeingHovered(this.selectedFicha) ? !this.playerOneTurn : this.playerOneTurn;
+            this.playerOneTurn = this.board.checkForHover(this.selectedFicha) ? !this.playerOneTurn : this.playerOneTurn;
             this.selectedFicha.setDragState(false);
             this.selectedFicha = null;
         }
