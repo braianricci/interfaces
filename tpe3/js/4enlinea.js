@@ -12,7 +12,7 @@ function playGame(config) {
     const gameState = new GameState(config, ctx);
     let lastTime = 0;
 
-    setup(canvas);
+    setup(canvas, config);
     addMouseEventListeners(canvas, gameState);
 
     function gameLoop(timestamp) {
@@ -33,15 +33,15 @@ function playGame(config) {
     requestAnimationFrame(gameLoop);
 }
 
-function setup(canvas) {
+function setup(canvas, config) {
     const img = document.getElementById('game-img');
     const button = document.getElementById('play-game-button');
 
     img.style.display = 'none';
     button.style.display = 'none';
     canvas.style.display = 'block'
-    canvas.width = 800;
-    canvas.height = 600;
+    canvas.width = config['canvas-width'];
+    canvas.height = config['canvas-height'];
 }
 
 function addMouseEventListeners(canvas, gameState) {

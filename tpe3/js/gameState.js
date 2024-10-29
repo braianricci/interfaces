@@ -14,9 +14,10 @@ class GameState {
         let num = config['board-rows'] * config['board-columns']
         num = (num + 1) / 2 | 0; //bitwise operator para deshacerse de los decimales, redondeando para arriba;
 
+        //deshardcodear las coordenadas pls
         for (let i = 0; i < num; i++) {
-            fichas.push(new Ficha(100, 500 - (i * 10), config, config['player1-color'], ctx));
-            fichas.push(new Ficha(700, 500 - (i * 10), config, config['player2-color'], ctx));
+            fichas.push(new Ficha(100, 300 - (i * 6), config, config['player1-color'], ctx));
+            fichas.push(new Ficha(540, 300 - (i * 6), config, config['player2-color'], ctx));
         }
 
         return fichas;

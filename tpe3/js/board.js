@@ -8,7 +8,7 @@ class Board {
         this.tileHeight = config['tile-height'];
         this.tileSpacing = config['tile-spacing'];
         let boardsize = ((this.tileWidth + this.tileSpacing) * this.columns) - this.tileSpacing;
-        this.boardX = (800 - boardsize) / 2;
+        this.boardX = (config['canvas-width'] - boardsize) / 2;
         this.boardY = config['board-y']
         this.matrix = Array.from({ length: this.columns }, () => Array(this.rows));
         this.dropZones = [];
