@@ -1,14 +1,14 @@
 {
-    "canvas-width": 640,
-    "canvas-height": 360,
-    "tile-width": 30,
-    "tile-height": 30,
-    "tile-spacing": 2,
-    "ficha-radio": 14,
+    "canvas-width": 320,
+    "canvas-height": 180,
+    "tile-width": 16,
+    "tile-height": 16,
+    "tile-spacing": 1,
+    "ficha-radio": 8,
     "player1-color": "red",
     "player2-color": "green",
-    "board-rows": 6,
-    "board-columns": 7,
-    "board-y": 100,
+    "board-rows": 7,
+    "board-columns": 8,
+    "board-y": 5,
     "win-count": 4
 }

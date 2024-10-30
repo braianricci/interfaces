@@ -7,6 +7,7 @@ class GameState {
         this.selectedFicha = null;
         this.hoveredDropZone = null;
         this.playerOneTurn = true;
+        this.ctx = ctx;
     }
 
     createFichas(config, ctx) {
@@ -16,8 +17,8 @@ class GameState {
 
         //deshardcodear las coordenadas pls
         for (let i = 0; i < num; i++) {
-            fichas.push(new Ficha(100, 300 - (i * 6), config, config['player1-color'], ctx));
-            fichas.push(new Ficha(540, 300 - (i * 6), config, config['player2-color'], ctx));
+            fichas.push(new Ficha(85, 137 - (i * 3), config, config['player1-color'], ctx));
+            fichas.push(new Ficha(235, 137 - (i * 3), config, config['player2-color'], ctx));
         }
 
         return fichas;

@@ -6,8 +6,8 @@ class DropZone extends Tile {
     }
 
     isHoveredWithFicha(mouse) {
-        const compareX = mouse.x > this.x && mouse.x < this.x + 50;
-        const compareY = mouse.y > this.y && mouse.y < this.y + 50;
+        const compareX = mouse.x > this.x && mouse.x < this.x + this.width;
+        const compareY = mouse.y > this.y && mouse.y < this.y + this.height;
 
         if (compareX && compareY) {
             this.highlight(true);

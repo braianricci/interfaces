@@ -10,6 +10,7 @@ function playGame(config) {
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
     const gameState = new GameState(config, ctx);
+    const graphics = new Graphics(config, ctx);
     let lastTime = 0;
 
     setup(canvas, config);
@@ -21,6 +22,7 @@ function playGame(config) {
 
         const continueGame = gameState.update(deltaTime);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        graphics.draw();
         gameState.draw();
 
         if (continueGame) {
@@ -56,7 +58,10 @@ function addMouseEventListeners(canvas, gameState) {
 
     canvas.addEventListener('mousemove', (event) => {
         const rect = canvas.getBoundingClientRect();
-        gameState.mouse.x = event.clientX - rect.left;
-        gameState.mouse.y = event.clientY - rect.top;
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        gameState.mouse.x = (event.clientX - rect.left) * scaleX;
+        gameState.mouse.y = (event.clientY - rect.top) * scaleY;
     });
 }

@@ -351,4 +351,8 @@ button span {
 #game-canvas {
     display: none;
     background-color: black;
+    image-rendering: pixelated;
+    height: 700px;
+
+
 }
