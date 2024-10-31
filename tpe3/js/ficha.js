@@ -1,5 +1,5 @@
 class Ficha {
-
+    // Construye un objeto que encapsula toda la lógica de interacción y representación visual de una pieza en el juego
     constructor(x, y, config, color, ctx) {
         this.config = config;
         this.r = config["ficha-radio"];
@@ -17,24 +17,30 @@ class Ficha {
         this.acc = 555;
         this.tileY = 0;
     }
-
+    
+    // Emplea el contexto del lienzo para dibujar las piezas del juego de acuerdo a su estado particular
     draw() {
         this.ctx.fillStyle = this.color;
         if (this.dragged || !this.selectable) {
             this.ctx.drawImage(this.image, this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
-            /*             this.ctx.beginPath();
-                        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-                        this.ctx.fill();
-                        this.ctx.closePath(); */
+            /*          
+            this.ctx.beginPath();
+            this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.closePath();
+            */
         } else {
             this.ctx.drawImage(this.image, this.x - this.r, this.y - this.r, this.r * 2, this.r);
-            /*             this.ctx.beginPath();
-                        this.ctx.ellipse(this.x, this.y, this.r, this.r / 2, 0, 0, 2 * Math.PI);
-                        this.ctx.fill();
-                        this.ctx.stroke(); */
+            /*              
+            this.ctx.beginPath();
+            this.ctx.ellipse(this.x, this.y, this.r, this.r / 2, 0, 0, 2 * Math.PI);
+            this.ctx.fill();
+            this.ctx.stroke(); 
+            */
         }
     }
 
+    // Actualiza la posición de una pieza que está siendo arrastrada en el lienzo
     update(deltaTime, mouse) {
         if (this.dragged) {
             this.setPos(mouse.x, mouse.y);
@@ -61,40 +67,48 @@ class Ficha {
         return image;
     }
 
+    // Determina la posición final que adoptará una pieza que ingresa al tablero del juego (por qué se ve como el set??)
     fall(x, y) {
         this.falling = true;
         this.x = x;
         this.tileY = y;
     }
 
+    // Resetea a la posición inicial a una pieza que no ingresa al tablero del juego
     resetPos() {
         this.x = this.restingX;
         this.y = this.restingY;
     }
 
+    // Actualiza la posición de una pieza
     setPos(x, y) {
         this.x = x;
         this.y = y;
     }
 
+    // Devuelve una pieza específica que puede ser seleccionada cuando el jugador hace click sobre ella
     checkClick(mouse) {
         const distance = Math.sqrt((mouse.x - this.x) ** 2 + (mouse.y - this.y) ** 2);
         this.setDragState(distance <= this.r && this.selectable);
         return this.dragged ? this : null;
     }
 
+    // Devuelve la posición actual de una pieza
     getPos() {
         return { x: this.x, y: this.y }
     }
 
+    // Modifica el estado de una pieza específica para determinar si la misma está siendo arrastrada
     setDragState(state) {
         this.dragged = state;
     }
 
+    // Modifica el estado de una pieza específica para impedir que el jugador actual la seleccione
     discard() {
         this.selectable = false;
     }
 
+    // Devuelve el color específico (debería ser la imagen) de una pieza
     getColor() {
         return this.color;
     }

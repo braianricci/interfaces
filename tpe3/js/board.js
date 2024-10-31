@@ -1,5 +1,5 @@
 class Board {
-
+    // Construye un objeto que representa los sucesos que se desarrollan en el tablero de juego y la lógica de verificación de victorias
     constructor(config, ctx) {
         this.config = config;
         this.rows = config['board-rows'];
@@ -18,11 +18,11 @@ class Board {
         this.fill();
     }
 
+    // Dibuja las zonas válidas para la caída de fichas y el tablero de juego en el lienzo
     draw() {
         for (let hint of this.dropZones) {
             hint.draw()
         }
-
         for (let column of this.matrix) {
             for (let tile of column) {
                 tile.draw();
@@ -30,6 +30,7 @@ class Board {
         }
     }
 
+    // Actualiza el estado del juego hasta que termine la partida verificando si el mouse se encuentra sobre alguna zona de caída
     update(deltaTime, mouse, isFichaSelected) {
         if (this.winner == null) {
             for (const hint of this.dropZones) {
@@ -44,6 +45,7 @@ class Board {
         }
     }
 
+    // Recorre las zonas de caída y actualiza el estado de la que se encuentre la que se encuentre bajo el mouse
     checkDropZones(mouse) {
         this.hoveredDropZone = null;
         for (const zone of this.dropZones) {
@@ -54,6 +56,7 @@ class Board {
         }
     }
 
+    // Verifica dónde suelta una pieza el jugador para determinar qué comportamiento tendrá la misma
     checkForHover(ficha) {
         if (this.hoveredDropZone != null) {
             return this.addFicha(ficha);
@@ -63,13 +66,12 @@ class Board {
         }
     }
 
+    // Asigna la primera posición libre de la columna correspondiente a la pieza y verifica posibles condiciones de victoria
     addFicha(ficha) {
         const column = this.hoveredDropZone.getColumn();
         const firstEmpty = this.searchFreeTile(column);
-
         this.hoveredDropZone.highlight(false);
         this.hoveredDropZone = null;
-
         if (firstEmpty != -1) {
             this.matrix[column][firstEmpty].setFicha(ficha);
             this.checkPosibleWin(column, firstEmpty, ficha.getColor());
@@ -81,6 +83,7 @@ class Board {
         }
     }
 
+    // Retorna el índice de la primera posición vacía de una columna del tablero de juego
     searchFreeTile(column) {
         for (let x = this.matrix[column].length - 1; x >= 0; x--) {
             if (this.matrix[column][x].getFicha() == null) {
@@ -90,23 +93,19 @@ class Board {
         return -1;
     }
 
+    // Inicializa las zonas de caída de piezas y las posiciones de las columnas del tablero de juego
     fill() {
         let posX = this.boardX;
         let posY = this.boardY;
-
         for (let x = 0; x < this.columns; x++) {
-
             const dropZone = new DropZone(posX, posY, this.tileWidth, this.tileHeight, 'grey', x, this.ctx);
             this.dropZones.push(dropZone);
             posX += this.tileWidth + this.tileSpacing;
         }
         posX = this.boardX;
         posY = this.boardY + this.tileHeight + this.tileSpacing;
-
         for (let y = 0; y < this.rows; y++) {
-
             for (let x = 0; x < this.columns; x++) {
-
                 const tile = new Tile(posX, posY, this.tileWidth, this.tileHeight, 'blue', this.ctx);
                 this.matrix[x][y] = tile;
                 posX += this.tileWidth + this.tileSpacing;
@@ -116,6 +115,7 @@ class Board {
         }
     }
 
+    // Verifica si la última pieza colocada en el tablero de juego completa una línea ganadora
     checkPosibleWin(column, row, color) {
         const winCount = this.config['win-count'];
         const directions = [
@@ -123,12 +123,12 @@ class Board {
             { x: -1, y: 0 }, { x: 1, y: 0 },
             { x: -1, y: 1 }, { x: 0, y: 1 }, { x: 1, y: 1 }
         ];
-
         for (const { x, y } of directions) {
             this.recursiveLineCheck(column, row, x, y, winCount, 1, color);
         }
     }
 
+    // Verifica el largo de una línea formada en determinada dirección a partir de la última pieza colocada en el tablero de juego
     recursiveLineCheck(x, y, dirX, dirY, winCount, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
@@ -137,7 +137,6 @@ class Board {
         }
         const cell = this.matrix[newX][newY];
         const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
-
         if (newColor == color) {
             currentCount++;
             if (winCount == currentCount) {

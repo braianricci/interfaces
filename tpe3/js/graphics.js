@@ -1,5 +1,5 @@
 class Graphics {
-
+    // Construye un objeto que renderiza un entorno visual en el lienzo para acompañar la experiencia de juego
     constructor(config, ctx) {
         this.config = config;
         this.ctx = ctx;
@@ -8,24 +8,28 @@ class Graphics {
         this.milhouse = this.initMilhouse();
     }
 
+    // Carga la imagen de fondo del juego
     initBackground() {
         const background = new Image();
         background.src = './img/4enlinea/background.png';
         return background;
     }
 
+    // Carga la imagen del jugador 1 (Bart)
     initBart() {
         const bart = new Image();
         bart.src = './img/4enlinea/bart.png';
         return bart;
     }
 
+    // Carga la imagen del jugador 2 (Milhouse)
     initMilhouse() {
         const milhouse = new Image();
         milhouse.src = './img/4enlinea/milhouse.png';
         return milhouse;
     }
 
+    // Emplea el contexto del lienzo para dibujar las imágenes del juego
     draw() {
         this.ctx.drawImage(this.background, 0, 0, this.config['canvas-width'], this.config['canvas-height']);
         this.ctx.drawImage(this.bart, 260, 46, 55, 134);
