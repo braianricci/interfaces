@@ -11,20 +11,27 @@ class Ficha {
         this.ctx = ctx;
         this.selectable = true;
         this.dragged = false;
+        this.falling = false;
+        this.image = this.initImage();
+        this.speed = 0;
+        this.acc = 555;
+        this.tileY = 0;
     }
 
     draw() {
         this.ctx.fillStyle = this.color;
         if (this.dragged || !this.selectable) {
-            this.ctx.beginPath();
-            this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-            this.ctx.fill();
-            this.ctx.closePath();
+            this.ctx.drawImage(this.image, this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
+            /*             this.ctx.beginPath();
+                        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                        this.ctx.fill();
+                        this.ctx.closePath(); */
         } else {
-            this.ctx.beginPath();
-            this.ctx.ellipse(this.x, this.y, this.r, this.r / 2, 0, 0, 2 * Math.PI);
-            this.ctx.fill();
-            this.ctx.stroke();
+            this.ctx.drawImage(this.image, this.x - this.r, this.y - this.r, this.r * 2, this.r);
+            /*             this.ctx.beginPath();
+                        this.ctx.ellipse(this.x, this.y, this.r, this.r / 2, 0, 0, 2 * Math.PI);
+                        this.ctx.fill();
+                        this.ctx.stroke(); */
         }
     }
 
@@ -32,11 +39,32 @@ class Ficha {
         if (this.dragged) {
             this.setPos(mouse.x, mouse.y);
         }
+        if (this.falling) {
+            this.speed += this.acc * (deltaTime / 1000);
+            this.y += this.speed * (deltaTime / 1000);
+            this.setPos(this.x, this.y);
+            if (this.y >= this.tileY) {
+                this.setPos(this.x, this.tileY);
+                this.falling = false;
+            }
+        }
+    }
+
+    initImage() {
+        const image = new Image();
+        if (this.color == 'red') {
+            image.src = this.config['player1-img'];
+        } else {
+            image.src = this.config['player2-img'];
+        }
+
+        return image;
     }
 
     fall(x, y) {
+        this.falling = true;
         this.x = x;
-        this.y = y;
+        this.tileY = y;
     }
 
     resetPos() {

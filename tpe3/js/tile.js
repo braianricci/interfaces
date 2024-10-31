@@ -8,11 +8,19 @@ class Tile {
         this.color = color;
         this.ctx = ctx;
         this.ficha = null;
+        this.image = this.initImage();
     }
 
     draw() {
-        this.ctx.fillStyle = this.color;
-        this.ctx.fillRect(this.x, this.y, this.width, this.height);
+        this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        /*         this.ctx.fillStyle = this.color;
+                this.ctx.fillRect(this.x, this.y, this.width, this.height); */
+    }
+
+    initImage() {
+        const image = new Image();
+        image.src = './img/4enlinea/tile.png';
+        return image;
     }
 
     setColor(color) {

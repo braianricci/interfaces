@@ -28,7 +28,7 @@ class Graphics {
 
     draw() {
         this.ctx.drawImage(this.background, 0, 0, this.config['canvas-width'], this.config['canvas-height']);
-        this.ctx.drawImage(this.bart, 250, 46, 55, 134);
-        this.ctx.drawImage(this.milhouse, 10, 44, 63, 136);
+        this.ctx.drawImage(this.bart, 260, 46, 55, 134);
+        this.ctx.drawImage(this.milhouse, 0, 44, 63, 136);
     }
 }

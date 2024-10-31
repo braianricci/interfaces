@@ -32,6 +32,9 @@ class Board {
 
     update(deltaTime, mouse, isFichaSelected) {
         if (this.winner == null) {
+            for (const hint of this.dropZones) {
+                hint.update(deltaTime);
+            }
             if (isFichaSelected) {
                 this.checkDropZones(mouse);
             }
@@ -64,7 +67,7 @@ class Board {
         const column = this.hoveredDropZone.getColumn();
         const firstEmpty = this.searchFreeTile(column);
 
-        this.hoveredDropZone.setColor('grey');
+        this.hoveredDropZone.highlight(false);
         this.hoveredDropZone = null;
 
         if (firstEmpty != -1) {
@@ -93,8 +96,8 @@ class Board {
 
         for (let x = 0; x < this.columns; x++) {
 
-            const hint = new DropZone(posX, posY, this.tileWidth, this.tileHeight, 'grey', x, this.ctx);
-            this.dropZones.push(hint);
+            const dropZone = new DropZone(posX, posY, this.tileWidth, this.tileHeight, 'grey', x, this.ctx);
+            this.dropZones.push(dropZone);
             posX += this.tileWidth + this.tileSpacing;
         }
         posX = this.boardX;
