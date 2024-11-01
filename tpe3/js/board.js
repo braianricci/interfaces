@@ -124,26 +124,29 @@ class Board {
             { x: -1, y: 1 }, { x: 0, y: 1 }, { x: 1, y: 1 }
         ];
         for (const { x, y } of directions) {
-            this.recursiveLineCheck(column, row, x, y, winCount, 1, color);
+            const count = 1 
+                        + this.recursiveLineCheck(column, row, x, y, winCount, 0, color) 
+                        + this.recursiveLineCheck(column, row, -x, -y, winCount, 0, color);
+            if (count >= winCount) {
+                this.winner = color;
+                return;
+            }
         }
     }
 
-    // Verifica el largo de una línea formada en determinada dirección a partir de la última pieza colocada en el tablero de juego
+    // Verifica el largo de una línea formada en determinado eje a partir de la última pieza colocada en el tablero de juego
     recursiveLineCheck(x, y, dirX, dirY, winCount, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
         if (newX < 0 || newX >= this.matrix.length || newY < 0 || newY >= this.matrix[0].length) {
-            return;
+            return currentCount;
         }
         const cell = this.matrix[newX][newY];
         const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
-        if (newColor == color) {
-            currentCount++;
-            if (winCount == currentCount) {
-                this.winner = color;
-            } else {
-                this.recursiveLineCheck(newX, newY, dirX, dirY, winCount, currentCount, color);
-            }
+        if (newColor === color) {
+            return this.recursiveLineCheck(newX, newY, dirX, dirY, winCount, currentCount + 1, color);
+        } else {
+            return currentCount;
         }
     }
 }
