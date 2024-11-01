@@ -11,6 +11,12 @@
     "player2-img": "./img/4enlinea/pals.png",
     "board-rows": 6,
     "board-columns": 7,
-    "board-y": 5,
-    "win-count": 4
+    "board-y": 26,
+    "win-count": 4,
+    "border1-W": 10,
+    "border1-H": 18,
+    "border2-W": 14,
+    "border2-H": 23,
+    "border3-W": 12,
+    "border3-H": 20
 }

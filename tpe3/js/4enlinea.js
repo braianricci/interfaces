@@ -16,10 +16,12 @@ function playGame(config) {
 
     setup(canvas, config);
     addMouseEventListeners(canvas, gameState);
+
     // Actualiza y renderiza el estado actual de la partida, avisando si la misma debe continuar o ya finalizó
     function gameLoop(timestamp) {
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
+
         const continueGame = gameState.update(deltaTime);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         graphics.draw();
@@ -30,6 +32,7 @@ function playGame(config) {
             console.log('we have a winner: ' + gameState.board.winner)
         }
     }
+
     // Programa la ejecución de gameLoop(timestamp) en el proximo frame de la pantalla
     requestAnimationFrame(gameLoop);
 }

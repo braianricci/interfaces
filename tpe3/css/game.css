@@ -16,6 +16,7 @@ nav.game {
 }
 
 .breadcrumb {
+    margin-left: -120px;
     font-size: 14px;
     color: var(--sec_300);
 }
@@ -29,7 +30,8 @@ nav.game {
 
 
 .game-image img {
-    width: 100%;
+    width: 1280px;
+    height: 720px;
     border-radius: 10px;
 
 }

@@ -9,7 +9,7 @@ class Board {
         this.tileSpacing = config['tile-spacing'];
         let boardsize = ((this.tileWidth + this.tileSpacing) * this.columns) - this.tileSpacing;
         this.boardX = (config['canvas-width'] - boardsize) / 2;
-        this.boardY = config['board-y']
+        this.boardY = this.config['canvas-height'] - (this.rows + 1) * this.tileHeight - this.config['board-y'];
         this.matrix = Array.from({ length: this.columns }, () => Array(this.rows));
         this.dropZones = [];
         this.hoveredDropZone = null;
@@ -72,6 +72,7 @@ class Board {
         const firstEmpty = this.searchFreeTile(column);
         this.hoveredDropZone.highlight(false);
         this.hoveredDropZone = null;
+
         if (firstEmpty != -1) {
             this.matrix[column][firstEmpty].setFicha(ficha);
             this.checkPosibleWin(column, firstEmpty, ficha.getColor());
@@ -97,16 +98,22 @@ class Board {
     fill() {
         let posX = this.boardX;
         let posY = this.boardY;
+
         for (let x = 0; x < this.columns; x++) {
-            const dropZone = new DropZone(posX, posY, this.tileWidth, this.tileHeight, 'grey', x, this.ctx);
+            const dropZone = new DropZone(posX, posY, this.tileWidth, this.tileHeight, this.config, 'grey', x, this.ctx);
             this.dropZones.push(dropZone);
             posX += this.tileWidth + this.tileSpacing;
         }
+
         posX = this.boardX;
         posY = this.boardY + this.tileHeight + this.tileSpacing;
+
         for (let y = 0; y < this.rows; y++) {
             for (let x = 0; x < this.columns; x++) {
-                const tile = new Tile(posX, posY, this.tileWidth, this.tileHeight, 'blue', this.ctx);
+                let border = x == 0 ? -1 : 0;
+                border = x == this.columns - 1 ? 1 : border;
+
+                const tile = new Tile(posX, posY, this.tileWidth, this.tileHeight, border, this.config, 'blue', this.ctx);
                 this.matrix[x][y] = tile;
                 posX += this.tileWidth + this.tileSpacing;
             }
@@ -119,14 +126,16 @@ class Board {
     checkPosibleWin(column, row, color) {
         const winCount = this.config['win-count'];
         const directions = [
-            { x: -1, y: -1 }, { x: 0, y: -1 }, { x: 1, y: -1 },
-            { x: -1, y: 0 }, { x: 1, y: 0 },
-            { x: -1, y: 1 }, { x: 0, y: 1 }, { x: 1, y: 1 }
-        ];
+            { x: -1, y: -1 }, //diagonal principal
+            { x: 0, y: -1 },  //vertical
+            { x: 1, y: -1 },  //diagonal secundaria
+            { x: -1, y: 0 }]; //horizonal
+
         for (const { x, y } of directions) {
-            const count = 1 
-                        + this.recursiveLineCheck(column, row, x, y, winCount, 0, color) 
-                        + this.recursiveLineCheck(column, row, -x, -y, winCount, 0, color);
+            const count =
+                this.recursiveLineCheck(column, row, x, y, winCount, 1, color) +
+                this.recursiveLineCheck(column, row, -x, -y, winCount, 0, color);
+
             if (count >= winCount) {
                 this.winner = color;
                 return;
@@ -138,13 +147,17 @@ class Board {
     recursiveLineCheck(x, y, dirX, dirY, winCount, currentCount, color) {
         const newX = x + dirX;
         const newY = y + dirY;
+
+        // Condición de corte si se cae de la matriz
         if (newX < 0 || newX >= this.matrix.length || newY < 0 || newY >= this.matrix[0].length) {
             return currentCount;
         }
+
         const cell = this.matrix[newX][newY];
-        const newColor = cell && cell.getFicha() ? cell.getFicha().getColor() : null;
-        if (newColor === color) {
-            return this.recursiveLineCheck(newX, newY, dirX, dirY, winCount, currentCount + 1, color);
+        const newColor = cell.getFicha() ? cell.getFicha().getColor() : null;
+
+        if (newColor === color && ++currentCount < winCount) {
+            return this.recursiveLineCheck(newX, newY, dirX, dirY, winCount, currentCount, color);
         } else {
             return currentCount;
         }

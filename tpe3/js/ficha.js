@@ -17,7 +17,7 @@ class Ficha {
         this.acc = 555;
         this.tileY = 0;
     }
-    
+
     // Emplea el contexto del lienzo para dibujar las piezas del juego de acuerdo a su estado particular
     draw() {
         this.ctx.fillStyle = this.color;
@@ -67,7 +67,7 @@ class Ficha {
         return image;
     }
 
-    // Determina la posición final que adoptará una pieza que ingresa al tablero del juego (por qué se ve como el set??)
+    // Determina la posición final que adoptará una pieza que ingresa al tablero del juego
     fall(x, y) {
         this.falling = true;
         this.x = x;
@@ -103,12 +103,12 @@ class Ficha {
         this.dragged = state;
     }
 
-    // Modifica el estado de una pieza específica para impedir que el jugador actual la seleccione
+    // Modifica el estado de una pieza que ingreso al tablero para evitar que sea retirada
     discard() {
         this.selectable = false;
     }
 
-    // Devuelve el color específico (debería ser la imagen) de una pieza
+    // Devuelve el color de una pieza
     getColor() {
         return this.color;
     }
