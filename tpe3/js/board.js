@@ -16,6 +16,7 @@ class Board {
         this.winner = null;
         this.ctx = ctx;
         this.fill();
+        this.background = this.initBackground();
     }
 
     // Dibuja las zonas válidas para la caída de fichas y el tablero de juego en el lienzo
@@ -28,6 +29,10 @@ class Board {
                 tile.draw();
             }
         }
+    }
+
+    drawBackground() {
+        this.ctx.drawImage(this.background, this.boardX, this.boardY + this.tileHeight, this.tileWidth * this.columns, this.tileHeight * this.rows);
     }
 
     // Actualiza el estado del juego hasta que termine la partida verificando si el mouse se encuentra sobre alguna zona de caída
@@ -120,6 +125,12 @@ class Board {
             posX = this.boardX;
             posY += this.tileHeight + this.tileSpacing;
         }
+    }
+
+    initBackground() {
+        const image = new Image();
+        image.src = './img/4enlinea/board-background.png';
+        return image;
     }
 
     // Verifica si la última pieza colocada en el tablero de juego completa una línea ganadora

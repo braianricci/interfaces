@@ -100,7 +100,7 @@ nav.game {
 .game button {
     background-color: var(--pri_500);
     color: black;
-    border-radius: 20px;
+    border-radius: 50px;
     padding: 10px 15px;
     margin-left: 10px;
     cursor: pointer;
@@ -195,4 +195,8 @@ button.icon-btn i:hover {
 
 .link-game {
     color: var(--pri_400);
+}
+
+#play-game-button {
+    font-size: 40px;
 }

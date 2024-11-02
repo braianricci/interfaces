@@ -15,8 +15,8 @@ class GameState {
         const fichas = [];
         let num = config['board-rows'] * config['board-columns']
         num = (num + 1) / 2 | 0; // Se deshace de los decimales redondeando el resultado para arriba (Bitwise Operator)
-      
-      
+
+
         //deshardcodear las coordenadas pls
         for (let i = 0; i < num; i++) {
             fichas.push(new Ficha(73, 155 - (i * 3), config, config['player1-color'], ctx));
@@ -36,6 +36,7 @@ class GameState {
 
     // Dibuja los elementos de la partida en el lienzo
     draw() {
+        this.board.drawBackground();
         this.fichas.forEach(obj => obj.draw());
         this.board.draw();
     }
