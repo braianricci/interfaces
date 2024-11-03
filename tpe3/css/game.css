@@ -95,19 +95,6 @@ nav.game {
     color: #ffffff;
 }
 
-.game button {
-    background-color: var(--pri_500);
-    color: black;
-    border-radius: 50px;
-    padding: 10px 15px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.game button:hover {
-    background-color: var(--pri_400);
-}
-
 .button-play {
     position: absolute;
     top: 50%;
@@ -200,6 +187,11 @@ button.icon-btn i:hover {
     font-size: 40px;
 }
 
+#select-player-name,
+#select-ficha {
+    display: none;
+}
+
 .game-menu {
     width: 1280px;
     height: 720px;
@@ -207,8 +199,8 @@ button.icon-btn i:hover {
 }
 
 
-.menu-form button,
-.menu-form button:hover,
+.player-name-next,
+.ficha-next,
 .menu-form input {
     all: unset;
     width: 50%;
@@ -224,22 +216,31 @@ button.icon-btn i:hover {
     color: var(--pri_300);
 }
 
-.menu-form button {
+.player-name-next {
     font-size: 50px;
     margin-left: 30%;
     transition: 0.2s ease;
 }
 
-.menu-form button:hover {
+.player-name-next:hover {
     cursor: pointer;
-    font-size: 50px;
-    margin-left: 30%;
     color: var(--pri_300);
     transition: 0.2s ease;
 }
 
-.game-menu img {
-    display: block;
+.ficha-next {
+    position: absolute;
+    font-size: 50px;
+    font-family: 'Simpsons';
+    color: #f3dc17;
+    transition: 0.2s ease;
+    left: 28%;
+}
+
+.ficha-next:hover {
+    cursor: pointer;
+    color: var(--pri_300);
+    transition: 0.2s ease;
 }
 
 .menu-form-container {
@@ -249,4 +250,12 @@ button.icon-btn i:hover {
     color: #f3dc17;
     top: 40%;
     left: 22%;
+}
+
+.img-ficha {
+    object-fit: contain;
+    display: block;
+    max-width: 110px;
+    max-height: 110px;
+    position: absolute;
 }

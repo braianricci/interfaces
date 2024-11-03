@@ -7,7 +7,7 @@
     "ficha-radio": 8,
     "player1-color": "red",
     "player2-color": "green",
-    "player1-img": "./img/4enlinea/alf2.png",
+    "player1-img": "./img/4enlinea/alf.png",
     "player2-img": "./img/4enlinea/pals.png",
     "board-rows": 8,
     "board-columns": 8,

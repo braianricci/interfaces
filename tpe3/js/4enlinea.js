@@ -29,7 +29,7 @@ function playGame(config) {
         if (continueGame) {
             requestAnimationFrame(gameLoop);
         } else {
-            graphics.showWinner(gameState.board.winner);
+            graphics.showWinner(gameState.board.getWinner());
         }
     }
 
@@ -39,7 +39,7 @@ function playGame(config) {
 
 // Sustituye la portada del juego con el entorno donde se ejecuta el juego (lienzo)
 function setup(canvas, config) {
-    const img = document.getElementById('game-img');
+    const img = document.getElementById('select-ficha');
     const button = document.getElementById('play-game-button');
     img.style.display = 'none';
     button.style.display = 'none';
@@ -63,4 +63,20 @@ function addMouseEventListeners(canvas, gameState) {
         gameState.mouse.x = (event.clientX - rect.left) * scaleX;
         gameState.mouse.y = (event.clientY - rect.top) * scaleY;
     });
+}
+
+function goToSelectPlayer(event) {
+    event.preventDefault();
+    const card = document.getElementById('play-game-card');
+    const playerMenu = document.getElementById('select-player-name');
+    card.style.display = 'none';
+    playerMenu.style.display = 'block';
+}
+
+function goToSelectFicha(event) {
+    event.preventDefault();
+    const playerMenu = document.getElementById('select-player-name');
+    const fichaMenu = document.getElementById('select-ficha');
+    playerMenu.style.display = 'none';
+    fichaMenu.style.display = 'block';
 }

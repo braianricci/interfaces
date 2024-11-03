@@ -49,7 +49,7 @@ class Graphics {
         const ctx = this.ctx;
         ctx.clearRect(0, 0, this.config['canvas-width'], this.config['canvas-height']);
         ctx.fillStyle = 'lightgray';
-        ctx.font = '48px sans-serif';
+        ctx.font = '48px Simpsons';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 

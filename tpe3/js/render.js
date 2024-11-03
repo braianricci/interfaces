@@ -46,6 +46,8 @@ function listenersLinks() {
     let bannerInputs = document.getElementsByClassName("carousel-radio");
     let playButton = document.getElementsByClassName("play-game-button");
     let formButtons = document.getElementsByClassName("await-animation");
+    let playerNext = document.getElementsByClassName('player-name-next');
+    let fichaNext = document.getElementsByClassName('ficha-next');
 
     for (let item of links) {
         item.addEventListener("click", partialRender);
@@ -57,10 +59,16 @@ function listenersLinks() {
         item.addEventListener("change", moveCarousel)
     }
     for (let item of playButton) {
-        item.addEventListener("click", loadConfig);
+        item.addEventListener("click", goToSelectPlayer);
     }
     for (let item of formButtons) {
         item.addEventListener("click", animateFormButtons);
+    }
+    for (let item of playerNext) {
+        item.addEventListener("click", goToSelectFicha);
+    }
+    for (let item of fichaNext) {
+        item.addEventListener("click", loadConfig);
     }
 }
 

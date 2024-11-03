@@ -23,7 +23,6 @@ class GameState {
             fichas.push(new Ficha(247, 155 - (i * 3), config, config['player2-color'], ctx));
         }
 
-
         return fichas;
     }
 

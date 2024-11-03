@@ -174,4 +174,9 @@ class Board {
             return currentCount;
         }
     }
+
+    //devuelve el ganador
+    getWinner() {
+        return this.winner;
+    }
 }

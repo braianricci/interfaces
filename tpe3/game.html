@@ -9,13 +9,15 @@
     <main class="game">
         <div class="game-image">
             
-<!--             <img id="game-img" src="img/4linea.png"> -->
-<!--             <div class="button-play">
-                <button type="button" id="play-game-button" class="button play-game-button"><span>Play!</span></button>
-            </div> -->
+            <div id="play-game-card">
+                <img id="game-img" src="img/4linea.png">
 
-            <div class="game-menu">
-                
+                <div class="button-play">
+                    <button type="button" id="play-game-button" class="button play-game-button"><span>Play!</span></button>
+                </div>
+            </div>
+
+            <div id="select-player-name">
                 <div class="menu-form-container">
                     <form class="menu-form" action="">
                         <div>
@@ -26,14 +28,26 @@
                             <label for="player2">player 2 name </label>
                             <input type="text" id="player2" value="Bart">
                         </div>
-                        <button>Next!</button>
+                        <button class="player-name-next">Next!</button>
                     </form>
                 </div>
                 <img src="./img/4enlinea/menu.png" alt="">
+            </div>
 
+            <div id="select-ficha">
+                <img class="img-ficha" src="./img/4enlinea/alf.png" alt="">
+                <img class="img-ficha" src="./img/4enlinea/itchy.png" alt="">
+                <img class="img-ficha" src="./img/4enlinea/hellfish.png" alt="">
+                <img class="img-ficha" src="./img/4enlinea/duff.png" alt="">
+                <img class="img-ficha" src="./img/4enlinea/pals.png" alt="">
+                <img class="img-ficha" src="./img/4enlinea/donut.png" alt="">
+                <button class="ficha-next">Next!</button>
+                <img src="./img/4enlinea/fichas.png" alt="">
             </div>
 
             <canvas id="game-canvas"></canvas>
+
+            <img src="./img/4enlinea/alf.png" alt="">
 
             <div class="game-bar">
                 <div class="game-bar-left">
