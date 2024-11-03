@@ -56,9 +56,9 @@ class Tile {
     }
 
     // Recibe una pieza, que está ingresando a una columna determinada del tablero de juego, en una casilla específica de la misma
-    setFicha(ficha) {
+    setFicha(ficha, onComplete) {
         this.ficha = ficha;
-        ficha.fall(this.x + this.width / 2, this.y + this.height / 2)
+        ficha.fall(this.x + this.width / 2, this.y + this.height / 2, onComplete);
     }
 
     // Devuelve el contenido de una casilla específica del tablero de juego

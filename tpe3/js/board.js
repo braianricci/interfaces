@@ -79,8 +79,9 @@ class Board {
         this.hoveredDropZone = null;
 
         if (firstEmpty != -1) {
-            this.matrix[column][firstEmpty].setFicha(ficha);
-            this.checkPosibleWin(column, firstEmpty, ficha.getColor());
+            this.matrix[column][firstEmpty].setFicha(ficha, () => {
+                this.checkPosibleWin(column, firstEmpty, ficha.getColor());
+            });
             ficha.discard();
             return true;
         } else {

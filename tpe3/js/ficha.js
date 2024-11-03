@@ -68,10 +68,14 @@ class Ficha {
     }
 
     // Determina la posición final que adoptará una pieza que ingresa al tablero del juego
-    fall(x, y) {
+    fall(x, y, onComplete) {
         this.falling = true;
         this.x = x;
         this.tileY = y;
+        setTimeout(() => {
+            this.falling = false;
+            onComplete && onComplete();
+        }, 1000);
     }
 
     // Resetea a la posición inicial a una pieza que no ingresa al tablero del juego

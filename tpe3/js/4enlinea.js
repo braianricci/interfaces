@@ -29,7 +29,7 @@ function playGame(config) {
         if (continueGame) {
             requestAnimationFrame(gameLoop);
         } else {
-            console.log('we have a winner: ' + gameState.board.winner)
+            graphics.showWinner(gameState.board.winner);
         }
     }
 

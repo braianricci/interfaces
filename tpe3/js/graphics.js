@@ -43,4 +43,19 @@ class Graphics {
         this.ctx.drawImage(this.milhouse, 0, 44, 63, 136);
         this.ctx.drawImage(this.table, 25, 140, 270, 40);
     }
+
+    // Emplea el contexto del lienzo para dibujar un aviso de finalización de la partida actual
+    showWinner(winnerColor) {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, this.config['canvas-width'], this.config['canvas-height']);
+        ctx.fillStyle = 'lightgray';
+        ctx.font = '48px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        const centerX = this.config['canvas-width'] / 2;
+        const centerY = this.config['canvas-height'] / 2;
+
+        ctx.fillText(`Ganador: ${winnerColor}`, centerX, centerY); // Obviamente este es el esqueleto, generemos un cartel lindo
+    }
 }
