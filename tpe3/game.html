@@ -8,14 +8,32 @@
         </nav>
     <main class="game">
         <div class="game-image">
-            <img id="game-img" src="img/4linea.png">
-            <canvas id="game-canvas"></canvas>
-            <div class="button-play">
+            
+<!--             <img id="game-img" src="img/4linea.png"> -->
+<!--             <div class="button-play">
                 <button type="button" id="play-game-button" class="button play-game-button"><span>Play!</span></button>
+            </div> -->
+
+            <div class="game-menu">
+                
+                <div class="menu-form-container">
+                    <form class="menu-form" action="">
+                        <div>
+                            <label for="player1">player 1 name </label>
+                            <input type="text" id="player1" value="Milhouse">
+                        </div>
+                        <div>
+                            <label for="player2">player 2 name </label>
+                            <input type="text" id="player2" value="Bart">
+                        </div>
+                        <button>Next!</button>
+                    </form>
+                </div>
+                <img src="./img/4enlinea/menu.png" alt="">
+
             </div>
 
-            <section id="game-container">
-            </section>
+            <canvas id="game-canvas"></canvas>
 
             <div class="game-bar">
                 <div class="game-bar-left">

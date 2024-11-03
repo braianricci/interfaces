@@ -59,6 +59,11 @@ button span {
     src: url(../fonts/Nunito-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: 'Simpsons';
+    src: url(../fonts/Simpsonfont.otf);
+}
+
 /*╔══════━━━━━━────── • BUTTONS • ──────━━━━━━══════╗*/
 
 /*-- Default Button --*/

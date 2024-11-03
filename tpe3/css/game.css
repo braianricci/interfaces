@@ -32,8 +32,6 @@ nav.game {
 .game-image img {
     width: 1280px;
     height: 720px;
-    border-radius: 10px;
-
 }
 
 .game-info {
@@ -197,6 +195,58 @@ button.icon-btn i:hover {
     color: var(--pri_400);
 }
 
+/*╔══════━━━━━━────── • GAME MENU • ──────━━━━━━══════╗*/
 #play-game-button {
     font-size: 40px;
+}
+
+.game-menu {
+    width: 1280px;
+    height: 720px;
+    image-rendering: pixelated;
+}
+
+
+.menu-form button,
+.menu-form button:hover,
+.menu-form input {
+    all: unset;
+    width: 50%;
+}
+
+.menu-form input {
+    justify-items: center;
+    border-radius: 2px;
+    background-color: rgba(212, 159, 85, 0.5);
+}
+
+.menu-form input:hover {
+    color: var(--pri_300);
+}
+
+.menu-form button {
+    font-size: 50px;
+    margin-left: 30%;
+    transition: 0.2s ease;
+}
+
+.menu-form button:hover {
+    cursor: pointer;
+    font-size: 50px;
+    margin-left: 30%;
+    color: var(--pri_300);
+    transition: 0.2s ease;
+}
+
+.game-menu img {
+    display: block;
+}
+
+.menu-form-container {
+    position: absolute;
+    font-family: 'Simpsons';
+    font-size: 40px;
+    color: #f3dc17;
+    top: 40%;
+    left: 22%;
 }
