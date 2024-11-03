@@ -1,13 +1,14 @@
-<div class="game-container">
-        <nav class="game">
-            <span class="breadcrumb">
-                <button class="icon-btn link" data-url="home.html">
-                    <i class="fa-sharp fa-solid fa-house" data-url="home.html"></i>
-                </button>>  Mis Juegos  >  Multijugador  >  4 En Línea
-            </span>
-        </nav>
-    <main class="game">
-        <div class="game-image">
+<main class="main-game-container">
+    <section>
+        <span class="breadcrumb">
+            <button class="icon-btn link" data-url="home.html">
+                <i class="fa-sharp fa-solid fa-house" data-url="home.html"></i>
+            </button>>  Mis Juegos  >  Multijugador  >  4 En Línea
+        </span>
+    </section>
+
+    <section class="game-section">
+        <div class="game-container">
             
             <div id="play-game-card">
                 <img id="game-img" src="img/4linea.png">
@@ -35,38 +36,38 @@
             </div>
 
             <div id="select-ficha">
-                <img class="img-ficha" src="./img/4enlinea/alf.png" alt="">
-                <img class="img-ficha" src="./img/4enlinea/itchy.png" alt="">
-                <img class="img-ficha" src="./img/4enlinea/hellfish.png" alt="">
-                <img class="img-ficha" src="./img/4enlinea/duff.png" alt="">
-                <img class="img-ficha" src="./img/4enlinea/pals.png" alt="">
-                <img class="img-ficha" src="./img/4enlinea/donut.png" alt="">
+                <div class="fichas-container">
+                    <img class="img-ficha" id="ficha-1" src="./img/4enlinea/alf.png" alt="">
+                    <img class="img-ficha" id="ficha-2" src="./img/4enlinea/pals.png" alt="">
+                    <img class="img-ficha" id="ficha-3" src="./img/4enlinea/hellfish.png" alt="">
+                    <img class="img-ficha" id="ficha-4" src="./img/4enlinea/duff.png" alt="">
+                    <img class="img-ficha" id="ficha-5" src="./img/4enlinea/itchy.png" alt="">
+                    <img class="img-ficha" id="ficha-6" src="./img/4enlinea/donut.png" alt="">
+                </div>
                 <button class="ficha-next">Next!</button>
                 <img src="./img/4enlinea/fichas.png" alt="">
             </div>
 
             <canvas id="game-canvas"></canvas>
 
-            <img src="./img/4enlinea/alf.png" alt="">
-
             <div class="game-bar">
                 <div class="game-bar-left">
                     <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
                     <button class="icon-btn"><i class="fa-solid fa-share-nodes"></i></button>
                     <button class="icon-btn"><i class="fa-solid fa-gamepad"></i></button>
-                  </div>
-                  <div class="game-bar-right">
+                </div>
+                <div class="game-bar-right">
                     <div class="like-count">
-                      <button class="icon-btn"><i class="fa-regular fa-thumbs-up"></i><span class="icon-text">528</span></button>
+                    <button class="icon-btn"><i class="fa-regular fa-thumbs-up"></i><span class="icon-text">528</span></button>
                     </div>
                     <div class="dislike-count">
                         <button class="icon-btn"><i class="fa-regular fa-thumbs-down"></i><span class="icon-text">432</span></button>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
 
-        <div class="game-info">
+        <div class="game-info-container">
             <h1>4 En Springfield</h1>
             <div class="rating">
                 <span class="star">★</span>
@@ -83,9 +84,9 @@
                 <br>
                 <br>
                 <a class="link-game" href="">Imagenes</a>
-
         </div>
-    </main>
+    </section>
+
     <section class="comments">
         <h2>Instrucciones</h2>
         <p>El objetivo es alinear cuatro en línea vertical, horizontal o diagonal antes que tu oponente. En cada turno,
@@ -112,4 +113,4 @@
             </div>
         </div>
     </section>
-</div>
+</main>
