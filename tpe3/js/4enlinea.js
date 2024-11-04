@@ -41,8 +41,10 @@ function playGame(config) {
 function setup(canvas, config) {
     const img = document.getElementById('select-ficha');
     const button = document.getElementById('play-game-button');
+    const div = document.getElementById('canvas-buttons');
     img.style.display = 'none';
     button.style.display = 'none';
+    div.style.display = 'flex';
     canvas.style.display = 'block'
     canvas.width = config['canvas-width'];
     canvas.height = config['canvas-height'];
@@ -69,8 +71,10 @@ function goToSelectPlayer(event) {
     event.preventDefault();
     const card = document.getElementById('play-game-card');
     const playerMenu = document.getElementById('select-player-name');
+    const div = document.getElementById('canvas-buttons');
     card.style.display = 'none';
     playerMenu.style.display = 'block';
+    div.style.display = 'none';
 }
 
 function goToSelectFicha(event) {

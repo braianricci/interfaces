@@ -296,15 +296,15 @@ button.icon-btn i:hover {
     background: var(--pri_400);
 }
 
-.canvas-buttons {
+#canvas-buttons {
     position: absolute;
     top: 20px;
     right: 20px;
-    display: flex;
+    display: none;
     gap: 10px;
 }
 
-.canvas-buttons button {
+#canvas-buttons button {
     width: 60px;
     height: 60px;
     background-size: contain;
