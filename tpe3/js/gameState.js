@@ -10,6 +10,9 @@ class GameState {
         this.ctx = ctx;
         this.player1Name = config['player1-name'];
         this.player2Name = config['player2-name'];
+        this.startTime = 10;
+        this.remainingTime = this.startTime;
+        this.timerIsRunning = false;
     }
 
     // Crea la cantidad de fichas necesaria para cada jugador en una partida en particular
@@ -17,7 +20,6 @@ class GameState {
         const fichas = [];
         let num = config['board-rows'] * config['board-columns']
         num = (num + 1) / 2 | 0; // Se deshace de los decimales redondeando el resultado para arriba (Bitwise Operator)
-
 
         //deshardcodear las coordenadas pls
         for (let i = 0; i < num; i++) {
@@ -31,8 +33,16 @@ class GameState {
     // Actualiza el estado de la partida junto con sus elementos e indica si la partida debe continuar
     update(deltaTime) {
         const continueGame = this.board.update(deltaTime, this.mouse, this.selectedFicha != null);
+        if (this.timerIsRunning) {
+            this.remainingTime -= deltaTime / 1000;
+            if (this.remainingTime <= 0) {
+                this.remainingTime = 0;
+                this.timerIsRunning = false;
+                this.abort();
+            }
+        }
         this.fichas.forEach(obj => obj.update(deltaTime, this.mouse));
-        return continueGame;
+        return continueGame && this.timerIsRunning;
     }
 
     // Dibuja los elementos de la partida en el lienzo
@@ -40,6 +50,7 @@ class GameState {
         this.board.drawBackground();
         this.fichas.forEach(obj => obj.draw());
         this.board.draw();
+        this.drawTimer();
     }
 
     // Determina cuáles son las fichas seleccionables en un turno y las recorre hasta encontrar la que selecciona el jugador
@@ -79,6 +90,20 @@ class GameState {
     }
 
     abort() {
+        this.restartTimer();
         this.board.abort();
+    }
+
+    drawTimer() {
+        this.ctx.fillStyle = "yellow";
+        this.ctx.font = "14px Simpsons";
+        this.ctx.fillText(Math.ceil(this.remainingTime), 155, 15);
+    }
+
+    restartTimer() {
+        console.log(this.remainingTime, this.startTime)
+        this.remainingTime = this.startTime;
+        console.log('new ramining' + this.remainingTime)
+        this.timerIsRunning = true;
     }
 }

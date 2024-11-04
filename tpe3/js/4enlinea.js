@@ -46,6 +46,8 @@ function playGame(config) {
     }
 
     // Programa la ejecución de gameLoop(timestamp) en el proximo frame de la pantalla
+    console.log('NOW!')
+    gameState.restartTimer();
     requestAnimationFrame(gameLoop);
 }
 
@@ -167,7 +169,6 @@ function calculateSize(configString, size) {
             columns = 8;
             break;
         case '6':
-            console.log("HERE")
             rows = 8;
             columns = 8;
     }
