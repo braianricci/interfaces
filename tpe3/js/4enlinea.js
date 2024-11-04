@@ -50,7 +50,7 @@ function setup(canvas, config) {
 
 // Añade los controles del juego al mouse para poder interactuar con él
 function addMouseEventListeners(canvas, gameState) {
-    canvas.addEventListener('mousedown', () => {
+    canvas.addEventListener('mousedown', (event) => {
         gameState.click();
     });
     canvas.addEventListener('mouseup', () => {

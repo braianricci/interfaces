@@ -30,6 +30,7 @@ class Graphics {
         return milhouse;
     }
 
+    // Carga la imagen de la mesa de juego
     initTable() {
         const table = new Image();
         table.src = './img/4enlinea/table.png';
@@ -47,15 +48,12 @@ class Graphics {
     // Emplea el contexto del lienzo para dibujar un aviso de finalización de la partida actual
     showWinner(winnerColor) {
         const ctx = this.ctx;
-        ctx.clearRect(0, 0, this.config['canvas-width'], this.config['canvas-height']);
-        ctx.fillStyle = 'lightgray';
-        ctx.font = '48px Simpsons';
+        ctx.fillStyle = 'yellow';
+        ctx.font = '36px Simpsons';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-
         const centerX = this.config['canvas-width'] / 2;
-        const centerY = this.config['canvas-height'] / 2;
-
-        ctx.fillText(`Ganador: ${winnerColor}`, centerX, centerY); // Obviamente este es el esqueleto, generemos un cartel lindo
+        const centerY = this.config['canvas-height'] / 6;
+        ctx.fillText(`¡Ganó ${winnerColor}!`, centerX, centerY);
     }
 }

@@ -294,3 +294,31 @@ button.icon-btn i:hover {
     outline-color: var(--pri_400);
     background: var(--pri_400);
 }
+
+.canvas-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.canvas-buttons button {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.canvas-restart {
+    background-image: url('../img/4enlinea/restart.png');
+}
+
+.canvas-home {
+    background-image: url('../img/4enlinea/home.png');
+}
