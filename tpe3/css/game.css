@@ -219,6 +219,7 @@ button.icon-btn i:hover {
 }
 
 .ficha-next {
+    width: 150px;
     position: absolute;
     font-size: 50px;
     font-family: 'Simpsons';
@@ -247,7 +248,7 @@ button.icon-btn i:hover {
     display: block;
     max-width: 110px;
     max-height: 110px;
-    margin: 20px;
+    margin: 5px 20px;
 }
 
 .fichas-container {
@@ -257,4 +258,39 @@ button.icon-btn i:hover {
     position: absolute;
     flex-wrap: wrap;
     width: 300px;
+}
+
+.form-linea {
+    border: 1px solid blue;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
+
+#select-ficha input[type="radio"] {
+    margin: 0;
+    opacity: 0;
+}
+
+.select-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 12px 20px;
+    cursor: pointer;
+}
+
+.radio-game {
+    translate: -50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    outline-offset: 3px;
+    outline: 3px solid #888888;
+}
+
+.select-input input:checked~.radio-game {
+    outline-color: var(--pri_400);
+    background: var(--pri_400);
 }

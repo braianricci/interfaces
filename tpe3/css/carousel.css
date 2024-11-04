@@ -152,7 +152,7 @@
     cursor: pointer;
 }
 
-input[type="radio"] {
+#carousel input[type="radio"] {
     margin: 0;
     opacity: 0;
 }
