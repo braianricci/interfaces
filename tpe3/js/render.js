@@ -50,6 +50,7 @@ function listenersLinks() {
     let fichaNext = document.getElementsByClassName('ficha-next');
     let gameRestart = document.getElementsByClassName('canvas-restart');
     let gameHome = document.getElementsByClassName('canvas-home');
+    let imgFichas = document.getElementsByClassName('img-ficha');
 
     for (let item of links) {
         item.addEventListener("click", partialRender);
@@ -71,6 +72,9 @@ function listenersLinks() {
     }
     for (let item of fichaNext) {
         item.addEventListener("click", loadConfig);
+    }
+    for (let item of imgFichas) {
+        item.addEventListener("click", selectFicha);
     }
     for (let item of gameRestart) {
         item.addEventListener("click", loadConfig);

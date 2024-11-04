@@ -84,3 +84,11 @@ function goToSelectFicha(event) {
     playerMenu.style.display = 'none';
     fichaMenu.style.display = 'block';
 }
+
+function selectFicha(event) {
+    const fichas = document.getElementsByClassName('img-ficha');
+
+    for (const item of fichas) {
+
+    }
+}

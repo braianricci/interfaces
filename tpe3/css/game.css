@@ -3,8 +3,13 @@
     margin: 0 auto;
 }
 
+.breadcrumb-container {
+    margin: 20px 0 0 -120px;
+}
+
+
 .breadcrumb {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--sec_300);
 }
 
@@ -17,6 +22,7 @@
 .game-container {
     width: 1280px;
     position: relative;
+    image-rendering: pixelated;
 }
 
 .game-bar {
@@ -178,7 +184,6 @@ button.icon-btn i:hover {
 
 #select-player-name,
 #select-ficha {
-    border: 1px solid red;
     display: none;
     position: relative;
     height: 720px;
@@ -227,7 +232,7 @@ button.icon-btn i:hover {
     color: #f3dc17;
     transition: 0.2s ease;
     left: 8%;
-    bottom: 10%;
+    bottom: 7%;
 }
 
 .ficha-next:hover {
@@ -242,30 +247,50 @@ button.icon-btn i:hover {
     font-size: 40px;
     color: #f3dc17;
     top: 40%;
-    left: 22%;
+    left: 24%;
 }
 
 .img-ficha {
+    cursor: pointer;
     display: block;
-    max-width: 110px;
-    max-height: 110px;
+    max-width: 100px;
+    max-height: 100px;
     margin: 5px 20px;
+    border-radius: 100px;
 }
 
 .fichas-container {
-    top: 40px;
+    top: 0;
     left: 20px;
     display: flex;
     position: absolute;
     flex-wrap: wrap;
     width: 300px;
+    font-family: 'Simpsons';
+    color: red;
+    font-size: 12px;
+}
+
+.fichas-container h2 {
+    margin: 0 10px 10px 35px;
+    width: 100px;
+    height: 25px;
+}
+
+.fichas-container h2:first-child {
+    color: blue;
 }
 
 .form-linea {
-    border: 1px solid blue;
     position: absolute;
-    left: 50%;
-    bottom: 10%;
+    left: 6%;
+    bottom: 20%;
+    font-family: 'Simpsons';
+    color: #f3dc17;
+}
+
+.form-linea span {
+    margin-right: 15px;
 }
 
 #select-ficha input[type="radio"] {
@@ -277,7 +302,7 @@ button.icon-btn i:hover {
     position: relative;
     display: flex;
     align-items: center;
-    margin: 12px 20px;
+    margin: 15px 20px;
     cursor: pointer;
 }
 

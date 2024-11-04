@@ -1,5 +1,5 @@
 <main class="main-game-container">
-    <section>
+    <section class="breadcrumb-container">
         <span class="breadcrumb">
             <button class="icon-btn link" data-url="home.html">
                 <i class="fa-sharp fa-solid fa-house" data-url="home.html"></i>
@@ -37,30 +37,32 @@
 
             <div id="select-ficha">
                 <form class="form-linea" action="">
-                    <label class="select-input">
-                        <input value="3" name="connect" type="radio" checked>
-                        <span class="radio-game"></span>
+                    <label class="select-input" for="radio3">
+                        <input value="3" id="radio3" name="connect" type="radio"> 
+                        <span class="radio-game"></span> learn with 3
                     </label>
-                    <label class="select-input">
-                        <input value="4" name="connect" type="radio">
-                        <span class="radio-game"></span>
+                    <label class="select-input" for="radio4">
+                        <input value="4" id="radio4" name="connect" type="radio" checked> 
+                        <span class="radio-game"></span> connect 4!
                     </label>
-                    <label class="select-input">
-                        <input value="5" name="connect" type="radio">
-                        <span class="radio-game"></span>
+                    <label class="select-input" for="radio5">
+                        <input value="5" id="radio5" name="connect" type="radio"> 
+                        <span class="radio-game"></span> try with 5..
                     </label>
-                    <label class="select-input">
-                        <input value="6" name="connect" type="radio">
-                        <span class="radio-game"></span>
+                    <label class="select-input" for="radio6">
+                        <input value="6" id="radio6" name="connect" type="radio"> 
+                        <span class="radio-game"></span> challenge 6!
                     </label>
                 </form>
                 <div class="fichas-container">
-                    <img class="img-ficha" id="ficha-1" src="./img/4enlinea/alf.png" alt="">
-                    <img class="img-ficha" id="ficha-2" src="./img/4enlinea/pals.png" alt="">
-                    <img class="img-ficha" id="ficha-3" src="./img/4enlinea/hellfish.png" alt="">
-                    <img class="img-ficha" id="ficha-4" src="./img/4enlinea/duff.png" alt="">
-                    <img class="img-ficha" id="ficha-5" src="./img/4enlinea/itchy.png" alt="">
-                    <img class="img-ficha" id="ficha-6" src="./img/4enlinea/donut.png" alt="">
+                    <h2>player1</h2>
+                    <h2>player2</h2>
+                    <img class="img-ficha" player-data="blue" id="ficha-1" src="./img/4enlinea/alf.png" alt="">
+                    <img class="img-ficha" player-data="red" id="ficha-2" src="./img/4enlinea/pals.png" alt="">
+                    <img class="img-ficha" player-data="blue" id="ficha-3" src="./img/4enlinea/hellfish.png" alt="">
+                    <img class="img-ficha" player-data="red" id="ficha-4" src="./img/4enlinea/itchy.png" alt="">
+                    <img class="img-ficha" player-data="blue" id="ficha-5" src="./img/4enlinea/duff.png" alt="">
+                    <img class="img-ficha" player-data="red" id="ficha-6" src="./img/4enlinea/donut.png" alt="">
                 </div>
                 <button class="ficha-next">Next!</button>
                 <img src="./img/4enlinea/fichas.png" alt="">
