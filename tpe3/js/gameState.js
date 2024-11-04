@@ -35,6 +35,7 @@ class GameState {
         const continueGame = this.board.update(deltaTime, this.mouse, this.selectedFicha != null);
         if (this.timerIsRunning) {
             this.remainingTime -= deltaTime / 1000;
+            console.log(this.remainingTime)
             if (this.remainingTime <= 0) {
                 this.remainingTime = 0;
                 this.timerIsRunning = false;
@@ -101,9 +102,10 @@ class GameState {
     }
 
     restartTimer() {
-        console.log(this.remainingTime, this.startTime)
+        console.log('timer restarted')
+        console.log('old remaining: ' + this.remainingTime + ',starttime: ' + this.startTime)
         this.remainingTime = this.startTime;
-        console.log('new ramining' + this.remainingTime)
+        console.log('new remaining' + this.remainingTime)
         this.timerIsRunning = true;
     }
 }

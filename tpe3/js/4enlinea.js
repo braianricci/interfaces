@@ -31,6 +31,7 @@ function playGame(config) {
 
     // Actualiza y renderiza el estado actual de la partida, avisando si la misma debe continuar o ya finalizó
     function gameLoop(timestamp) {
+        if (!lastTime) lastTime = timestamp;
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
 
@@ -46,8 +47,8 @@ function playGame(config) {
     }
 
     // Programa la ejecución de gameLoop(timestamp) en el proximo frame de la pantalla
-    console.log('NOW!')
     gameState.restartTimer();
+    console.log('requesting 1st frame')
     requestAnimationFrame(gameLoop);
 }
 
