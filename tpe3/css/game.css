@@ -251,12 +251,14 @@ button.icon-btn i:hover {
 }
 
 .img-ficha {
+    box-sizing: border-box;
     cursor: pointer;
     display: block;
     max-width: 100px;
     max-height: 100px;
     margin: 5px 20px;
     border-radius: 100px;
+    padding: 2px;
 }
 
 .fichas-container {
@@ -278,7 +280,7 @@ button.icon-btn i:hover {
 }
 
 .fichas-container h2:first-child {
-    color: blue;
+    color: var(--acc_400);
 }
 
 .form-linea {

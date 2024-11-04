@@ -54,6 +54,6 @@ class Graphics {
         ctx.textBaseline = 'middle';
         const centerX = this.config['canvas-width'] / 2;
         const centerY = this.config['canvas-height'] / 6;
-        ctx.fillText(`¡Ganó ${winnerColor}!`, centerX, centerY);
+        ctx.fillText(`¡${winnerColor} has won!`, centerX, centerY);
     }
 }

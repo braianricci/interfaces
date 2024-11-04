@@ -48,8 +48,6 @@ function listenersLinks() {
     let formButtons = document.getElementsByClassName("await-animation");
     let playerNext = document.getElementsByClassName('player-name-next');
     let fichaNext = document.getElementsByClassName('ficha-next');
-    let gameRestart = document.getElementsByClassName('canvas-restart');
-    let gameHome = document.getElementsByClassName('canvas-home');
     let imgFichas = document.getElementsByClassName('img-ficha');
 
     for (let item of links) {
@@ -75,12 +73,6 @@ function listenersLinks() {
     }
     for (let item of imgFichas) {
         item.addEventListener("click", selectFicha);
-    }
-    for (let item of gameRestart) {
-        item.addEventListener("click", loadConfig);
-    }
-    for (let item of gameHome) {
-        item.addEventListener("click", goToSelectPlayer);
     }
 }
 

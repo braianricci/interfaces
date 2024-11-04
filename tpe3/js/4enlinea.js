@@ -1,9 +1,21 @@
+let playersNames = [];
+let playersFichas = [];
+
 // Carga de forma asíncrona un archivo de configuración JSON con aspectos clave del juego
 async function loadConfig() {
     const response = await fetch('js/config.json');
     const config = await response.json();
+    let configString = JSON.stringify(config, null, 4);
 
-    playGame(config);
+    const form = document.getElementById('form-linea');
+    const formData = new FormData(form);
+    const boardSize = formData.get('connect');
+
+    configString = calculateSize(configString, boardSize);
+    configString = addNamesAndFichas(configString)
+    const fullConfig = JSON.parse(configString);
+
+    playGame(fullConfig);
 }
 
 // Inicializa los elementos del juego y comienza con un ciclo de actualizaciones que constituyen el flujo de la partida
@@ -29,7 +41,7 @@ function playGame(config) {
         if (continueGame) {
             requestAnimationFrame(gameLoop);
         } else {
-            graphics.showWinner(gameState.board.getWinner());
+            graphics.showWinner(gameState.getWinner());
         }
     }
 
@@ -52,6 +64,9 @@ function setup(canvas, config) {
 
 // Añade los controles del juego al mouse para poder interactuar con él
 function addMouseEventListeners(canvas, gameState) {
+    let gameRestart = document.getElementsByClassName('canvas-restart');
+    let gameHome = document.getElementsByClassName('canvas-home');
+
     canvas.addEventListener('mousedown', (event) => {
         gameState.click();
     });
@@ -65,13 +80,23 @@ function addMouseEventListeners(canvas, gameState) {
         gameState.mouse.x = (event.clientX - rect.left) * scaleX;
         gameState.mouse.y = (event.clientY - rect.top) * scaleY;
     });
+    gameRestart[0].addEventListener("click", () => {
+        gameState.abort();
+        loadConfig();
+    });
+    gameHome[0].addEventListener("click", (event) => {
+        gameState.abort();
+        goToSelectPlayer(event);
+    });
 }
 
 function goToSelectPlayer(event) {
     event.preventDefault();
+    const canvas = document.getElementById('game-canvas');
     const card = document.getElementById('play-game-card');
     const playerMenu = document.getElementById('select-player-name');
     const div = document.getElementById('canvas-buttons');
+    canvas.style.display = 'none';
     card.style.display = 'none';
     playerMenu.style.display = 'block';
     div.style.display = 'none';
@@ -81,14 +106,75 @@ function goToSelectFicha(event) {
     event.preventDefault();
     const playerMenu = document.getElementById('select-player-name');
     const fichaMenu = document.getElementById('select-ficha');
+    const fichas = document.getElementsByClassName('img-ficha');
+    const players = document.getElementsByClassName('player-names');
+    const form = document.getElementById('player-form');
+    const formData = new FormData(form);
+
+    players[0].innerHTML = formData.get('player1');
+    players[1].innerHTML = formData.get('player2');
+
     playerMenu.style.display = 'none';
     fichaMenu.style.display = 'block';
+
+    for (const ficha of fichas) {
+        ficha.style.border = '';
+    }
+    fichas[0].style.border = '4px solid var(--acc_400)';
+    fichas[1].style.border = '4px solid red';
+
+    playersNames[0] = formData.get('player1');
+    playersNames[1] = formData.get('player2');
+    playersFichas[0] = fichas[0].getAttribute('src');
+    playersFichas[1] = fichas[1].getAttribute('src');
 }
 
 function selectFicha(event) {
     const fichas = document.getElementsByClassName('img-ficha');
+    const target = event.target;
+    const color = target.getAttribute('player-data');
 
     for (const item of fichas) {
-
+        const itemColor = item.getAttribute('player-data');
+        item.style.border = color == itemColor ? '' : item.style.border;
     }
+
+    target.style.border = `4px solid ${color}`;
+    switch (color) {
+        case 'var(--acc_400)':
+            playersFichas[0] = target.getAttribute('src');
+            break;
+        case 'red':
+            playersFichas[1] = target.getAttribute('src');
+    }
+}
+
+function calculateSize(configString, size) {
+    let rows = 6;
+    let columns = 7;
+
+    switch (size) {
+        case '3':
+            rows = 5;
+            columns = 6;
+            break;
+        case '4':
+            rows = 6;
+            columns = 7;
+            break;
+        case '5':
+            rows = 7;
+            columns = 8;
+            break;
+        case '6':
+            console.log("HERE")
+            rows = 8;
+            columns = 8;
+    }
+    return configString.slice(0, -2) + `, "board-rows" : ${rows}, "board-columns" : ${columns}, "win-count" : ${size} }`;
+}
+
+function addNamesAndFichas(configString) {
+    configString = configString.slice(0, -2) + `, "player1-img" : "${playersFichas[0]}", "player2-img" : "${playersFichas[1]}" }`;
+    return configString.slice(0, -2) + `, "player1-name" : "${playersNames[0]}", "player2-name" : "${playersNames[1]}" }`;
 }

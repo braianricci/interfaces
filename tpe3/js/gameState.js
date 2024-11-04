@@ -8,6 +8,8 @@ class GameState {
         this.hoveredDropZone = null;
         this.playerOneTurn = true;
         this.ctx = ctx;
+        this.player1Name = config['player1-name'];
+        this.player2Name = config['player2-name'];
     }
 
     // Crea la cantidad de fichas necesaria para cada jugador en una partida en particular
@@ -19,8 +21,8 @@ class GameState {
 
         //deshardcodear las coordenadas pls
         for (let i = 0; i < num; i++) {
-            fichas.push(new Ficha(73, 155 - (i * 3), config, config['player1-color'], ctx));
-            fichas.push(new Ficha(247, 155 - (i * 3), config, config['player2-color'], ctx));
+            fichas.push(new Ficha(73, 155 - (i * 3), config, 'blue', ctx));
+            fichas.push(new Ficha(247, 155 - (i * 3), config, 'red', ctx));
         }
 
         return fichas;
@@ -42,7 +44,7 @@ class GameState {
 
     // Determina cuáles son las fichas seleccionables en un turno y las recorre hasta encontrar la que selecciona el jugador
     click() {
-        const playableColor = this.playerOneTurn ? 'red' : 'green';
+        const playableColor = this.playerOneTurn ? 'blue' : 'red';
         for (let ficha of this.fichas) {
             if (this.selectedFicha == null && ficha.getColor() == playableColor) {
                 this.selectedFicha = ficha.checkClick(this.mouse, playableColor);
@@ -57,5 +59,26 @@ class GameState {
             this.selectedFicha.setDragState(false);
             this.selectedFicha = null;
         }
+    }
+
+    getWinner() {
+        const color = this.board.getWinner();
+        let name;
+
+        switch (color) {
+            case 'blue':
+                name = this.player1Name;
+                break;
+            case 'red':
+                name = this.player2Name;
+                break;
+            default:
+                name = 'neither';
+        }
+        return name;
+    }
+
+    abort() {
+        this.board.abort();
     }
 }

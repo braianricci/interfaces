@@ -20,7 +20,6 @@ class Ficha {
 
     // Emplea el contexto del lienzo para dibujar las piezas del juego de acuerdo a su estado particular
     draw() {
-        this.ctx.fillStyle = this.color;
         if (this.dragged || !this.selectable) {
             this.ctx.drawImage(this.image, this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
             /*          
@@ -58,7 +57,7 @@ class Ficha {
 
     initImage() {
         const image = new Image();
-        if (this.color == 'red') {
+        if (this.color == 'blue') {
             image.src = this.config['player1-img'];
         } else {
             image.src = this.config['player2-img'];

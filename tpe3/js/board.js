@@ -179,4 +179,8 @@ class Board {
     getWinner() {
         return this.winner;
     }
+
+    abort() {
+        this.winner = 'tie';
+    }
 }

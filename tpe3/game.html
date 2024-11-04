@@ -20,14 +20,14 @@
 
             <div id="select-player-name">
                 <div class="menu-form-container">
-                    <form class="menu-form" action="">
+                    <form id="player-form" class="menu-form" action="">
                         <div>
                             <label for="player1">player 1 name </label>
-                            <input type="text" id="player1" value="Milhouse">
+                            <input type="text" name="player1" value="Milhouse">
                         </div>
                         <div>
                             <label for="player2">player 2 name </label>
-                            <input type="text" id="player2" value="Bart">
+                            <input type="text" name="player2" value="Bart">
                         </div>
                         <button class="player-name-next">Next!</button>
                     </form>
@@ -36,7 +36,7 @@
             </div>
 
             <div id="select-ficha">
-                <form class="form-linea" action="">
+                <form id="form-linea" class="form-linea" action="">
                     <label class="select-input" for="radio3">
                         <input value="3" id="radio3" name="connect" type="radio"> 
                         <span class="radio-game"></span> learn with 3
@@ -55,13 +55,13 @@
                     </label>
                 </form>
                 <div class="fichas-container">
-                    <h2>player1</h2>
-                    <h2>player2</h2>
-                    <img class="img-ficha" player-data="blue" id="ficha-1" src="./img/4enlinea/alf.png" alt="">
+                    <h2 class="player-names">player1</h2>
+                    <h2 class="player-names">player2</h2>
+                    <img class="img-ficha" player-data="var(--acc_400)" id="ficha-1" src="./img/4enlinea/alf.png" alt="">
                     <img class="img-ficha" player-data="red" id="ficha-2" src="./img/4enlinea/pals.png" alt="">
-                    <img class="img-ficha" player-data="blue" id="ficha-3" src="./img/4enlinea/hellfish.png" alt="">
+                    <img class="img-ficha" player-data="var(--acc_400)" id="ficha-3" src="./img/4enlinea/hellfish.png" alt="">
                     <img class="img-ficha" player-data="red" id="ficha-4" src="./img/4enlinea/itchy.png" alt="">
-                    <img class="img-ficha" player-data="blue" id="ficha-5" src="./img/4enlinea/duff.png" alt="">
+                    <img class="img-ficha" player-data="var(--acc_400)" id="ficha-5" src="./img/4enlinea/duff.png" alt="">
                     <img class="img-ficha" player-data="red" id="ficha-6" src="./img/4enlinea/donut.png" alt="">
                 </div>
                 <button class="ficha-next">Next!</button>
