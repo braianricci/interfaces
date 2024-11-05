@@ -80,6 +80,7 @@ class GameState {
         }
     }
 
+    //consulta el ganador a board y lo devuelve
     getWinner() {
         const color = this.board.getWinner();
         let name;
@@ -97,22 +98,26 @@ class GameState {
         return name;
     }
 
+    //aborta el juego
     abort() {
         this.restartTimer();
         this.board.abort();
     }
 
+    //dibuja el timer
     drawTimer() {
         this.ctx.fillStyle = "yellow";
         this.ctx.font = "14px Simpsons";
         this.ctx.fillText(Math.ceil(this.remainingTime), 155, 15);
     }
 
+    //reinicia el timer
     restartTimer() {
         this.remainingTime = this.startTime;
         this.timerIsRunning = true;
     }
 
+    //actualiza la flecha que indica el turno
     updateArrow(deltaTime) {
         this.arrowY += this.direction * this.speed * (deltaTime / 1000);
         if (this.arrowY > this.initialArrowY + this.range) {
@@ -124,6 +129,7 @@ class GameState {
         }
     }
 
+    //dibuja la flecha que indica el turno
     drawTurnArrow() {
         let x = 20;
 
@@ -134,6 +140,7 @@ class GameState {
         this.ctx.drawImage(this.turnArrow, x, this.arrowY, this.turnArrow.width, this.turnArrow.height);
     }
 
+    //inicializa el grafico de la flecha
     initArrow() {
         const arrow = new Image();
         arrow.src = './img/4enlinea/arrow.png';

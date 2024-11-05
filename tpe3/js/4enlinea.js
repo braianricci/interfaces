@@ -5,10 +5,6 @@ let listenersAdded = false;
 // Carga de forma asíncrona un archivo de configuración JSON con aspectos clave del juego
 async function loadConfig() {
 
-    const music = document.getElementById('track');
-    music.play();
-    music.volume = 0.5;
-
     const response = await fetch('js/config.json');
     const config = await response.json();
     let configString = JSON.stringify(config, null, 4);
@@ -57,7 +53,7 @@ function playGame(config) {
     requestAnimationFrame(gameLoop);
 }
 
-// Sustituye la portada del juego con el entorno donde se ejecuta el juego (lienzo)
+// Sustituye el menu del juego por el canvas donde se ejecuta el juego (lienzo)
 function setup(canvas, config) {
     const img = document.getElementById('select-ficha');
     const button = document.getElementById('play-game-button');
@@ -72,7 +68,6 @@ function setup(canvas, config) {
 
 // Añade los controles del juego al mouse para poder interactuar con él
 function addMouseEventListeners(canvas, gameState) {
-
 
     canvas.addEventListener('mousedown', (event) => {
         gameState.click();
@@ -106,8 +101,14 @@ function addMouseEventListeners(canvas, gameState) {
     }
 }
 
+//inicializa el menu de seleccion de nombre de jugadores
 function goToSelectPlayer(event) {
     event.preventDefault();
+
+    const music = document.getElementById('track');
+    music.play();
+    music.volume = 0.5;
+
     const canvas = document.getElementById('game-canvas');
     const card = document.getElementById('play-game-card');
     const playerMenu = document.getElementById('select-player-name');
@@ -118,6 +119,7 @@ function goToSelectPlayer(event) {
     div.style.display = 'none';
 }
 
+//inicializa el menu de seleccion de modo de juego y fichas
 function goToSelectFicha(event) {
     event.preventDefault();
     const playerMenu = document.getElementById('select-player-name');
@@ -145,6 +147,7 @@ function goToSelectFicha(event) {
     playersFichas[1] = fichas[1].getAttribute('src');
 }
 
+//controla la seleccion de fichas en el menu
 function selectFicha(event) {
     const fichas = document.getElementsByClassName('img-ficha');
     const target = event.target;
@@ -165,6 +168,7 @@ function selectFicha(event) {
     }
 }
 
+//calcula el tamaño del tablero y lo agrega al config
 function calculateSize(configString, size) {
     let rows = 6;
     let columns = 7;
@@ -189,6 +193,7 @@ function calculateSize(configString, size) {
     return configString.slice(0, -2) + `, "board-rows" : ${rows}, "board-columns" : ${columns}, "win-count" : ${size} }`;
 }
 
+//agrega los nombre y fichas seleccionados al config
 function addNamesAndFichas(configString) {
     configString = configString.slice(0, -2) + `, "player1-img" : "${playersFichas[0]}", "player2-img" : "${playersFichas[1]}" }`;
     return configString.slice(0, -2) + `, "player1-name" : "${playersNames[0]}", "player2-name" : "${playersNames[1]}" }`;

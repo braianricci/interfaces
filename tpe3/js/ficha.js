@@ -55,6 +55,7 @@ class Ficha {
         }
     }
 
+    //inicializa la imagen de la ficha
     initImage() {
         const image = new Image();
         if (this.color == 'blue') {
