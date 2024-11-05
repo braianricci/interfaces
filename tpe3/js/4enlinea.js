@@ -4,6 +4,11 @@ let listenersAdded = false;
 
 // Carga de forma asíncrona un archivo de configuración JSON con aspectos clave del juego
 async function loadConfig() {
+
+    const music = document.getElementById('track');
+    music.play();
+    music.volume = 0.5;
+
     const response = await fetch('js/config.json');
     const config = await response.json();
     let configString = JSON.stringify(config, null, 4);
@@ -67,24 +72,27 @@ function setup(canvas, config) {
 
 // Añade los controles del juego al mouse para poder interactuar con él
 function addMouseEventListeners(canvas, gameState) {
+
+
+    canvas.addEventListener('mousedown', (event) => {
+        gameState.click();
+    });
+    canvas.addEventListener('mouseup', () => {
+        gameState.mouseUp();
+    });
+    canvas.addEventListener('mousemove', (event) => {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        gameState.mouse.x = (event.clientX - rect.left) * scaleX;
+        gameState.mouse.y = (event.clientY - rect.top) * scaleY;
+    });
+
     if (!listenersAdded) {
 
         let gameRestart = document.getElementsByClassName('canvas-restart');
         let gameHome = document.getElementsByClassName('canvas-home');
 
-        canvas.addEventListener('mousedown', (event) => {
-            gameState.click();
-        });
-        canvas.addEventListener('mouseup', () => {
-            gameState.mouseUp();
-        });
-        canvas.addEventListener('mousemove', (event) => {
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
-            gameState.mouse.x = (event.clientX - rect.left) * scaleX;
-            gameState.mouse.y = (event.clientY - rect.top) * scaleY;
-        });
         gameRestart[0].addEventListener("click", () => {
             gameState.abort();
             loadConfig();

@@ -13,6 +13,12 @@ class GameState {
         this.startTime = 200;
         this.remainingTime = this.startTime;
         this.timerIsRunning = false;
+        this.turnArrow = this.initArrow();
+        this.initialArrowY = 20;
+        this.arrowY = this.initialArrowY;
+        this.range = 2;
+        this.direction = -1;
+        this.speed = 10;
     }
 
     // Crea la cantidad de fichas necesaria para cada jugador en una partida en particular
@@ -35,7 +41,6 @@ class GameState {
         const continueGame = this.board.update(deltaTime, this.mouse, this.selectedFicha != null);
         if (this.timerIsRunning) {
             this.remainingTime -= deltaTime / 1000;
-            console.log(this.remainingTime)
             if (this.remainingTime <= 0) {
                 this.remainingTime = 0;
                 this.timerIsRunning = false;
@@ -43,6 +48,7 @@ class GameState {
             }
         }
         this.fichas.forEach(obj => obj.update(deltaTime, this.mouse));
+        this.updateArrow(deltaTime);
         return continueGame && this.timerIsRunning;
     }
 
@@ -51,6 +57,7 @@ class GameState {
         this.board.drawBackground();
         this.fichas.forEach(obj => obj.draw());
         this.board.draw();
+        this.drawTurnArrow();
         this.drawTimer();
     }
 
@@ -102,10 +109,34 @@ class GameState {
     }
 
     restartTimer() {
-        console.log('timer restarted')
-        console.log('old remaining: ' + this.remainingTime + ',starttime: ' + this.startTime)
         this.remainingTime = this.startTime;
-        console.log('new remaining' + this.remainingTime)
         this.timerIsRunning = true;
+    }
+
+    updateArrow(deltaTime) {
+        this.arrowY += this.direction * this.speed * (deltaTime / 1000);
+        if (this.arrowY > this.initialArrowY + this.range) {
+            this.arrowY = this.initialArrowY + this.range;
+            this.direction = -1;
+        } else if (this.arrowY < this.initialArrowY - this.range) {
+            this.arrowY = this.initialArrowY - this.range;
+            this.direction = 1;
+        }
+    }
+
+    drawTurnArrow() {
+        let x = 20;
+
+        if (!this.playerOneTurn) {
+            x = 275;
+        }
+
+        this.ctx.drawImage(this.turnArrow, x, this.arrowY, this.turnArrow.width, this.turnArrow.height);
+    }
+
+    initArrow() {
+        const arrow = new Image();
+        arrow.src = './img/4enlinea/arrow.png';
+        return arrow;
     }
 }
