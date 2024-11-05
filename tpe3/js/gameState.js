@@ -10,7 +10,7 @@ class GameState {
         this.ctx = ctx;
         this.player1Name = config['player1-name'];
         this.player2Name = config['player2-name'];
-        this.startTime = 10;
+        this.startTime = 200;
         this.remainingTime = this.startTime;
         this.timerIsRunning = false;
     }
