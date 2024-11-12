@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.11em;
+    line-height: 94.5%;
+}
+
+body, html {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+}
+
+#loader-container {
+    background-color: #ffcccb;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 1280px;
+    height: 103px;
+    background-color: rgba(255, 255, 255, 0.01);
+    z-index: 1000;
+    backdrop-filter: blur(1px);
+    justify-content: center;
+    overflow: visible;
+}
+
+#header-container {
+    max-width: 1080px;
+    width: 100%;
+    height: 103px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 100px;
+    padding: 1em;
+}
+
+.hamburger-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    margin-top: 55px;
+    margin-bottom: -100px;
+    display: flex;
+    align-items: center;
+}
+
+.buy-button {
+    background-color: #83C252;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    width: 200px;
+    height: 50px;
+    border-radius: 111px;
+    border: 8px solid white;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+aside {
+    display: none;
+    background-color: #ffebcd;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#sidebar-container {
+    padding: 1em;
+}
+
+main {
+    background-image: url(../img/background.png);
+    background-size: 1279px 959px;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 2em 0;
+    margin-top: -103px;
+    height: 959px;
+}
+
+#content-container {
+    max-width: 1080px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2em;
+    color: white;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #5E5E5D;
+    padding: 1em 0;
+}
+
+#sega-copyrights {
+    width: 820px;
+    height: 361px;
+}
+
+footer p {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+}
+
+#footer-container {
+    max-width: 1080px;
+    width: 100%;
+    height: 515px;
+    padding: 1em;
+    text-align: center;
+    color: white;
+}
