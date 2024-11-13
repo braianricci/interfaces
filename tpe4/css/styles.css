@@ -97,6 +97,32 @@ body {
         top: -87px;
         left: 789px;
     }
+
+    .card-container {
+        position: absolute;
+        top: 1220px;
+        display: flex;
+        justify-content: space-between;
+        width: 1080px;
+
+        border: 1px solid red;
+
+        p {
+            width: 333px;
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: normal;
+            line-height: normal;
+            color: black;
+        }
+
+        img {
+            border-radius: 41px;
+            outline: 9px solid #2982FF;
+            outline-offset: -9px;
+            box-shadow: 4px 5px 0px 0px #02187e;
+        }
+    }
 }
 
 /* ╔══════━━━━━━────── • FOOTER • ──────━━━━━━══════╗ */
