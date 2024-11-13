@@ -12,7 +12,7 @@
     src: url(../fonts/Lato-Regular.ttf);
 }
 
-body, html {
+body {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
@@ -20,131 +20,86 @@ body, html {
     background-color: #f5f5f5;
 }
 
-#loader-container {
+/* #loader-container {
     background-color: #ffcccb;
     height: 100vh;
     display: none;
     align-items: center;
     justify-content: center;
     font-size: 2em;
-}
+} */
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 1280px;
-    height: 103px;
+.container {
+    height: 100%;
+    width: 1080px;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.01);
-    z-index: 1000;
-    backdrop-filter: blur(1px);
-    display: flex;
-    justify-content: center;
-    overflow: visible;
 }
 
-#header-container {
-    width: 100%;
-    max-width: 1080px;
-    height: 103px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1em;
-    position: relative;
-}
+/* ╔══════━━━━━━────── • 1 - hero • ──────━━━━━━══════╗ */
 
-.hamburger-container,
-.buy-container {
-    display: flex;
-    align-items: center;
-}
-
-.hamburger-container {
-    font-size: 1.5em;
-    flex: 1;
-    justify-content: flex-start;
-}
-
-.hamburger-icon {
-    cursor: pointer;
-}
-
-.logo-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 103px;
-}
-
-.logo {
-    width: auto;
-    height: auto;
-    max-height: 320px;
-    object-fit: contain;
-    margin-top: 320px;
-}
-
-.buy-container {
-    flex: 1;
-    justify-content: flex-end;
-}
-
-.buy-button {
-    background-color: #83C252;
-    color: white;
-    width: 200px;
-    height: 50px;
-    border-radius: 111px;
-    border: 0;
-    outline: 8px solid white;
-    font-size: 20px;
-    font-weight: 900;
-    -webkit-text-stroke: 1px white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 4px 5px 0px 8px #02187E;
-}
-
-aside {
-    display: none;
-    background-color: #ffebcd;
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-}
-
-#sidebar-container {
-    padding: 1em;
-}
-
-main {
-    background-image: url(../img/background.png);
-    background-size: 1279px 959px;
-    background-position: center;
+.hero {
+    height: 954px;
+    background-image: url(../img/1/background.png);
     background-repeat: no-repeat;
-    color: white;
-    padding: 2em 0;
-    height: 959px;
+    background-size: 1279px 959px;
+    /*     padding: 2em 0; */
+
+    border: 1px solid blue;
 }
 
-#content-container {
-    max-width: 1080px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2em;
-    color: white;
-    text-align: center;
+/* ╔══════━━━━━━────── • 2 - masdivertida • ──────━━━━━━══════╗ */
+
+.masdivertida {
+    height: 1852px;
+    background-image: url(../img/2/background.svg);
+    background-repeat: no-repeat;
+    position: relative;
+
+    h2 {
+        padding-top: 60px;
+        width: 508px;
+        font-weight: 600;
+        font-size: 47px;
+        letter-spacing: normal;
+        color: #1B428F;
+    }
+
+    p {
+        padding-top: 22px;
+        width: 701px;
+        /*en figma son 704px, pero por 4px el word-wrap es diferente, preferi priorizar que se vea identico y no 4px vacios*/
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: normal;
+        line-height: normal;
+        color: #1B428F;
+    }
+
+    .window {
+        position: absolute;
+        top: 336px;
+        left: 236px;
+        width: 577px;
+        height: 325px;
+        border-radius: 77px;
+        outline: 29px solid #1B5F99;
+        outline-offset: -29px;
+    }
+
+    .n4 {
+        position: absolute;
+        top: 537px;
+        left: 48px;
+    }
+
+    .n5 {
+        position: absolute;
+        top: -87px;
+        left: 789px;
+    }
 }
+
+/* ╔══════━━━━━━────── • FOOTER • ──────━━━━━━══════╗ */
 
 footer {
     display: flex;

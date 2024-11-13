@@ -1,0 +1,99 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 1280px;
+    height: 103px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.01);
+    z-index: 1000;
+    backdrop-filter: blur(1px);
+
+    display: flex;
+
+    justify-content: center;
+    overflow: visible;
+}
+
+#header-container {
+    width: 100%;
+    max-width: 1080px;
+    height: 103px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    position: relative;
+}
+
+.hamburger-container,
+.buy-container {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-container {
+    font-size: 1.5em;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.hamburger-icon {
+    cursor: pointer;
+}
+
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 103px;
+}
+
+.logo {
+    width: auto;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    margin-top: 320px;
+}
+
+.buy-container {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.buy-button {
+    background-color: #83C252;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 111px;
+    border: 0;
+    outline: 8px solid white;
+    font-size: 20px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 5px 0px 8px #02187E;
+}
+
+aside {
+    display: none;
+    background-color: #ffebcd;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#sidebar-container {
+    padding: 1em;
+}
