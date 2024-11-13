@@ -50,7 +50,7 @@ body {
 /* ╔══════━━━━━━────── • 2 - masdivertida • ──────━━━━━━══════╗ */
 
 .masdivertida {
-    height: 1852px;
+    height: 1876px;
     background-image: url(../img/2/background.svg);
     background-repeat: no-repeat;
     position: relative;
@@ -123,6 +123,44 @@ body {
             box-shadow: 4px 5px 0px 0px #02187e;
         }
     }
+}
+
+/* ╔══════━━━━━━────── • 3 - descarga • ──────━━━━━━══════╗ */
+
+.descarga {
+    height: 1157px;
+    background-image: url(../img/3/background.svg);
+}
+
+/* ╔══════━━━━━━────── • 4 - masamigos • ──────━━━━━━══════╗ */
+
+.masamigos {
+    height: 5421px;
+}
+
+/* ╔══════━━━━━━────── • 5 - video • ──────━━━━━━══════╗ */
+
+.video {
+    height: 1444px;
+    background-image: url(../img/5/background.png);
+}
+
+/* ╔══════━━━━━━────── • 6 - model3d • ──────━━━━━━══════╗ */
+
+.model3d {
+    height: 1037px;
+}
+
+/* ╔══════━━━━━━────── • 7 - colores • ──────━━━━━━══════╗ */
+
+.colores {
+    height: 729px;
+}
+
+/* ╔══════━━━━━━────── • 8 - pre-footer • ──────━━━━━━══════╗ */
+
+.pre-footer {
+    height: 1570px;
 }
 
 /* ╔══════━━━━━━────── • FOOTER • ──────━━━━━━══════╗ */
