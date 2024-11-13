@@ -35,9 +35,13 @@ header {
     font-size: 1.5em;
     flex: 1;
     justify-content: flex-start;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 .hamburger-icon {
+    color: #F39E46;
     cursor: pointer;
 }
 
@@ -63,6 +67,9 @@ header {
 .buy-container {
     flex: 1;
     justify-content: flex-end;
+    position: absolute;
+    top: 20px;
+    right: 0px;
 }
 
 .buy-button {
