@@ -216,6 +216,62 @@ body {
 .descarga {
     height: 1157px;
     background-image: url(../img/3/background.svg);
+    display: flex;
+    justify-content: center;
+
+    .prueba{
+        width: 950px;
+        height: 150px;
+        margin-top: 175px;
+
+        h1 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 600; 
+            font-size: 61.14px; 
+            line-height: 110%; 
+            letter-spacing: 0; 
+            color: white; 
+            text-align: center; 
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+        }
+        
+        span {
+            font-family: 'Times New Roman', sans-serif;
+            font-style: italic;
+            letter-spacing:0;
+            font-weight: 800;
+        }
+    }
+
+    .download-button {
+        position: absolute;
+        margin-top: 390px;
+        background-color: #83C252;
+        color: white;
+        width: 538px;
+        height: 65px;
+        border-radius: 111px;
+        border: 0;
+        outline: 8px solid white;
+        font-size: 24px;
+        font-weight: 900;
+        -webkit-text-stroke: 1px white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 4px 5px 0px 8px #02187E;
+    }
+
+    .boys{
+        position: absolute;
+        margin-top: 390px;
+    }
+
+
 }
 
 /* ╔══════━━━━━━────── • 4 - masamigos • ──────━━━━━━══════╗ */
