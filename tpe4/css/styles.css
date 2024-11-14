@@ -9,10 +9,10 @@
 
 /* Lato Regular */
 @font-face {
-  font-family: 'Lato';
-  font-weight: normal;
-  font-style: normal;
-  src: url(../fonts/Lato-Regular.ttf);
+    font-family: 'Lato';
+    font-weight: normal;
+    font-style: normal;
+    src: url(../fonts/Lato-Regular.ttf);
 }
 
 /* Lato Bold Italic */
@@ -21,7 +21,7 @@
     font-weight: bold;
     font-style: italic;
     src: url(../fonts/Lato-BoldItalic.ttf);
-  }
+}
 
 body {
     width: 100%;
@@ -95,6 +95,7 @@ body {
         left: 198px;
         z-index: 11;
     }
+
     .bushlong {
         top: 630px;
         right: 60px;
@@ -202,8 +203,6 @@ body {
         justify-content: space-between;
         width: 1080px;
 
-        border: 1px solid red;
-
         p {
             width: 333px;
             font-weight: 500;
@@ -230,29 +229,29 @@ body {
     display: flex;
     justify-content: center;
 
-    .prueba{
+    .prueba {
         width: 950px;
         height: 150px;
         margin-top: 175px;
 
         h1 {
             font-family: 'Lato', sans-serif;
-            font-weight: 500; 
-            font-size: 61.14px; 
-            line-height: 110%; 
-            letter-spacing: 0; 
-            color: white; 
-            text-align: center; 
+            font-weight: 500;
+            font-size: 61.14px;
+            line-height: 110%;
+            letter-spacing: 0;
+            color: white;
+            text-align: center;
             padding-left: 40px;
             padding-right: 40px;
             padding-bottom: 20px;
         }
-        
+
         span {
             font-family: "Lato", sans-serif;
             font-weight: 500;
             font-style: italic;
-            letter-spacing:0;
+            letter-spacing: 0;
         }
     }
 
@@ -268,21 +267,21 @@ body {
         outline: 8px solid white;
         font-size: 31.14px;
         font-weight: 400;
-        line-height: 110%; 
+        line-height: 110%;
         letter-spacing: 0px;
         -webkit-text-stroke: 1px white;
         cursor: pointer;
         box-shadow: 4px 5px 0px 8px #02187E;
     }
 
-    .download-span{
+    .download-span {
         font-size: 31.14px;
         font-weight: 400;
-        line-height: 110%; 
+        line-height: 110%;
         letter-spacing: 0px;
     }
 
-    .boys{
+    .boys {
         position: absolute;
         margin-top: 390px;
     }
@@ -307,13 +306,40 @@ body {
 
 .model3d {
     height: 1037px;
+    padding-top: 223px;
+    position: relative;
+
+    h1 {
+        width: 746px;
+        height: 285px;
+        font-weight: 600;
+        font-size: 60px;
+        letter-spacing: normal;
+        color: #9D2121;
+    }
+
+    p {
+        width: 467px;
+        height: 190px;
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0px;
+        padding-top: 43px;
+    }
+
+    model-viewer {
+        width: 667px;
+        height: 973px;
+        position: absolute;
+        top: 10px;
+        right: 14px;
+    }
 }
 
 /* ╔══════━━━━━━────── • 7 - colores • ──────━━━━━━══════╗ */
 
 .colores {
     height: 729px;
-    background-color: red;
 }
 
 /* ╔══════━━━━━━────── • 8 - pre-footer • ──────━━━━━━══════╗ */
