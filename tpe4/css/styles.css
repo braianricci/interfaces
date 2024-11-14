@@ -40,6 +40,10 @@ body {
     font-size: 2em;
 } */
 
+main {
+    background-color: white;
+}
+
 .container {
     height: 100%;
     width: 1080px;
@@ -316,6 +320,7 @@ body {
         font-size: 60px;
         letter-spacing: normal;
         color: #9D2121;
+        margin-left: 2px;
     }
 
     p {
@@ -328,6 +333,7 @@ body {
     }
 
     model-viewer {
+        pointer-events: all;
         width: 667px;
         height: 973px;
         position: absolute;
@@ -346,27 +352,5 @@ body {
 
 .pre-footer {
     height: 1570px;
-}
-
-/* ╔══════━━━━━━────── • FOOTER • ──────━━━━━━══════╗ */
-
-footer {
-    display: flex;
-    justify-content: center;
-    background-color: #5E5E5D;
-    padding: 1em 0;
-}
-
-footer p {
-    font-size: 20px;
-    font-weight: 400;
-    text-align: left;
-}
-
-#footer-container {
-    max-width: 1080px;
-    width: 100%;
-    padding: 1em;
-    text-align: center;
-    color: white;
+    background-image: url(../img/8/background.svg);
 }

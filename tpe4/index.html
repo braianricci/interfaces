@@ -17,8 +17,12 @@
     <!--╔══════━━━━━━────── • HEADER • ──────━━━━━━══════╗-->
 
     <header>
-        <div id="header-container">
-            <div class="hamburger-container"><span class="hamburger-icon">☰</span></div>
+        <div class="container">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
             <div class="logo-container"><img class="logo" src="img/logo.png" alt="Number Blocks"></div>
             <div class="buy-container"><button class="buy-button"><span>COMPRAR</span></button></div>
         </div>
@@ -100,8 +104,9 @@
                 <p>En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual! Disfruta de efectos 3D asombrosos que dan vida a cada número y desafío, haciendo que las<br>matemáticas cobren una nueva dimensión. A medida que los niños interactúan con los personajes y los bloques, verán cómo sus acciones tienen un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte en una experiencia inolvidable llena de color y diversión!</p>
                 
             </div>
-            <model-viewer loading="eager" camera-controls touch-action="pan-y" 
-            auto-rotate reveal="auto" poster="./img/6/one.png" 
+            <model-viewer loading="eager" camera-controls touch-action="none" 
+            auto-rotate disable-zoom disable-pan
+            reveal="auto" poster="./img/6/one.png" 
             tone-mapping="aces" src="./img/6/one.glb" 
             shadow-intensity="1" alt="A 3D model of one"></model-viewer>
         </section>
@@ -126,6 +131,8 @@
         </div>
     </footer>
 
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </html>
