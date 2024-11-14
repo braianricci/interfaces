@@ -350,6 +350,43 @@ main {
 .video {
     height: 1444px;
     background-image: url(../img/5/background.png);
+    position: relative;
+
+    h2 {
+        position: absolute;
+        height: 171px;
+        width: 802px;
+        top: 309px;
+        font-size: 60px;
+        font-weight: 600;
+        letter-spacing: 0;
+        color: #ffffff;
+    }
+
+    .iframe-container {
+        position: relative;
+        width: 746px;;
+        height: 394px;
+        top: 526px;
+        border-radius: 45px;
+        background-color: white;
+        padding: 29px;
+        box-sizing: content-box;
+    }
+
+    .styled-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+    }
+
+    .hero33 {
+        position: absolute;
+        top: 352px;
+        right: 0;
+        z-index: 2;
+    }
 }
 
 /* ╔══════━━━━━━────── • 6 - model3d • ──────━━━━━━══════╗ */
