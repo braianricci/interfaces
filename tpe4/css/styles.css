@@ -7,10 +7,21 @@
     line-height: 94.5%;
 }
 
+/* Lato Regular */
+@font-face {
+  font-family: 'Lato';
+  font-weight: normal;
+  font-style: normal;
+  src: url(../fonts/Lato-Regular.ttf);
+}
+
+/* Lato Bold Italic */
 @font-face {
     font-family: 'Lato';
-    src: url(../fonts/Lato-Regular.ttf);
-}
+    font-weight: bold;
+    font-style: italic;
+    src: url(../fonts/Lato-BoldItalic.ttf);
+  }
 
 body {
     width: 100%;
@@ -226,7 +237,7 @@ body {
 
         h1 {
             font-family: 'Lato', sans-serif;
-            font-weight: 600; 
+            font-weight: 500; 
             font-size: 61.14px; 
             line-height: 110%; 
             letter-spacing: 0; 
@@ -238,10 +249,10 @@ body {
         }
         
         span {
-            font-family: 'Times New Roman', sans-serif;
+            font-family: "Lato", sans-serif;
+            font-weight: 500;
             font-style: italic;
             letter-spacing:0;
-            font-weight: 800;
         }
     }
 
@@ -255,15 +266,20 @@ body {
         border-radius: 111px;
         border: 0;
         outline: 8px solid white;
-        font-size: 24px;
-        font-weight: 900;
+        font-size: 31.14px;
+        font-weight: 400;
+        line-height: 110%; 
+        letter-spacing: 0px;
         -webkit-text-stroke: 1px white;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
         box-shadow: 4px 5px 0px 8px #02187E;
+    }
+
+    .download-span{
+        font-size: 31.14px;
+        font-weight: 400;
+        line-height: 110%; 
+        letter-spacing: 0px;
     }
 
     .boys{
