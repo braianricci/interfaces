@@ -15,6 +15,22 @@
     src: url(../fonts/Lato-Regular.ttf);
 }
 
+/* Lato Semiold */
+@font-face {
+    font-family: 'Lato';
+    font-weight: 600;
+    font-style: normal;
+    src: url(../fonts/Lato-Semibold.ttf);
+}
+
+/* Lato Bold */
+@font-face {
+    font-family: 'Lato';
+    font-weight: bold;
+    font-style: normal;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+
 /* Lato Bold Italic */
 @font-face {
     font-family: 'Lato';
@@ -358,14 +374,14 @@ main {
         width: 802px;
         top: 309px;
         font-size: 60px;
-        font-weight: 600;
-        letter-spacing: 0;
+        font-weight: 500;
+        letter-spacing: 0px;
         color: #ffffff;
     }
 
     .iframe-container {
         position: relative;
-        width: 746px;;
+        width: 746px;
         height: 394px;
         top: 526px;
         border-radius: 45px;
@@ -436,4 +452,104 @@ main {
 .pre-footer {
     height: 1570px;
     background-image: url(../img/8/background.svg);
+    position: relative;
+
+    h2 {
+        font-family: 'Lato';
+        width: 816px;
+        font-weight: 600;
+        font-size: 60px;
+        letter-spacing: normal;
+        padding-top: 190px;
+    }
+
+    form {
+        margin-top: 41px;
+        width: 780px;
+        border-radius: 50px;
+        display: flex
+    }
+
+    input,
+    button {
+        all: unset;
+    }
+
+    input {
+        width: 562px;
+        height: 100px;
+        background-color: #ECECEC;
+        border-radius: 50px 0 0 50px;
+        box-sizing: border-box;
+        border-top: 9px solid white;
+        border-left: 9px solid white;
+        border-bottom: 9px solid white;
+        font-size: 20px;
+        box-shadow: 4px 5px 0 0 #02187E;
+    }
+
+    input::placeholder {
+        padding-left: 43px;
+    }
+
+    button {
+        width: 218px;
+        height: 100px;
+        background-color: #83C252;
+        border-radius: 0 50px 50px 0;
+        box-sizing: border-box;
+        border: 9px solid white;
+        box-shadow: 4px 5px 0 0 #02187E;
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        -webkit-text-stroke: 1px white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p {
+        width: 578px;
+        height: 95px;
+        margin-top: 46px;
+        font-size: 20px;
+        letter-spacing: 0px;
+    }
+
+    span {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-thickness: 1px;
+        letter-spacing: 0px;
+    }
+
+    .esrb {
+        margin-top: 11px;
+    }
+
+    .gif {
+        position: absolute;
+    }
+
+    .gif:nth-child(1) {
+        width: 480px;
+        height: 480px;
+        top: 1048px;
+        left: 65px;
+    }
+
+    .gif:nth-child(2) {
+        width: 509px;
+        height: 509px;
+        top: 1019px;
+        left: 407px;
+    }
+
+    .gif:nth-child(3) {
+        width: 561px;
+        height: 997px;
+        top: 613px;
+        left: 756px;
+    }
 }
