@@ -66,6 +66,16 @@ main {
     margin: 0 auto;
 }
 
+#debugTab {
+    width: 400px;
+    height: 20px;
+    position: fixed;
+    top: 100px;
+    z-index: 1001;
+    background-color: white;
+    color: black;
+}
+
 /* ╔══════━━━━━━────── • 1 - hero • ──────━━━━━━══════╗ */
 
 .hero {
@@ -256,7 +266,7 @@ main {
 
         h1 {
             font-family: 'Lato', sans-serif;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 61.14px;
             line-height: 110%;
             letter-spacing: 0;
@@ -455,7 +465,6 @@ main {
     position: relative;
 
     h2 {
-        font-family: 'Lato';
         width: 816px;
         font-weight: 600;
         font-size: 60px;
