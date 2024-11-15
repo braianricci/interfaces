@@ -311,9 +311,19 @@ main {
         letter-spacing: 0px;
     }
 
-    .boys {
+    .boys-container {
         position: absolute;
+        overflow: hidden;
         margin-top: 390px;
+
+    }
+
+    img.boys {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%; 
+        object-fit: cover; 
+        transition: transform 0.5s ease-out;
     }
 
 
