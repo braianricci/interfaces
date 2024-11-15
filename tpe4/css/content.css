@@ -333,9 +333,26 @@ main {
 
 .masamigos {
     height: 5421px;
+    
+    .columns {
+        display: flex;  
+        justify-content: space-between;  
+        align-items: flex-start;
+    }
 
+    .left {
+        position: sticky;
+        top: 100px;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-    div.sumasMagicas {
+    .right {
         width: 467px;
         height: 4469px;
         display: flex;
@@ -379,6 +396,27 @@ main {
         line-height: 56.7px;
         letter-spacing: 0;
     }
+
+    .img-sticky {
+        position: absolute;
+        top: 0;
+        max-width: 100%;
+        height: auto;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 3s, transform 3s;
+    }
+
+    .img-sticky.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .content-item {
+        margin-bottom: 100px; /* Ajusta según necesites */
+        min-height: 300px; /* Ajusta según necesites */
+    }
+    
 }
 
 /* ╔══════━━━━━━────── • 5 - video • ──────━━━━━━══════╗ */
