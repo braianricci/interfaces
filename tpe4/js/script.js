@@ -13,7 +13,7 @@ function start() {
         const yPosition = rect.top + window.scrollY;
         positions.push(yPosition);
     }
-    console.log(positions)
+    console.log('Section positions: ' + positions)
 
     window.addEventListener('scroll', () => {
         updateOffset(positions, debug);
@@ -23,7 +23,6 @@ function start() {
 function updateOffset(positions, debug) {
 
     let debugInfo = window.scrollY;
-    console.log(window.scrollY);
 
     debug.innerHTML = '&emsp;Current scroll y value: ' + debugInfo;
 }
