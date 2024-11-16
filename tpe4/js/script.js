@@ -15,18 +15,75 @@ function start() {
     }
     console.log('Section positions: ' + positions)
 
-    window.addEventListener('scroll', () => {
-        updateOffset(positions, debug);
+    window.addEventListener('scroll', (event) => {
+        updateOffset(positions, debug, event);
     });
 }
 
-function updateOffset(positions, debug) {
+function updateOffset(positions, debug, event) {
 
-    let debugInfo = window.scrollY;
+    let y = window.scrollY;
+    let shownSection = 1;
 
-    debug.innerHTML = '&emsp;Current scroll y value: ' + debugInfo;
+    for (let i = 1; i < positions.length; i++) {
+        if (y + window.visualViewport.height > positions[i]) {
+            shownSection++;
+        }
+    }
+    const bottom = y + window.visualViewport.height;
+
+    switch (shownSection) {
+        case 0: case 1:
+            break;
+        case 2:
+            animate(shownSection)
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            animate(shownSection)
+            break;
+        case 6:
+            animate(shownSection)
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        default:
+            console.log('section not found')
+    }
+
+    //debug tab
+    debug.innerHTML = '&emsp;Viewport top y value: ' + y +
+        '<br>&emsp;Viewport height: ' + window.visualViewport.height +
+        '<br>&emsp;Viewport bottom: ' + bottom +
+        '<br>&emsp;Current section: ' + shownSection;
 }
 
+/* ╔══════━━━━━━────── • 2 - masdivertida • ──────━━━━━━══════╗ */
+
+function animate(id) {
+    const windowY = window.scrollY;
+    const section = document.getElementById('section' + id);
+    const prevId = id - 1;
+    const prev = document.getElementById('section' + prevId);
+    const sectionTop = section.getBoundingClientRect().top;
+    const layers = [
+        ...section.getElementsByClassName('parallax'),
+        ...prev.getElementsByClassName('parallax')
+    ];
+
+    for (let i = 0; i < layers.length; i++) {
+        let layer = layers[i];
+        let speed = layer.getAttribute('data-speed');
+        let yPos = -(Math.abs(windowY, sectionTop) * speed / 100);
+
+        layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
+    }
+}
 
 /* ╔══════━━━━━━────── • 3 - descarga • ──────━━━━━━══════╗ */
 
@@ -40,7 +97,7 @@ if (sectionDescarga && imagen) {
         const offsetY = ((event.clientY - top) / height) * 2 - 1;
 
         // Ajustar la cantidad de movimiento
-        const moveAmount = 30;
+        const moveAmount = 40;
         imagen.style.transform = `translate(${-offsetX * moveAmount}px, ${-offsetY * moveAmount}px) scale(1.1)`;
     });
 }

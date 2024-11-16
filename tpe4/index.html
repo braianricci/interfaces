@@ -25,8 +25,8 @@
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-            <div class="logo-container"><img class="logo" src="img/logo.png" alt="Number Blocks"></div>
-            <div class="buy-container"><button class="buy-button"><span>COMPRAR</span></button></div>
+            <img src="img/logo.png" alt="Number Blocks">
+            <button>COMPRAR</button>
         </div>
     </header>
 
@@ -41,9 +41,9 @@
 
     <main>
 
-        <div id="debugTab">das</div>
+        <div id="debugTab">Debug Tab</div>
 
-        <section class="section hero">
+        <section id="section1" class="section hero">
             <img class="arbol1" src="./img/1/arbol 1.png" alt="arbol1">
             <img class="arbol2" src="./img/1/arbol 2.png" alt="arbol2">
             <img class="arbol3" src="./img/1/arbol 3.png" alt="arbol3">
@@ -60,15 +60,15 @@
             <img class="hero3" src="./img/1/3.png" alt="hero3">
         </section>
 
-        <section class="section masdivertida">
+        <section id="section2" class="section masdivertida">
             <div class="container">
                 <h2>La app más divertida y educativa y para niños de 3 años</h2>
                 <p>Numberblocks World es una divertida aplicación de vídeo a la carta y juegos por suscripción dirigida
                     a niños a partir de 3 años, con un grupo de edad principal de 4 a 6 años, creada por el equipo de
                     Alphablocks Ltd. y Blue Zoo Animations Studio, ganador de un premio BAFTA.</p>
-                <img class="window" src="./img/2/window.png" alt="">
-                <img class="n4" src="./img/2/4.png" alt="">
-                <img class="n5" src="./img/2/5.png" alt="">
+                <img class="window parallax" src="./img/2/window.png" alt="Fotos del juego" data-speed="7">   
+                <img class="n4 parallax" src="./img/2/4.png" alt="Numero 4" data-speed="22">
+                <img class="n5 parallax" src="./img/2/5.png" alt="Numero 5" data-speed="18">
                 <div class="card-container">
                     <div class="card">
                         <img src="./img/2/card1.png" alt="">
@@ -93,7 +93,7 @@
             </div>
         </section>
 
-        <section class="section descarga">
+        <section id="section3" class="section descarga">
             <div class="prueba">
                 <h1>Descubre el juego que convierte las <span>Matemáticas</span> en diversión</h1>
             </div>
@@ -103,106 +103,110 @@
             </div>
         </section>
 
-        <section class="section masamigos">
-            <h1>Más amigos, más diversión!</h1>
-            <div class="columns">
-                <div class="left">
-                    <img class="img-sticky" src="./img/4/0.png" alt="Imagen 0">
-                    <img class="img-sticky" src="./img/4/1.png" alt="Imagen 1">
-                    <img class="img-sticky" src="./img/4/2.png" alt="Imagen 2">
-                    <img class="img-sticky" src="./img/4/3.png" alt="Imagen 3">
-                    <img class="img-sticky" src="./img/4/4.png" alt="Imagen 4">
-                    <img class="img-sticky" src="./img/4/5.png" alt="Imagen 5">
-                    <img class="img-sticky" src="./img/4/6.png" alt="Imagen 6">
-                    <img class="img-sticky" src="./img/4/7.png" alt="Imagen 7">
-                    <img class="img-sticky" src="./img/4/8.png" alt="Imagen 8">
-                    <img class="img-sticky" src="./img/4/9.png" alt="Imagen 9">
+        <section id="section4" class="section masamigos">
+            <div class="container">
+                <h1>Más amigos, más diversión!</h1>
+                <div class="columns">
+                    <div class="left">
+                        <img class="img-sticky" src="./img/4/0.png" alt="Imagen 0">
+                        <img class="img-sticky" src="./img/4/1.png" alt="Imagen 1">
+                        <img class="img-sticky" src="./img/4/2.png" alt="Imagen 2">
+                        <img class="img-sticky" src="./img/4/3.png" alt="Imagen 3">
+                        <img class="img-sticky" src="./img/4/4.png" alt="Imagen 4">
+                        <img class="img-sticky" src="./img/4/5.png" alt="Imagen 5">
+                        <img class="img-sticky" src="./img/4/6.png" alt="Imagen 6">
+                        <img class="img-sticky" src="./img/4/7.png" alt="Imagen 7">
+                        <img class="img-sticky" src="./img/4/8.png" alt="Imagen 8">
+                        <img class="img-sticky" src="./img/4/9.png" alt="Imagen 9">
+                        <img class="img-sticky" src="./img/4/10.png" alt="Imagen 9">
+                    </div>
+                    <div class="right">
+                        <div class="content-item" data-image="0">
+                            <h2>Sumas Mágicas</h2>
+                            <p>Ayuda a UNO y sus amigos a juntar bloques y ver como sus números crecen al sumar. Cada vez
+                                que
+                                sumas correctamente, los NumberBlocks ganan fuerza y desbloquean sorpresas mágicas.¡Descubre
+                                cómo los números se commbinan para formar resultados increíbles! </p>
+                        </div>
+                        <div class="content-item" data-image="1">
+                            <h2>Rompecabezas de Restas</h2>
+                            <p>Acompaña a UNO en un recorrido lleno de obstáculos donde solo podrás avanzar restando bloques
+                                correctamente. Observa cómo los personajes se transforman cuando restan,¡y resuelve cad
+                                arompecabezas para llegar a la meta!</p>
+                        </div>
+                        <div class="content-item" data-image="2">
+                            <h2>Carrera de Conteo</h2>
+                            <p>Corre contra el reloj mientras cuentas bloques en secuencia para ayudar a los NumberBlocks a
+                                llegar al final.¡Cada número correcto te da una ventaja extra! Con cada carrera, aprenderás
+                                a
+                                contar y a pensar rápido.</p>
+                        </div>
+                        <div class="content-item" data-image="3">
+                            <h2>Encuentra el número Oculto</h2>
+                            <p>Busca entre los escenarios y ayuda a UNO a encontrar el numero perdido para completar la
+                                secuencia.¡Cada número oculto revela una sorpresa especial!Observa bien y explra cada rincón
+                                para descubrir dónde se esconde.</p>
+                        </div>
+                        <div class="content-item" data-image="4">
+                            <h2>Desafío de Comparación</h2>
+                            <p>En este reto, debes ayudar a UNO a identificar qué NumberBlock es mayor o menor. Aprende
+                                sobre la
+                                comparacion de números mientras los personajes se colocan en orden de tamaño, ¡y desbloquea
+                                recompensas cada vez que aciertes!</p>
+                        </div>
+                        <div class="content-item" data-image="5">
+                            <h2>Forma el Número Correcto</h2>
+                            <p>¿Puedes combinar los bloques para crear el número solicitado? Elige los números correctos y
+                                únelos ara fomar nuevos resultados. ¡Es una forma divertida de practicar la construccion de
+                                numeros y descubrir cómo encajan!</p>
+                        </div>
+                        <div class="content-item" data-image="6">
+                            <h2>Encuentra el Número Oculto</h2>
+                            <p>Busca entre los escenarios y ayuda a UNO a encontrar el numero perdido para completar la
+                                secuencia. ¡Cada numero oculto revela una sorpresa especial! Observa bien y explora cada
+                                rincón
+                                para descubrir dónde se esconde.</p>
+                        </div>
+                        <div class="content-item" data-image="7">
+                            <h2>Salto de Sumas</h2>
+                            <p>Lleva a UNO a saltar de bloque en bloque sumando números a medida que avanzas. La meta es
+                                llegar
+                                al otro lado, ¡y solo podrás hacerlo si sumas correctamente! Cada salto exitoso te acerca a
+                                un
+                                nuevo nivel.</p>
+                        </div>
+    
+                        <div class="content-item" data-image="8">
+                            <h2>Rompecabezas de Secuencias</h2>
+                            <p>Ayuda a UNO a completar series de números en orden ascendente o descendente. Observa los
+                                patrones
+                                y arrasta el número correcto para terminar la secuencia. ¡Cada secuencia completada revela
+                                una
+                                animación especial!</p>
+                        </div>
+                        <div class="content-item" data-image="9">
+                            <h2>El Desafío del Doble</h2>
+                            <p>Descubre qué sucede cuando multiplicas un NumberBlock por dos. Ayuda a UNO a duplicar números
+                                y
+                                ver cómo crecen rapidamente. ¡Una manera emocionante de aprender el concepto de "el doble" y
+                                multiplición básica!</p>
+                        </div>
+                        <div class="content-item" data-image="10">
+                            <h2>Aventura de Divisiones</h2>
+                            <p>Guía a UNO y sus amigos mientras dividen bloques en partes iguales. Divide los bloques
+                                correctamente para que cada NumberBlock tenga su parte justa. Un desafío perfecto para
+                                entender
+                                la divisiónde una forma divertida y visual.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="right">
-                    <div class="content-item" data-image="0">
-                        <h2>Sumas Mágicas</h2>
-                        <p>Ayuda a UNO y sus amigos a juntar bloques y ver como sus números crecen al sumar. Cada vez
-                            que
-                            sumas correctamente, los NumberBlocks ganan fuerza y desbloquean sorpresas mágicas.¡Descubre
-                            cómo los números se commbinan para formar resultados increíbles! </p>
-                    </div>
-                    <div class="content-item" data-image="1">
-                        <h2>Rompecabezas de Restas</h2>
-                        <p>Acompaña a UNO en un recorrido lleno de obstáculos donde solo podrás avanzar restando bloques
-                            correctamente. Observa cómo los personajes se transforman cuando restan,¡y resuelve cad
-                            arompecabezas para llegar a la meta!</p>
-                    </div>
-                    <div class="content-item" data-image="2">
-                        <h2>Carrera de Conteo</h2>
-                        <p>Corre contra el reloj mientras cuentas bloques en secuencia para ayudar a los NumberBlocks a
-                            llegar al final.¡Cada número correcto te da una ventaja extra! Con cada carrera, aprenderás
-                            a
-                            contar y a pensar rápido.</p>
-                    </div>
-                    <div class="content-item" data-image="3">
-                        <h2>Encuentra el número Oculto</h2>
-                        <p>Busca entre los escenarios y ayuda a UNO a encontrar el numero perdido para completar la
-                            secuencia.¡Cada número oculto revela una sorpresa especial!Observa bien y explra cada rincón
-                            para descubrir dónde se esconde.</p>
-                    </div>
-                    <div class="content-item" data-image="4">
-                        <h2>Desafío de Comparación</h2>
-                        <p>En este reto, debes ayudar a UNO a identificar qué NumberBlock es mayor o menor. Aprende
-                            sobre la
-                            comparacion de números mientras los personajes se colocan en orden de tamaño, ¡y desbloquea
-                            recompensas cada vez que aciertes!</p>
-                    </div>
-                    <div class="content-item" data-image="5">
-                        <h2>Forma el Número Correcto</h2>
-                        <p>¿Puedes combinar los bloques para crear el número solicitado? Elige los números correctos y
-                            únelos ara fomar nuevos resultados. ¡Es una forma divertida de practicar la construccion de
-                            numeros y descubrir cómo encajan!</p>
-                    </div>
-                    <div class="content-item" data-image="6">
-                        <h2>Encuentra el Número Oculto</h2>
-                        <p>Busca entre los escenarios y ayuda a UNO a encontrar el numero perdido para completar la
-                            secuencia. ¡Cada numero oculto revela una sorpresa especial! Observa bien y explora cada
-                            rincón
-                            para descubrir dónde se esconde.</p>
-                    </div>
-                    <div class="content-item" data-image="7">
-                        <h2>Salto de Sumas</h2>
-                        <p>Lleva a UNO a saltar de bloque en bloque sumando números a medida que avanzas. La meta es
-                            llegar
-                            al otro lado, ¡y solo podrás hacerlo si sumas correctamente! Cada salto exitoso te acerca a
-                            un
-                            nuevo nivel.</p>
-                    </div>
-
-                    <div class="content-item" data-image="8">
-                        <h2>Rompecabezas de Secuencias</h2>
-                        <p>Ayuda a UNO a completar series de números en orden ascendente o descendente. Observa los
-                            patrones
-                            y arrasta el número correcto para terminar la secuencia. ¡Cada secuencia completada revela
-                            una
-                            animación especial!</p>
-                    </div>
-                    <div class="content-item" data-image="9">
-                        <h2>El Desafío del Doble</h2>
-                        <p>Descubre qué sucede cuando multiplicas un NumberBlock por dos. Ayuda a UNO a duplicar números
-                            y
-                            ver cómo crecen rapidamente. ¡Una manera emocionante de aprender el concepto de "el doble" y
-                            multiplición básica!</p>
-                    </div>
-                    <div class="content-item" data-image="10">
-                        <h2>Aventura de Divisiones</h2>
-                        <p>Guía a UNO y sus amigos mientras dividen bloques en partes iguales. Divide los bloques
-                            correctamente para que cada NumberBlock tenga su parte justa. Un desafío perfecto para
-                            entender
-                            la divisiónde una forma divertida y visual.</p>
-                    </div>
-                </div>
+            </div>
         </section>
 
-        <section class="section video">
+        <section id="section5" class="section video">
             <div class="container">
                 <h2>Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h2>
-                <div class="iframe-container">
+                <div class="iframe-container parallax" data-speed="6">
                     <iframe class="styled-iframe" width="866" height="487"
                         src="https://www.youtube.com/embed/0YKa9DQYdRg"
                         title="Numberblocks World #5 - Meet Numberblocks 55-100 and Learn How to Trace Their Numerals | BlueZoo"
@@ -210,11 +214,11 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <img class="hero33" src="./img/5/33.png" alt="hero3">
+                <img class="hero3 parallax" src="./img/5/3.png" alt="Numero 3" data-speed="22">
             </div>
         </section>
 
-        <section class="section model3d">
+        <section id="section6" class="section model3d">
             <div class="container">
                 <h1>¡Experimenta Efectos 3D Asombrosos en NumberBlocks: Una Aventura Matemática Inmersiva!</h1>
                 <p>En NumberBlocks, la aventura no solo está en el aprendizaje, ¡sino también en la experiencia visual!
@@ -230,11 +234,11 @@
                 alt="A 3D model of one"></model-viewer>
         </section>
 
-        <section class="section colores">
+        <section id="section7" class="section colores">
             <img src="./img/7/full.png" alt="">
         </section>
 
-        <section class="section pre-footer">
+        <section id="section8" class="section pre-footer">
             <div class="container">
                 <h2>¿Quieres ser el primero en enterarse de todas las novedades?</h2>
                 <form action="">

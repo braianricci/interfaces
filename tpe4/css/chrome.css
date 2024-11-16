@@ -3,8 +3,7 @@
 header {
     position: fixed;
     top: 0;
-    width: 100%;
-    max-width: 1280px;
+    width: 1280px;
     height: 103px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.01);
@@ -13,8 +12,6 @@ header {
 
     display: flex;
 
-    justify-content: center;
-    overflow: visible;
 
     .container {
         position: relative;
@@ -33,56 +30,38 @@ header {
                 outline: 4px solid white;
                 /*la sombra en el figma se aplica al contenedor de las lineas y copia la forma de estas; imposible.
                 esta implementacion la replica perfectamente */
-                box-shadow: 4px 5px 0 3.5px #02187E;
+                box-shadow: 4px 5px 0 4px #02187E;
                 margin-bottom: 7px
             }
         }
+
+        img {
+            position: absolute;
+            left: 260px;
+            top: 55px;
+            width: 560px;
+            height: 320px;
+        }
+
+        button {
+
+            position: absolute;
+            top: 20px;
+            right: 0px;
+            background-color: #83C252;
+            color: white;
+            width: 200px;
+            height: 50px;
+            border-radius: 111px;
+            border: 0;
+            outline: 8px solid white;
+            font-size: 20px;
+            font-weight: 900;
+            -webkit-text-stroke: 1px white;
+            cursor: pointer;
+            box-shadow: 4px 5px 0px 8px #02187E;
+        }
     }
-}
-
-.logo-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 103px;
-}
-
-.logo {
-    width: auto;
-    height: auto;
-    max-height: 320px;
-    object-fit: contain;
-    margin-top: 320px;
-}
-
-.buy-container {
-    flex: 1;
-    justify-content: flex-end;
-    position: absolute;
-    top: 20px;
-    right: 0px;
-}
-
-.buy-button {
-    background-color: #83C252;
-    color: white;
-    width: 200px;
-    height: 50px;
-    border-radius: 111px;
-    border: 0;
-    outline: 8px solid white;
-    font-size: 20px;
-    font-weight: 900;
-    -webkit-text-stroke: 1px white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 4px 5px 0px 8px #02187E;
 }
 
 /* ╔══════━━━━━━────── • ASIDE • ──────━━━━━━══════╗ */
