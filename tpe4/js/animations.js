@@ -1,16 +1,19 @@
-
 /*controla tamaño de logo del header*/
 function headerControl(wTop) {
     const header = document.getElementById('header');
     const logo = header.getElementsByTagName('img')[0];
     const maxScroll = 300;
-    const fullHeight = 360;
-    const minHeight = 90;
+    const fullLogoHeight = 360;
+    const minLogoHeight = 60;
+    const fullHeaderHeight = 103;
+    const minHeaderHeight = 60;
 
     const clampedScroll = Math.min(wTop, maxScroll);
-    const newHeight = fullHeight - ((fullHeight - minHeight) * clampedScroll) / maxScroll;
+    const newLogoHeight = fullLogoHeight - ((fullLogoHeight - minLogoHeight) * clampedScroll) / maxScroll;
+    const newHeaderHeight = fullHeaderHeight - ((fullHeaderHeight - minHeaderHeight) * clampedScroll) / maxScroll;
 
-    logo.style.height = newHeight + 'px';
+    logo.style.height = newLogoHeight + 'px';
+    header.style.height = newHeaderHeight + 'px';
 }
 
 /*recibe las secciones que se estan mostrando

@@ -28,9 +28,11 @@ function start() {
     const boys = descarga.getElementsByTagName('img')[0];
 
     descarga.addEventListener('mousemove', (event) => {
-        mouseParallax(event, descarga, boys);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            mouseParallax(event, descarga, boys);
+        }, 16); //solo dispara masomenos 60 veces x segundo
     });
-
 }
 
 /*al actualizarse la posicion de scroll, chequea cuales 

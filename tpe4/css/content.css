@@ -63,15 +63,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* #loader-container {
-    background-color: #ffcccb;
-    height: 100vh;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-} */
-
 main {
     background-color: white;
 }
@@ -83,7 +74,7 @@ main {
 }
 
 #debugTab {
-    width: 400px;
+    width: auto;
     position: fixed;
     top: 100px;
     z-index: 1001;
@@ -227,6 +218,23 @@ main {
         border-radius: 77px;
         outline: 29px solid #1B5F99;
         outline-offset: -29px;
+        animation: switch-window 12s infinite;
+    }
+
+    .container .window:nth-child(3) {
+        animation-delay: 0s;
+    }
+
+    .container .window:nth-child(4) {
+        animation-delay: 3s;
+    }
+
+    .container .window:nth-child(5) {
+        animation-delay: 6s;
+    }
+
+    .container .window:nth-child(6) {
+        animation-delay: 12s;
     }
 
     .n4 {
@@ -263,6 +271,28 @@ main {
             outline-offset: -9px;
             box-shadow: 4px 5px 0px 0px #02187e;
         }
+    }
+}
+
+@keyframes switch-window {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
