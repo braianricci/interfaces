@@ -14,6 +14,10 @@ body {
     /* Firefox */
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari, Edge */
@@ -216,7 +220,7 @@ main {
 
     .window {
         position: absolute;
-        top: 426px;
+        top: 416px;
         left: 236px;
         width: 577px;
         height: 325px;
@@ -227,13 +231,13 @@ main {
 
     .n4 {
         position: absolute;
-        top: 627px;
+        top: 612px;
         left: 48px;
     }
 
     .n5 {
         position: absolute;
-        top: 0px;
+        top: -12px;
         left: 787px;
     }
 
@@ -453,7 +457,7 @@ main {
         position: relative;
         width: 746px;
         height: 394px;
-        top: 1076px;
+        top: 601px;
         border-radius: 45px;
         background-color: white;
         padding: 29px;
@@ -469,7 +473,7 @@ main {
 
     .hero3 {
         position: absolute;
-        top: 2352px;
+        top: 427px;
         right: 0;
         z-index: 2;
     }
