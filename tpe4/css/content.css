@@ -527,6 +527,12 @@ main {
     height: 1570px;
     background-image: url(../img/8/background.svg);
     position: relative;
+    overflow: hidden;
+
+    .floor {
+        position: absolute;
+        bottom: 0;
+    }
 
     h2 {
         width: 816px;
@@ -624,5 +630,46 @@ main {
         height: 997px;
         top: 613px;
         left: 756px;
+    }
+
+
+    .h-parallax {
+        position: relative;
+
+        img {
+            position: absolute;
+            animation: hparallax 0s linear infinite;
+        }
+
+        img:nth-child(1) {
+            width: 265px;
+            height: 124px;
+            top: 517px;
+            animation-duration: 100s;
+        }
+
+        img:nth-child(2) {
+            width: 387px;
+            height: 131px;
+            top: 560px;
+            animation-duration: 60s;
+        }
+
+        img:nth-child(3) {
+            width: 387px;
+            height: 131px;
+            top: 819px;
+            animation-duration: 30s;
+        }
+    }
+}
+
+@keyframes hparallax {
+    0% {
+        left: -400px;
+    }
+
+    100% {
+        left: calc(100% + 50px);
     }
 }
