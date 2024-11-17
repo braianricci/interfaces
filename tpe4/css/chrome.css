@@ -22,20 +22,10 @@ header {
             cursor: pointer;
             width: 34px;
             height: 27px;
+            transition: transform 0.3s ease-in-out;
             position: absolute;
             top: 20px;
             left: 0;
-
-            .line {
-                height: 4px;
-                border-radius: 111px;
-                background-color: #F39E46;
-                outline: 4px solid white;
-                /*la sombra en el figma se aplica al contenedor de las lineas y copia la forma de estas; imposible.
-                esta implementacion la replica perfectamente */
-                box-shadow: 4px 5px 0 4px #02187E;
-                margin-bottom: 7px
-            }
         }
 
         img {
@@ -64,6 +54,103 @@ header {
             cursor: pointer;
             box-shadow: 4px 5px 0px 8px #02187E;
         }
+    }
+}
+
+/* Refactoricé este selector porque las reglas anidadas no son válidas en CSS sin preprocesadores*/
+.line {
+    height: 4px;
+    border-radius: 111px;
+    background-color: #F39E46;
+    outline: 4px solid white;
+    box-shadow: 4px 5px 0 4px #02187E;
+    margin-bottom: 7px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .line:nth-child(1) {
+    animation: line1ToX 0.3s forwards;
+}
+
+.hamburger.active .line:nth-child(2) {
+    animation: line2ToX 0.3s forwards;
+}
+
+.hamburger.active .line:nth-child(3) {
+    animation: line3ToX 0.3s forwards;
+}
+
+.hamburger .line:nth-child(1) {
+    animation: line1ToHamburger 0.3s forwards;
+}
+
+.hamburger .line:nth-child(2) {
+    animation: line2ToHamburger 0.3s forwards;
+}
+
+.hamburger .line:nth-child(3) {
+    animation: line3ToHamburger 0.3s forwards;
+}
+
+@keyframes line1ToX {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(11px) rotate(45deg);
+        box-shadow: 4px 0px 0 4px #02187E;
+        position: relative;
+        z-index: 10;
+    }
+}
+
+@keyframes line2ToX {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes line3ToX {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(-11px) rotate(-45deg);
+        box-shadow: 0px 4px 0 4px #02187E;
+    }
+}
+
+@keyframes line1ToHamburger {
+    0% {
+        transform: translateY(11px) rotate(45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+@keyframes line2ToHamburger {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes line3ToHamburger {
+    0% {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
     }
 }
 
