@@ -1,7 +1,6 @@
 /* ╔══════━━━━━━────── • HEADER • ──────━━━━━━══════╗ */
 
 header {
-    border: 1px solid red;
     position: fixed;
     top: 0;
     width: 1280px;
@@ -14,7 +13,6 @@ header {
     display: flex;
 
     .container {
-        border: 1px solid green;
         position: relative;
         display: flex;
         justify-content: center;
