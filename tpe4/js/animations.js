@@ -56,8 +56,8 @@ function mouseParallax(event, section, image) {
     const offsetY = ((event.clientY - top) / height) * 2 - 1;
 
     // Ajustar la cantidad de movimiento
-    const moveAmount = 40;
-    image.style.transform = `translate(${-offsetX * moveAmount}px, ${-offsetY * moveAmount}px) scale(1.1)`;
+    const moveAmount = 60;
+    image.style.transform = `translate(${-offsetX * moveAmount}px, ${-offsetY * moveAmount}px) scale(1.2)`;
 }
 
 /*muestra en la seccion 4 un personaje dependiendo del texto*/
