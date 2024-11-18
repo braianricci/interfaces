@@ -37,7 +37,7 @@ function verticalParallax(sections, wBottom) {
 function cardsUp(sectionTop, wBottom) {
     const cards = document.getElementsByClassName('card');
 
-    if (wBottom > sectionTop + 200) {
+    if (wBottom > sectionTop + 150) {
         for (const card of cards) {
             card.classList.add('card-up');
         }

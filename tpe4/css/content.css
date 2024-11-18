@@ -208,7 +208,7 @@ main {
 
     .window {
         position: absolute;
-        top: 416px;
+        top: 430px;
         left: 236px;
         width: 577px;
         height: 325px;
@@ -237,13 +237,13 @@ main {
 
     .n4 {
         position: absolute;
-        top: 612px;
+        top: 752px;
         left: 48px;
     }
 
     .n5 {
         position: absolute;
-        top: -12px;
+        top: 100px;
         left: 787px;
     }
 
@@ -255,7 +255,7 @@ main {
         width: 1080px;
 
         .card {
-            transition: 1.2s cubic-bezier(.51, .47, .43, 1.33);
+            transition: 0.8s cubic-bezier(.51, .47, .43, 1.33);
             opacity: 0;
         }
 
@@ -577,14 +577,14 @@ main {
     }
 
     .character img:hover {
-        transform: scale(1.01);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 
     #character1 {
         top: 0%;
     }
-    
+
     #character2 {
         top: 0%;
         left: 21.88%;
@@ -630,6 +630,7 @@ main {
     }
 
 }
+
 /* ╔══════━━━━━━────── • 8 - pre-footer • ──────━━━━━━══════╗ */
 
 .pre-footer {

@@ -37,6 +37,10 @@ function start() {
             mouseParallax(event, descarga, boys);
         }, 8); //solo dispara masomenos 120 veces x segundo
     });
+
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
 }
 
 /*al actualizarse la posicion de scroll, chequea cuales 
