@@ -59,6 +59,47 @@ header {
     }
 }
 
+.button-shine {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.button-shine::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 120%;
+    top: 50%;
+    left: -25px;
+    transform: translate(-50%, -50%) rotate(-20deg);
+    filter: blur(2px);
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0; /* Oculta el brillo inicialmente */
+}
+
+.button-shine:hover::after {
+    animation: button-shine-dash 0.7s ease;
+    opacity: 1; /* Muestra el brillo al hacer hover */
+}
+
+.button-shine:active {
+    background-color: #64943f;
+    color: #bebebe;
+    -webkit-text-stroke: 1px #bebebe;
+}
+
+@keyframes button-shine-dash {
+    0% {
+        left: -25px;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
 /* Refactoricé este selector porque las reglas anidadas no son válidas en CSS sin preprocesadores*/
 .line {
     height: 4px;

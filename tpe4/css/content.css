@@ -89,7 +89,6 @@ main {
     background-image: url(../img/1/background.png);
     background-repeat: no-repeat;
     background-size: 1279px 959px;
-    /*     padding: 2em 0; */
     position: relative;
     overflow: hidden;
 
@@ -201,7 +200,6 @@ main {
     p {
         padding-top: 22px;
         width: 701px;
-        /*en figma son 704px, pero por 4px el word-wrap es diferente, preferi priorizar que se vea identico y no 4px vacios*/
         font-weight: 500;
         font-size: 20px;
         letter-spacing: normal;
@@ -616,6 +614,7 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 
     p {
