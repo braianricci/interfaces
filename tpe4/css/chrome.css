@@ -77,13 +77,11 @@ header {
     border-radius: 50%;
     transition: all 0.3s ease;
     opacity: 0;
-    /* Oculta el brillo inicialmente */
 }
 
 .button-shine:hover::after {
     animation: button-shine-dash 0.7s ease;
     opacity: 1;
-    /* Muestra el brillo al hacer hover */
 }
 
 .button-shine:active {
@@ -106,7 +104,6 @@ header {
     }
 }
 
-/* Refactoricé este selector porque las reglas anidadas no son válidas en CSS sin preprocesadores*/
 .line {
     height: 4px;
     border-radius: 111px;

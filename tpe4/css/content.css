@@ -563,9 +563,73 @@ main {
 /* ╔══════━━━━━━────── • 7 - colores • ──────━━━━━━══════╗ */
 
 .colores {
+    position: relative;
     height: 729px;
-}
+    width: 1280px;
+    background-image: url('../img/7/full.png');
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
 
+    .character img {
+        position: absolute;
+        transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .character img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+
+    #character1 {
+        top: 0%;
+    }
+    
+    #character2 {
+        top: 0%;
+        left: 21.88%;
+    }
+
+    #character3 {
+        top: 0%;
+        left: 42.58%;
+    }
+
+    #character4 {
+        top: 0%;
+        left: 63.44%;
+    }
+
+    #character5 {
+        top: 0%;
+        left: 83.34%
+    }
+
+    #character6 {
+        top: 55.55%;
+    }
+
+    #character7 {
+        top: 55.55%;
+        left: 21.88%;
+    }
+
+    #character8 {
+        top: 55.55%;
+        left: 42.58%;
+    }
+
+    #character9 {
+        top: 55.55%;
+        left: 63.44%;
+    }
+
+    #character10 {
+        top: 55.55%;
+        left: 83.34%
+    }
+
+}
 /* ╔══════━━━━━━────── • 8 - pre-footer • ──────━━━━━━══════╗ */
 
 .pre-footer {
