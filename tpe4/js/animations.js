@@ -1,4 +1,4 @@
-/*controla tamaño de logo del header*/
+/*controla tamaño del header y su logo*/
 function headerControl(wTop) {
     const header = document.getElementById('header');
     const logo = header.getElementsByTagName('img')[0];
@@ -33,6 +33,7 @@ function verticalParallax(sections, wBottom) {
     }
 }
 
+/*anima las cards de la seccion 2 en caso de que entren en pantalla*/
 function cardsUp(sectionTop, wBottom) {
     const cards = document.getElementsByClassName('card');
 
@@ -47,8 +48,7 @@ function cardsUp(sectionTop, wBottom) {
     }
 }
 
-/* ╔══════━━━━━━────── • 3 - descarga • ──────━━━━━━══════╗ */
-/*mueve la imagen de los personajes en la direccion contraria al mouse*/
+/*mueve la imagen de los personajes de la seccion 3 en la direccion contraria al mouse*/
 function mouseParallax(event, section, image) {
 
     const { left, top, width, height } = section.getBoundingClientRect();
@@ -60,9 +60,23 @@ function mouseParallax(event, section, image) {
     image.style.transform = `translate(${-offsetX * moveAmount}px, ${-offsetY * moveAmount}px) scale(1.1)`;
 }
 
-/* ╔══════━━━━━━────── • 4 - masamigos • ──────━━━━━━══════╗ */
+/*muestra en la seccion 4 un personaje dependiendo del texto*/
+function stickyScroll() {
+    const characters = document.getElementsByClassName('character');
+    const items = document.getElementsByClassName('item');
+    const stickyBottom = document.getElementsByClassName('left')[0].getBoundingClientRect().bottom;
+    let shown = 0;
 
-const imageContainers = document.querySelectorAll('.masamigos .left .img-sticky');
+    for (const item of items) {
+        const itemTop = item.getBoundingClientRect().top;
+        shown = itemTop < stickyBottom ? item.getAttribute('data-image') : shown;
+    }
+
+    Array.from(characters).forEach(char => char.classList.remove('active-char'));
+    characters[shown].classList.add('active-char');
+}
+
+/* const imageContainers = document.querySelectorAll('.masamigos .left .img-sticky');
 const contentItems = document.querySelectorAll('.masamigos .content-item');
 
 // Ocultar todas las imágenes excepto la primera
@@ -107,4 +121,4 @@ const observer = new IntersectionObserver((entries) => {
 // Observar cada elemento de contenido
 contentItems.forEach(item => {
     observer.observe(item);
-});
+}); */

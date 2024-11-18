@@ -6,7 +6,7 @@ start()
 y agrega eventListeners, se ejecuta una unica vez*/
 function start() {
 
-    //parallax vertical
+    //seteos de logica que depende del scroll
     const sections = document.querySelectorAll('.section');
     const debug = document.getElementById('debugTab');
     let positions = [];
@@ -19,20 +19,23 @@ function start() {
         positions.push({ id, yTop, yBottom });
     });
 
+    let timeout = null;
     window.addEventListener('scroll', () => {
-        updateOffset(positions, debug);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            updateOffset(positions, debug);
+        }, 8); //solo dispara masomenos 120 veces x segundo
     });
 
-    //parallax mouse
+    //seteos de logica que depende de la posicion del mouse
     const descarga = document.getElementById('section3');
     const boys = descarga.getElementsByTagName('img')[0];
 
-    let timeout = null;
     descarga.addEventListener('mousemove', (event) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             mouseParallax(event, descarga, boys);
-        }, 16); //solo dispara masomenos 60 veces x segundo
+        }, 8); //solo dispara masomenos 120 veces x segundo
     });
 }
 
@@ -54,6 +57,7 @@ function updateOffset(positions, debug) {
     headerControl(wTop);
     verticalParallax(shownSections, wBottom);
     cardsUp(positions[2].yTop, wBottom);
+    stickyScroll();
 
     //debug tab
     const ids = shownSections.map(obj => obj.id);
