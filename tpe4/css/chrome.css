@@ -39,7 +39,6 @@ header {
         }
 
         button {
-
             position: absolute;
             top: 20%;
             right: 0px;
@@ -68,7 +67,7 @@ header {
 .button-shine::after {
     content: "";
     position: absolute;
-    width: 25px;
+    width: 15px;
     height: 120%;
     top: 50%;
     left: -25px;
@@ -77,12 +76,14 @@ header {
     background: white;
     border-radius: 50%;
     transition: all 0.3s ease;
-    opacity: 0; /* Oculta el brillo inicialmente */
+    opacity: 0;
+    /* Oculta el brillo inicialmente */
 }
 
 .button-shine:hover::after {
     animation: button-shine-dash 0.7s ease;
-    opacity: 1; /* Muestra el brillo al hacer hover */
+    opacity: 1;
+    /* Muestra el brillo al hacer hover */
 }
 
 .button-shine:active {
@@ -91,10 +92,15 @@ header {
     -webkit-text-stroke: 1px #bebebe;
 }
 
+.button-shine:hover {
+    background-color: #90d332;
+}
+
 @keyframes button-shine-dash {
     0% {
         left: -25px;
     }
+
     100% {
         left: 110%;
     }

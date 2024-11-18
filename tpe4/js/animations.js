@@ -33,6 +33,20 @@ function verticalParallax(sections, wBottom) {
     }
 }
 
+function cardsUp(sectionTop, wBottom) {
+    const cards = document.getElementsByClassName('card');
+
+    if (wBottom > sectionTop + 200) {
+        for (const card of cards) {
+            card.classList.add('card-up');
+        }
+    } else {
+        for (const card of cards) {
+            card.classList.remove('card-up');
+        }
+    }
+}
+
 /* ╔══════━━━━━━────── • 3 - descarga • ──────━━━━━━══════╗ */
 /*mueve la imagen de los personajes en la direccion contraria al mouse*/
 function mouseParallax(event, section, image) {

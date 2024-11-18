@@ -11,11 +11,11 @@ function start() {
     const debug = document.getElementById('debugTab');
     let positions = [];
 
-    sections.forEach((section, id) => {
+    sections.forEach((section, did) => {
         const rect = section.getBoundingClientRect();
         const yTop = rect.top;
         const yBottom = rect.bottom;
-        id += 1
+        const id = section.id.replace(/^section/, "");
         positions.push({ id, yTop, yBottom });
     });
 
@@ -27,6 +27,7 @@ function start() {
     const descarga = document.getElementById('section3');
     const boys = descarga.getElementsByTagName('img')[0];
 
+    let timeout = null;
     descarga.addEventListener('mousemove', (event) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -52,6 +53,7 @@ function updateOffset(positions, debug) {
     //animations:
     headerControl(wTop);
     verticalParallax(shownSections, wBottom);
+    cardsUp(positions[2].yTop, wBottom);
 
     //debug tab
     const ids = shownSections.map(obj => obj.id);
