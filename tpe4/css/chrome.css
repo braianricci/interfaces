@@ -15,6 +15,7 @@ header {
     .container {
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         height: 100%;
 
@@ -206,19 +207,90 @@ header {
 
 /* ╔══════━━━━━━────── • ASIDE • ──────━━━━━━══════╗ */
 
-aside {
+/* Sidebar */
+#sidebar {
     display: none;
-    background-color: #ffebcd;
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.9s ease-in-out, max-height 0.9s ease-in-out;
+    width: 200px;
+    top: 100%;
+    color: white;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    padding: 10px;
+    
 }
 
-#sidebar-container {
-    padding: 1em;
+#sidebar-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-container ul li {
+    padding: 10px;
+    color: #fff;
+    opacity: 0; /* Los items comienzan invisibles */
+    transform: translateX(-100%); /* Los items están fuera de la pantalla */
+    animation: slideIn 0.5s ease-out forwards; /* Animación de deslizamiento */
+}
+#sidebar-container ul li a {
+    color: #f0f0f0 ; /* Gris muy claro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    text-shadow: 1px 1px 3px black, 0 0 50px red, 0 0 10px darkorange;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+/* Efecto de zoom cuando el mouse está sobre el enlace */
+#sidebar-container ul li a:hover {
+    transform: scale(1.2);
+}
+
+/* Animación para cada item */
+#sidebar-container ul li:nth-child(1) {
+    animation-delay: 0.4s; 
+}
+
+#sidebar-container ul li:nth-child(2) {
+    animation-delay: 0.7s; 
+}
+
+#sidebar-container ul li:nth-child(3) {
+    animation-delay: 1s; 
+}
+
+#sidebar-container ul li:nth-child(4) {
+    animation-delay: 1.3s;
+}
+
+#sidebar-container ul li:nth-child(5) {
+    animation-delay: 1.6s;
+}
+
+#sidebar-container ul li:nth-child(6) {
+    animation-delay: 1.9s;
+}
+
+#sidebar.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Animación de los ítems */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* ╔══════━━━━━━────── • FOOTER • ──────━━━━━━══════╗ */
@@ -269,4 +341,5 @@ footer {
     a {
         color: white;
     }
+
 }

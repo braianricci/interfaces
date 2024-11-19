@@ -71,3 +71,30 @@ function updateOffset(positions, debug) {
         '<br>&emsp;Viewport bottom: ' + wBottom +
         '<br>&emsp;Current section(s): ' + ids;
 }
+
+// Función de inicialización del menú hamburguesa
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const items = document.querySelectorAll('#sidebar-container ul li'); // Todos los ítems del sidebar
+    
+    // Si el sidebar ya tiene la clase 'active', lo ocultamos
+    if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+    } else {
+        // Primero eliminamos las animaciones de los ítems
+        items.forEach(item => {
+            item.style.animation = 'none'; // Detenemos la animación
+        });
+
+        // Forzamos el reflow para que los cambios se apliquen
+        void sidebar.offsetWidth;
+
+        // Ahora agregamos las animaciones de nuevo
+        items.forEach(item => {
+            item.style.animation = ''; // Reaplicamos la animación
+        });
+
+        // Agregamos la clase active para mostrar el sidebar
+        sidebar.classList.add('active');
+    }
+}

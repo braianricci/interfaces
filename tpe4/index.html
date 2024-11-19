@@ -20,28 +20,34 @@
 
     <header id="header">
         <div class="container">
-            <div class="hamburger" onclick="this.classList.toggle('active')">
+            <div class="hamburger" onclick="this.classList.toggle('active'); toggleSidebar()">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
+            <aside id="sidebar">
+                <div id="sidebar-container">
+                    <ul>
+                        <li><a href="#section1">Inicio</a></li>
+                        <li><a href="#section2">Educativo</a></li>
+                        <li><a href="#section3">Descargar</a></li>
+                        <li><a href="#section4">Amigos</a></li>
+                        <li><a href="#section5">Video</a></li>
+                        <li><a href="#section8">Subscribite!</a></li>
+                    </ul>
+                </div>
+            </aside>
             <img id="logo" src="img/logo.png" alt="Number Blocks">
             <button class="button-shine">COMPRAR</button>
         </div>
     </header>
-
-    <!--╔══════━━━━━━────── • SIDEBAR • ──────━━━━━━══════╗-->
-
-    <aside>
-        <div id="sidebar-container">
-        </div>
-    </aside>
 
     <!--╔══════━━━━━━────── • CONTENT • ──────━━━━━━══════╗-->
 
     <main>
 
         <div id="debugTab">Debug Tab</div>
+        
 
         <section id="section1" class="section">
             <div class="hero hero-parallax">
