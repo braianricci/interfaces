@@ -83,140 +83,191 @@ main {
 
 /* ╔══════━━━━━━────── • 1 - hero • ──────━━━━━━══════╗ */
 
-.hero {
-    height: 954px;
-    background-image: url(../img/1/background.png);
-    background-repeat: no-repeat;
-    background-size: 1279px 959px;
-    position: relative;
-    overflow: hidden;
+#section1 {
+    height: 2954px;
 
-    /*debug*/
-    button {
-        position: absolute;
-        width: 100px;
-        height: 20px;
-        top: 500px;
-        z-index: 200;
+    .hero {
+        height: 954px;
+        background-image: url(../img/1/background.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: sticky;
+        top: 0;
+        bottom: 2954px;
+        overflow: hidden;
+        animation: hero 1s linear paused;
+
+        .characters,
+        .enviromentRight,
+        .enviromentLeft {
+            position: absolute;
+            height: 954px;
+        }
+
+        img {
+            position: absolute;
+        }
+
+        .enviromentLeft {
+            width: 600px;
+            animation: enviromentLeft 1s linear paused;
+
+            .arbol1 {
+                left: 0px;
+                z-index: 9;
+            }
+
+            .bushbig2 {
+                top: 718px;
+                left: 315px;
+                z-index: 8;
+            }
+
+            .bushchunk {
+                top: 822px;
+                left: 351px;
+                z-index: 11;
+            }
+
+            .rockbig {
+                top: 794px;
+                left: 283px;
+                z-index: 10;
+            }
+        }
+
+        .enviromentRight {
+            width: 600px;
+            right: 0;
+            animation: enviromentRight 1s linear paused;
+
+            .arbol2 {
+                top: 107px;
+                right: 63px;
+                z-index: 4;
+            }
+
+            .arbol3 {
+                top: 279px;
+                right: 21px;
+                z-index: 2;
+            }
+
+            .bushbig {
+                top: 663px;
+                right: 54px;
+                z-index: 3;
+            }
+
+            .bushlong {
+                top: 630px;
+                right: 160px;
+                z-index: 1;
+            }
+
+            .rockmedium {
+                top: 738px;
+                right: 194px;
+                z-index: 6;
+            }
+
+            .rocksmall {
+                top: 738px;
+                right: 278px;
+                z-index: 5;
+            }
+
+            .rocksmaller {
+                top: 787px;
+                right: 278px;
+                z-index: 7;
+            }
+        }
+
+        .characters {
+            width: 100%;
+            animation: characters 1s linear paused;
+
+            .n1 {
+                top: 500px;
+                left: 411px;
+                z-index: 6;
+            }
+
+            .n2 {
+                top: 403px;
+                left: 536px;
+                z-index: 4;
+            }
+
+            .n3 {
+                top: 338px;
+                left: 694px;
+                z-index: 3;
+            }
+        }
+    }
+}
+
+@keyframes hero {
+    0% {
+        height: 954px;
+        filter: brightness(0.6);
+        background-size: cover;
     }
 
-    button:first-child {
-        top: 450px;
+    100% {
+        height: 1015px;
+        filter: brightness(1);
+        background-size: cover;
+    }
+}
+
+@keyframes characters {
+    0% {
+        transform: scale(0.8);
+        filter: brightness(0.1);
     }
 
-    .characters,
-    .enviromentRight,
-    .enviromentLeft {
-        position: absolute;
+    50% {
+        transform: scale(0.87);
     }
 
-    .enviromentLeft {
-        width: 100%;
-        height: 100%;
-        border: 1px solid blue;
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes enviromentLeft {
+    0% {
+        left: 0;
         scale: 1;
     }
 
-    .enviromentRight {
-        width: 100%;
-        height: 100%;
-        border: 1px solid green;
+    40% {
+        left: -40px;
+    }
+
+    100% {
+        left: -150px;
+        scale: 1.2;
+    }
+}
+
+@keyframes enviromentRight {
+    0% {
+        right: 0;
         scale: 1;
     }
 
-    .characters {
-        width: 100%;
-        height: 100%;
-
-        scale: 0.7;
-        border: 1px solid red;
+    40% {
+        right: -40px;
     }
 
-    img {
-        position: absolute;
-    }
-
-    .arbol1 {
-        left: -153px;
-        z-index: 9;
-    }
-
-    .arbol2 {
-        top: 107px;
-        right: -37px;
-        z-index: 4;
-    }
-
-    .arbol3 {
-        top: 279px;
-        right: -79px;
-        z-index: 2;
-    }
-
-    .bushbig {
-        top: 663px;
-        right: -46px;
-        z-index: 3;
-    }
-
-    .bushbig2 {
-        top: 718px;
-        left: 162px;
-        z-index: 8;
-    }
-
-    .bushchunk {
-        top: 822px;
-        left: 198px;
-        z-index: 11;
-    }
-
-    .bushlong {
-        top: 630px;
-        right: 60px;
-        z-index: 1;
-    }
-
-    .rockbig {
-        top: 794px;
-        left: 130px;
-        z-index: 10;
-    }
-
-    .rockmedium {
-        top: 738px;
-        right: 94px;
-        z-index: 6;
-    }
-
-    .rocksmall {
-        top: 738px;
-        right: 178px;
-        z-index: 5;
-    }
-
-    .rocksmaller {
-        top: 787px;
-        right: 178px;
-        z-index: 7;
-    }
-
-    .hero1 {
-        top: 500px;
-        left: 411px;
-        z-index: 6;
-    }
-
-    .hero2 {
-        top: 403px;
-        left: 536px;
-        z-index: 4;
-    }
-
-    .hero3 {
-        top: 338px;
-        left: 694px;
-        z-index: 3;
+    100% {
+        right: -150px;
+        scale: 1.2;
     }
 }
 
@@ -329,7 +380,6 @@ main {
             transform: translate(0, -175px);
         }
     }
-
 }
 
 @keyframes switch-window {
@@ -421,10 +471,8 @@ main {
         max-width: 100%;
         max-height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease-out;
+        transition: transform 0.3s ease-out;
     }
-
-
 }
 
 /* ╔══════━━━━━━────── • 4 - masamigos • ──────━━━━━━══════╗ */
@@ -437,7 +485,6 @@ main {
     }
 
     .columns {
-        border: 1px solid green;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -445,7 +492,6 @@ main {
     }
 
     .left {
-        border: 1px solid red;
         position: sticky;
         top: calc(50vh - 225px);
         width: 50%;
@@ -512,7 +558,6 @@ main {
 
     .item {
         margin-bottom: 267px;
-        border: 1px solid blue;
     }
 
     .item:last-child {
@@ -618,7 +663,7 @@ main {
     }
 
     .character img:hover {
-        transform: scale(1.02);
+        transform: scale(1.03);
         box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 
@@ -679,6 +724,7 @@ main {
     background-image: url(../img/8/background.svg);
     position: relative;
     overflow: hidden;
+    z-index: 0;
 
     .floor {
         position: absolute;
@@ -757,6 +803,7 @@ main {
 
     .esrb {
         margin-top: 11px;
+        z-index: 2;
     }
 
     .gif {
@@ -786,6 +833,7 @@ main {
 
     .h-parallax {
         position: relative;
+        z-index: -1;
 
         img {
             position: absolute;
@@ -793,34 +841,36 @@ main {
         }
 
         img:nth-child(1) {
-            width: 265px;
-            height: 124px;
+            width: 420px;
+            height: 141px;
             top: 517px;
-            animation-duration: 100s;
+            animation-duration: 30s;
         }
 
         img:nth-child(2) {
             width: 387px;
             height: 131px;
-            top: 560px;
+            top: 675px;
+            opacity: 0.8;
             animation-duration: 60s;
         }
 
         img:nth-child(3) {
-            width: 387px;
-            height: 131px;
+            width: 265px;
+            height: 85px;
             top: 819px;
-            animation-duration: 30s;
+            opacity: 0.7;
+            animation-duration: 100s;
         }
     }
 }
 
 @keyframes hparallax {
     0% {
-        left: -400px;
+        left: -420px;
     }
 
     100% {
-        left: calc(100% + 50px);
+        left: calc(100% + 10px);
     }
 }

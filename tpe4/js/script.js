@@ -59,6 +59,7 @@ function updateOffset(positions, debug) {
 
     //animations:
     headerControl(wTop);
+    heroParallax(wTop);
     verticalParallax(shownSections, wBottom);
     cardsUp(positions[2].yTop, wBottom);
     stickyScroll();

@@ -2,18 +2,37 @@
 function headerControl(wTop) {
     const header = document.getElementById('header');
     const logo = header.getElementsByTagName('img')[0];
-    const maxScroll = 300;
+    const startScroll = 2000;
+    const maxScroll = 900;
     const fullLogoHeight = 360;
     const minLogoHeight = 60;
     const fullHeaderHeight = 103;
     const minHeaderHeight = 60;
 
-    const clampedScroll = Math.min(wTop, maxScroll);
-    const newLogoHeight = fullLogoHeight - ((fullLogoHeight - minLogoHeight) * clampedScroll) / maxScroll;
-    const newHeaderHeight = fullHeaderHeight - ((fullHeaderHeight - minHeaderHeight) * clampedScroll) / maxScroll;
+    if (wTop > startScroll) {
+        const clampedScroll = Math.min(wTop - startScroll, maxScroll);
+        const newLogoHeight = fullLogoHeight - ((fullLogoHeight - minLogoHeight) * clampedScroll) / maxScroll;
+        const newHeaderHeight = fullHeaderHeight - ((fullHeaderHeight - minHeaderHeight) * clampedScroll) / maxScroll;
 
-    logo.style.height = newLogoHeight + 'px';
-    header.style.height = newHeaderHeight + 'px';
+        logo.style.height = newLogoHeight + 'px';
+        header.style.height = newHeaderHeight + 'px';
+    }
+}
+
+function heroParallax(wTop) {
+    const hero = document.getElementsByClassName('hero-parallax');
+    const start = 0;
+    const end = 2000;
+
+    const progress = Math.min(Math.max((wTop - start) / (end - start), 0), 1);
+
+    for (const element of hero) {
+        const animationName = getComputedStyle(element).animationName;
+        console.log(animationName)
+
+        element.style.animation = `${animationName} 1s linear 0s 1 normal both paused`;
+        element.style.animationDelay = `-${progress}s`;
+    }
 }
 
 /*recibe las secciones que se estan mostrando
