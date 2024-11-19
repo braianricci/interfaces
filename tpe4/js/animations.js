@@ -19,19 +19,19 @@ function headerControl(wTop) {
     }
 }
 
+/*controla la animacion parallax
+ del hero basandose en el scroll*/
 function heroParallax(wTop) {
     const hero = document.getElementsByClassName('hero-parallax');
-    const start = 0;
     const end = 2000;
 
-    const progress = Math.min(Math.max((wTop - start) / (end - start), 0), 1);
+    const progress = Math.min(Math.max(wTop / end, 0), 1);
 
-    for (const element of hero) {
-        const animationName = getComputedStyle(element).animationName;
-        console.log(animationName)
+    for (const layer of hero) {
+        const name = getComputedStyle(layer).animationName;
 
-        element.style.animation = `${animationName} 1s linear 0s 1 normal both paused`;
-        element.style.animationDelay = `-${progress}s`;
+        layer.style.animation = `${name} 1s linear 0s 1 normal both paused`;
+        layer.style.animationDelay = `-${progress}s`;
     }
 }
 
