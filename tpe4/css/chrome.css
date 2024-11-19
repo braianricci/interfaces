@@ -30,8 +30,11 @@ header {
         }
 
         img {
+            position: absolute;
+
             object-fit: contain;
-            left: 260px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 0px;
             width: auto;
             height: 360px;
@@ -222,7 +225,7 @@ header {
     justify-content: center;
     margin-top: 0px;
     padding: 10px;
-    
+
 }
 
 #sidebar-container ul {
@@ -236,12 +239,17 @@ header {
 #sidebar-container ul li {
     padding: 10px;
     color: #fff;
-    opacity: 0; /* Los items comienzan invisibles */
-    transform: translateX(-100%); /* Los items están fuera de la pantalla */
-    animation: slideIn 0.5s ease-out forwards; /* Animación de deslizamiento */
+    opacity: 0;
+    /* Los items comienzan invisibles */
+    transform: translateX(-100%);
+    /* Los items están fuera de la pantalla */
+    animation: slideIn 0.5s ease-out forwards;
+    /* Animación de deslizamiento */
 }
+
 #sidebar-container ul li a {
-    color: #f0f0f0 ; /* Gris muy claro */
+    color: #f0f0f0;
+    /* Gris muy claro */
     text-decoration: none;
     font-weight: bold;
     font-size: 25px;
@@ -257,15 +265,15 @@ header {
 
 /* Animación para cada item */
 #sidebar-container ul li:nth-child(1) {
-    animation-delay: 0.4s; 
+    animation-delay: 0.4s;
 }
 
 #sidebar-container ul li:nth-child(2) {
-    animation-delay: 0.7s; 
+    animation-delay: 0.7s;
 }
 
 #sidebar-container ul li:nth-child(3) {
-    animation-delay: 1s; 
+    animation-delay: 1s;
 }
 
 #sidebar-container ul li:nth-child(4) {
