@@ -351,3 +351,24 @@ footer {
     }
 
 }
+
+.sprite1 {
+
+    position: absolute;
+    bottom: 50px;
+    width: 100px;
+    height: 100px;
+    background: url(../img/1Sheet.png);
+    animation: play1 1s steps(15) infinite;
+    transform: scale(200%)
+}
+
+@keyframes play1 {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -1500px;
+    }
+}
