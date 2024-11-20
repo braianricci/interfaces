@@ -2,7 +2,7 @@
 function headerControl(wTop) {
     const header = document.getElementById('header');
     const logo = header.getElementsByTagName('img')[0];
-    const startScroll = 2000;
+    const startScroll = 1000;
     const maxScroll = 900;
     const fullLogoHeight = 360;
     const minLogoHeight = 60;
@@ -23,7 +23,7 @@ function headerControl(wTop) {
  del hero basandose en el scroll*/
 function heroParallax(wTop) {
     const hero = document.getElementsByClassName('hero-parallax');
-    const end = 2000;
+    const end = 1000;
 
     const progress = Math.min(Math.max(wTop / end, 0), 1);
 

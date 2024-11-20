@@ -353,14 +353,13 @@ footer {
 }
 
 .sprite1 {
-
     position: absolute;
-    bottom: 50px;
-    width: 100px;
-    height: 100px;
-    background: url(../img/1Sheet.png);
-    animation: play1 1s steps(15) infinite;
-    transform: scale(200%)
+    bottom: -165px;
+    width: 480px;
+    height: 480px;
+    background: url(../img/1sprite.png);
+    animation: play1 0.6s steps(15) infinite;
+    transform: scale(45%)
 }
 
 @keyframes play1 {
@@ -369,6 +368,52 @@ footer {
     }
 
     100% {
-        background-position: -1500px;
+        background-position: -7200px;
+    }
+}
+
+.sprite4 {
+    position: absolute;
+    left: -120px;
+    bottom: -135px;
+    width: 480px;
+    height: 480px;
+    background: url(../img/4sprite.png);
+    animation: play4 5s steps(64) infinite;
+    transform: scale(50%)
+}
+
+@keyframes play4 {
+    0% {
+        background-position: 0;
+    }
+
+    50% {
+        background-position: -30720px;
+    }
+
+    100% {
+        background-position: -30720px;
+    }
+}
+
+.sprite9 {
+    position: absolute;
+    right: 60px;
+    bottom: 33px;
+    width: 270px;
+    height: 270px;
+    background: url(../img/9sprite.png);
+    animation: play9 1.5s steps(24) infinite;
+    transform: scale(150%)
+}
+
+@keyframes play9 {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -6480px;
     }
 }
