@@ -25,14 +25,10 @@ function heroParallax(wTop) {
     const hero = document.getElementsByClassName('hero-parallax');
     const end = 1000;
 
-    const progress = Math.min(Math.max(wTop / end, 0), 1);
+    const progress = wTop / end;
 
-    for (const layer of hero) {
-        const name = getComputedStyle(layer).animationName;
-
-        layer.style.animation = `${name} 1s linear 0s 1 normal both paused`;
-        layer.style.animationDelay = `-${progress}s`;
-    }
+    //al asignar un animation-delay negativo, adelantamos la animacion
+    for (const layer of hero) layer.style.animationDelay = -progress + 's';
 }
 
 /*recibe las secciones que se estan mostrando
