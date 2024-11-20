@@ -73,6 +73,9 @@ main {
 }
 
 #debugTab {
+    /*desactivado para entrega*/
+    display: none;
+
     width: auto;
     position: fixed;
     top: 100px;
@@ -85,6 +88,7 @@ main {
 
 #section1 {
     height: 1954px;
+    user-select: none;
 
     .hero {
         height: 954px;
@@ -212,7 +216,7 @@ main {
 @keyframes hero {
     0% {
         height: 954px;
-        filter: brightness(0.6);
+        filter: brightness(0.6) blur(1px);
         background-size: cover;
     }
 
@@ -225,16 +229,16 @@ main {
 
 @keyframes characters {
     0% {
-        transform: scale(0.8);
-        filter: brightness(0.1);
+        transform: scale(0.8) translateY(0);
+        filter: brightness(0.2) blur(2px);
     }
 
     50% {
-        transform: scale(0.87);
+        transform: scale(0.87) translateY(15px);
     }
 
     100% {
-        transform: scale(1);
+        transform: scale(1) translateY(30px);
         filter: brightness(1);
     }
 }
