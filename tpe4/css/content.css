@@ -96,6 +96,7 @@ main {
         position: sticky;
         height: 115vh;
         width: 150vh;
+        min-width: 1280px;
         top: 0;
         background-image: url(../img/1/background.png);
         background-repeat: no-repeat;
@@ -209,21 +210,21 @@ main {
             .n1 {
                 height: 37vh;
                 top: 54vh;
-                left: 45vh;
+                left: 37%;
                 z-index: 6;
             }
 
             .n2 {
                 height: 32vh;
                 top: 46vh;
-                left: 60vh;
+                left: 44%;
                 z-index: 4;
             }
 
             .n3 {
                 height: 44vh;
                 top: 38vh;
-                left: 76vh;
+                left: 52%;
                 z-index: 3;
             }
         }
