@@ -225,6 +225,7 @@ header {
     justify-content: center;
     margin-top: 0px;
     padding: 10px;
+    pointer-events: none;
 
 }
 
@@ -291,6 +292,7 @@ header {
 #sidebar.active {
     display: block;
     opacity: 1;
+    pointer-events: all;
 }
 
 /* Animación de los ítems */

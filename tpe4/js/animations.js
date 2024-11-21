@@ -37,10 +37,12 @@ function verticalParallax(sections, wBottom) {
     for (const section of sections) {
         const current = document.getElementById('section' + section.id);
         const layers = current.getElementsByClassName('parallax');
+        //esta constante ayuda a evitar parallax muy pronunciado o muy tenue en resoluciones extremas
+        const vhConst = window.visualViewport.height / 10
 
         for (const layer of layers) {
             let speed = layer.getAttribute('data-speed');
-            let yPos = -((wBottom - section.yTop) * speed / 100);
+            let yPos = -((wBottom - section.yTop) * speed / vhConst);
 
             layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
         }
@@ -89,50 +91,3 @@ function stickyScroll() {
     Array.from(characters).forEach(char => char.classList.remove('active-char'));
     characters[shown].classList.add('active-char');
 }
-
-/* const imageContainers = document.querySelectorAll('.masamigos .left .img-sticky');
-const contentItems = document.querySelectorAll('.masamigos .content-item');
-
-// Ocultar todas las imágenes excepto la primera
-imageContainers.forEach((img, index) => {
-    if (index === 0) {
-        img.style.opacity = '1';
-        img.style.transform = 'scale(1)';
-    } else {
-        img.style.opacity = '0';
-        img.style.transform = 'scale(0.9)';
-    }
-    img.style.position = 'absolute';
-    img.style.top = '50%';
-    img.style.left = '50%';
-    img.style.transform = 'translate(-50%, -50%)';
-});
-
-// Crear un observador para cada elemento de contenido
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        // Obtener el índice de la imagen correspondiente del atributo data-image
-        const imageIndex = entry.target.getAttribute('data-image');
-
-        if (entry.isIntersecting) {
-            // Mostrar la imagen correspondiente con transición
-            imageContainers.forEach((img, idx) => {
-                if (idx === parseInt(imageIndex)) {
-                    img.style.opacity = '1';
-                    img.style.transform = 'translate(-50%, -50%) scale(1)';
-                } else {
-                    img.style.opacity = '0';
-                    img.style.transform = 'translate(-50%, -50%) scale(0.9)';
-                }
-            });
-        }
-    });
-}, {
-    // Ajustar el threshold para determinar cuándo se considera visible el elemento
-    threshold: 0.9
-});
-
-// Observar cada elemento de contenido
-contentItems.forEach(item => {
-    observer.observe(item);
-}); */
