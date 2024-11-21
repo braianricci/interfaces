@@ -55,11 +55,11 @@ html {
 }
 
 body {
-    width: 100%;
-    max-width: 1280px;
+    width: 1280px;
     margin: 0 auto;
     overflow-x: hidden;
     background-color: #f5f5f5;
+    position: relative;
 }
 
 main {
@@ -74,7 +74,7 @@ main {
 
 #debugTab {
     /*desactivado para entrega*/
-    display: none;
+    display: block;
 
     width: auto;
     position: fixed;
@@ -87,25 +87,29 @@ main {
 /* ╔══════━━━━━━────── • 1 - hero • ──────━━━━━━══════╗ */
 
 #section1 {
-    height: 1954px;
+    height: calc(100vh + 1000px);
+    width: 1280px;
     user-select: none;
+    clip-path: fill-box;
 
     .hero {
-        height: 954px;
+        position: sticky;
+        height: 115vh;
+        width: 150vh;
+        top: 0;
         background-image: url(../img/1/background.png);
         background-repeat: no-repeat;
-        background-size: 100%;
-        position: sticky;
-        top: 0;
-        bottom: 2954px;
-        overflow: hidden;
+        background-size: cover;
+        margin-left: 50%;
+        transform: translateX(-50%);
         animation: hero 1s linear both paused;
+        overflow: hidden;
 
         .characters,
         .enviromentRight,
         .enviromentLeft {
             position: absolute;
-            height: 954px;
+            height: 100%;
         }
 
         img {
@@ -113,77 +117,87 @@ main {
         }
 
         .enviromentLeft {
-            width: 600px;
+            width: 100%;
             animation: enviromentLeft 1s linear both paused;
 
             .arbol1 {
-                left: 0px;
+                height: 98vh;
+                left: 0;
                 z-index: 9;
             }
 
             .bushbig2 {
-                top: 718px;
-                left: 315px;
+                height: 13vh;
+                top: 82vh;
+                left: 37vh;
                 z-index: 8;
             }
 
             .bushchunk {
-                top: 822px;
-                left: 351px;
+                height: 11.6vh;
+                top: 93.3vh;
+                left: 40vh;
                 z-index: 11;
             }
 
             .rockbig {
-                top: 794px;
-                left: 283px;
+                height: 9vh;
+                top: 90.1vh;
+                left: 32.1vh;
                 z-index: 10;
             }
         }
 
         .enviromentRight {
-            width: 600px;
-            right: 0;
+            width: 100%;
             animation: enviromentRight 1s linear both paused;
 
             .arbol2 {
-                top: 107px;
-                right: 63px;
+                height: 76.3vh;
+                top: 12.1vh;
+                right: 7.1vh;
                 z-index: 4;
             }
 
             .arbol3 {
-                top: 279px;
-                right: 21px;
+                height: 48.9vh;
+                top: 31.6vh;
+                right: 2.4vh;
                 z-index: 2;
             }
 
             .bushbig {
-                top: 663px;
-                right: 54px;
+                height: 12.3vh;
+                top: 75.3vh;
+                right: 6.1vh;
                 z-index: 3;
             }
 
             .bushlong {
-                top: 630px;
-                right: 160px;
+                height: 7.3vh;
+                top: 71.5vh;
+                right: 18.1vh;
                 z-index: 1;
             }
 
             .rockmedium {
-                top: 738px;
-                right: 194px;
+                height: 8.5vh;
+                top: 83.8vh;
+                right: 22vh;
                 z-index: 6;
             }
 
             .rocksmall {
-                top: 738px;
-                right: 278px;
+                height: 6.5vh;
+                top: 83.7vh;
+                right: 31.5vh;
                 z-index: 5;
             }
 
             .rocksmaller {
-                top: 787px;
-                right: 278px;
+                height: 4vh;
+                top: 89.3vh;
+                right: 31.5vh;
                 z-index: 7;
             }
         }
@@ -193,20 +207,23 @@ main {
             animation: characters 1s linear both paused;
 
             .n1 {
-                top: 500px;
-                left: 411px;
+                height: 37vh;
+                top: 54vh;
+                left: 45vh;
                 z-index: 6;
             }
 
             .n2 {
-                top: 403px;
-                left: 536px;
+                height: 32vh;
+                top: 46vh;
+                left: 60vh;
                 z-index: 4;
             }
 
             .n3 {
-                top: 338px;
-                left: 694px;
+                height: 44vh;
+                top: 38vh;
+                left: 76vh;
                 z-index: 3;
             }
         }
@@ -215,22 +232,18 @@ main {
 
 @keyframes hero {
     0% {
-        height: 954px;
-        filter: brightness(0.6) blur(1px);
-        background-size: cover;
+        filter: brightness(0.6) blur(0.2vh);
     }
 
     100% {
-        height: 1015px;
         filter: brightness(1);
-        background-size: cover;
     }
 }
 
 @keyframes characters {
     0% {
         transform: scale(0.8) translateY(0);
-        filter: brightness(0.2) blur(2px);
+        filter: brightness(0.2) blur(0.3vh);
     }
 
     50% {
@@ -238,40 +251,40 @@ main {
     }
 
     100% {
-        transform: scale(1) translateY(30px);
+        transform: scale(1) translateY(3.5vh);
         filter: brightness(1);
     }
 }
 
 @keyframes enviromentLeft {
     0% {
-        left: 0;
+        left: 10vh;
         scale: 1;
     }
 
     40% {
-        left: -40px;
+        left: -4.5vh;
     }
 
     100% {
-        left: -150px;
+        left: -12vh;
         scale: 1.2;
     }
 }
 
 @keyframes enviromentRight {
     0% {
-        right: 0;
-        scale: 1;
+        right: 12vh;
+        transform: scale(1) translateY(0);
     }
 
     40% {
-        right: -40px;
+        right: -2.5vh;
     }
 
     100% {
-        right: -150px;
-        scale: 1.2;
+        right: -10vh;
+        transform: scale(1.2) translateY(5vh);
     }
 }
 

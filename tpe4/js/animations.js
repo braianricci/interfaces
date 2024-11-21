@@ -24,7 +24,6 @@ function headerControl(wTop) {
 function heroParallax(wTop) {
     const hero = document.getElementsByClassName('hero-parallax');
     const end = 1000;
-
     const progress = wTop / end;
 
     //al asignar un animation-delay negativo, adelantamos la animacion
