@@ -210,21 +210,21 @@ main {
             .n1 {
                 height: 37vh;
                 top: 54vh;
-                left: 37%;
+                left: 34%;
                 z-index: 6;
             }
 
             .n2 {
                 height: 32vh;
                 top: 46vh;
-                left: 44%;
+                left: 43%;
                 z-index: 4;
             }
 
             .n3 {
                 height: 44vh;
                 top: 38vh;
-                left: 52%;
+                left: 53%;
                 z-index: 3;
             }
         }
