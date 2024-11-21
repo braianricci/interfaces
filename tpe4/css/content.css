@@ -74,7 +74,7 @@ main {
 
 #debugTab {
     /*desactivado para entrega*/
-    display: block;
+    display: none;
 
     width: auto;
     position: fixed;
