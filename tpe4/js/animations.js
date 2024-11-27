@@ -76,6 +76,15 @@ function mouseParallax(event, section, image) {
     image.style.transform = `translate(${-offsetX * moveAmount}px, ${-offsetY * moveAmount}px) scale(1.2)`;
 }
 
+// Configuración del evento
+const sectionDescarga = document.querySelector('.section.descarga');
+const imagen = document.querySelector('.boys');
+
+if (sectionDescarga && imagen) {
+    const handleMouseMove = (event) => mouseParallax(event, sectionDescarga, imagen);
+    sectionDescarga.addEventListener('mousemove', handleMouseMove);
+}
+
 /*muestra en la seccion 4 un personaje dependiendo del texto*/
 function stickyScroll() {
     const characters = document.getElementsByClassName('character');
